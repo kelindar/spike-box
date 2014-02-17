@@ -1,0 +1,372 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Spike.Scripting.Runtime</name>
+    </assembly>
+    <members>
+        <member name="T:Spike.Scripting.Runtime.BoxedValue">
+            <summary>
+            This is a NaN-tagged struct that is used for representing
+            values that don't have a known type at runtime
+            </summary>
+        </member>
+        <member name="T:Spike.Scripting.Runtime.ArgumentsObject">
+            <summary>
+            A <see cref="T:Spike.Scripting.Runtime.ScriptObject"/> used as an argument to a <see cref="T:Spike.Scripting.Runtime.FunctionObject"/>.
+            </summary>
+        </member>
+        <member name="T:Spike.Scripting.Runtime.ScriptObject">
+            <summary>
+            Represents a script object.
+            </summary>
+            <summary>
+            Represents a script object.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ScriptObject.Observe">
+            <summary>
+            Marks the <see cref="T:Spike.Scripting.Runtime.ScriptObject"/> for observation and property monitoring.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ScriptObject.ObserveChildren">
+            <summary>
+            Mark this as observed and each child should be marked as observer as well, ensuring
+            that the entire object tree becomes observable and any property change on the tree
+            is tracked and an event raised when a change occurs.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ScriptObject.ExpandStorage">
+            <summary>
+            Expands object property storage
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ScriptObject.CreateIndex(System.String)">
+            <summary>
+            Creates an index for property named <paramref name="name"/>
+            </summary>
+            <param name="name">The property to be allocated.</param>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ScriptObject.Find(System.String)">
+            <summary>
+            Finds a property in the prototype chain.
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ScriptObject.CanPut(System.String,System.Int32@)">
+            <summary>
+            Can we put property named <paramref name="name"/>?
+            </summary>
+            <param name="name"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Spike.Scripting.Runtime.ScriptObject.IsObserved">
+            <summary>
+            Gets or sets whether this object is observed or not.
+            </summary>
+        </member>
+        <member name="P:Spike.Scripting.Runtime.ScriptObject.Oid">
+            <summary>
+            Gets the object identification number.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ArgumentsObject.#ctor(Spike.Scripting.Runtime.Environment,System.Tuple{Spike.Scripting.Runtime.ParameterStorageType,System.Int32}[],Spike.Scripting.Runtime.BoxedValue[],Spike.Scripting.Runtime.BoxedValue[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Spike.Scripting.Runtime.ArgumentsObject"/> class.
+            </summary>
+            <param name="env">The environment.</param>
+            <param name="linkMap">The link map.</param>
+            <param name="privateScope">The private scope.</param>
+            <param name="sharedScope">The shared scope.</param>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ArgumentsObject.CreateForFunction(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.BoxedValue[],Spike.Scripting.Runtime.BoxedValue[],System.Int32,Spike.Scripting.Runtime.BoxedValue[])">
+            <summary>
+            Creates a <see cref="T:Spike.Scripting.Runtime.ArgumentsObject"/> for the specified <see cref="T:Spike.Scripting.Runtime.FunctionObject"/>
+            <paramref name="f"/>.
+            </summary>
+            <param name="f">The function for which to create an <see cref="T:Spike.Scripting.Runtime.ArgumentsObject"/>.</param>
+            <param name="privateScope">The private scope.</param>
+            <param name="sharedScope">The shared scope.</param>
+            <param name="namedArgsPassed">The number of named arguments that is passed.</param>
+            <param name="extraArgs">The extra arguments.</param>
+            <returns>
+            A <see cref="T:Spike.Scripting.Runtime.ArgumentsObject"/> for the specified <see cref="T:Spike.Scripting.Runtime.FunctionObject"/>
+            <paramref name="f"/>.
+            </returns>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ArgumentsObject.CreateForVariadicFunction(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.BoxedValue[],Spike.Scripting.Runtime.BoxedValue[],Spike.Scripting.Runtime.BoxedValue[])">
+            <summary>
+            Creates a <see cref="T:Spike.Scripting.Runtime.ArgumentsObject"/> for the specified variadic
+            <see cref="T:Spike.Scripting.Runtime.FunctionObject"/> <paramref name="f"/>.
+            </summary>
+            <param name="f">The f.</param>
+            <param name="privateScope">The private scope.</param>
+            <param name="sharedScope">The shared scope.</param>
+            <param name="variadicArgs">The variadic args.</param>
+            <returns>
+            A <see cref="T:Spike.Scripting.Runtime.ArgumentsObject"/> for the specified variadic <see cref="T:Spike.Scripting.Runtime.FunctionObject"/>
+            <paramref name="f"/>.
+            </returns>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ArgumentsObject.Delete(System.UInt32)">
+            <summary>
+            Deletes the property at the specified <paramref name="index"/>.
+            </summary>
+            <param name="index">The index of the property to delete.</param>
+            <returns>
+              <c>true</c> if the deletion succeeded; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ArgumentsObject.Get(System.UInt32)">
+            <summary>
+            Gets the property at the specified <paramref name="index"/>.
+            </summary>
+            <param name="index">The index of the property to get.</param>
+            <returns>
+            The property at the specified <paramref name="index"/>.
+            </returns>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ArgumentsObject.Has(System.UInt32)">
+            <summary>
+            Determines whether the <see cref="T:Spike.Scripting.Runtime.ArgumentsObject"/> has a
+            property at the specified <paramref name="index"/>.
+            </summary>
+            <param name="index">The index.</param>
+            <returns>
+              <c>true</c> if the <see cref="T:Spike.Scripting.Runtime.ArgumentsObject"/> has a
+            property at the specified <paramref name="index"/>; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ArgumentsObject.Put(System.UInt32,Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Puts the <paramref name="value"/> at the specified <paramref name="index"/>.
+            </summary>
+            <param name="index">The index.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ArgumentsObject.Put(System.UInt32,System.Double)">
+            <summary>
+            Puts the <paramref name="value"/> at the specified <paramref name="index"/>.
+            </summary>
+            <param name="index">The index.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ArgumentsObject.Put(System.UInt32,System.Object,System.UInt32)">
+            <summary>
+            Puts the <paramref name="value"/> at the specified <paramref name="index"/>
+            with the provided <paramref name="tag"/>.
+            </summary>
+            <param name="index">The index.</param>
+            <param name="value">The value.</param>
+            <param name="tag">The tag.</param>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ArgumentsObject.CopyLinkedValues">
+            <summary>
+            Copies the linked values.
+            </summary>
+        </member>
+        <member name="P:Spike.Scripting.Runtime.ArgumentsObject.LinkIntact">
+            <summary>
+            Gets or sets a value indicating whether to keep the link intact.
+            </summary>
+            <value>
+              <c>true</c> to keep the link intact; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Spike.Scripting.Runtime.ArgumentsObject.LinkMap">
+            <summary>
+            Gets or sets the link map.
+            </summary>
+            <value>
+            The link map.
+            </value>
+        </member>
+        <member name="P:Spike.Scripting.Runtime.ArgumentsObject.PrivateScope">
+            <summary>
+            Gets or sets whether the <see cref="T:Spike.Scripting.Runtime.ArgumentsObject"/> should be limited
+            to the private scope or not.
+            </summary>
+            <value>
+            	<c>true</c> if the <see cref="T:Spike.Scripting.Runtime.ArgumentsObject"/> should be limited
+            to the private scope; otherwise <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Spike.Scripting.Runtime.ArgumentsObject.SharedScope">
+            <summary>
+            Gets or sets the shared scope.
+            </summary>
+            <value>
+            The shared scope.
+            </value>
+        </member>
+        <member name="T:Spike.Scripting.Runtime.ArrayObject">
+            <summary>
+            Represent an array object.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ArrayObject.Push(Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Pushes a value into the array.
+            </summary>
+            <param name="value">The value to push.</param>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.ArrayObject.ObserveChildren">
+            <summary>
+            Mark this as observed and each child should be marked as observer as well, ensuring
+            that the entire object tree becomes observable and any property change on the tree
+            is tracked and an event raised when a change occurs.
+            </summary>
+        </member>
+        <member name="T:Spike.Scripting.Runtime.ScriptObjectFlag">
+            <summary>
+            Represents a flags assigned on a script object.
+            </summary>
+        </member>
+        <member name="F:Spike.Scripting.Runtime.ScriptObjectFlag.None">
+            <summary>
+            Represents a script object without any special flags.
+            </summary>
+        </member>
+        <member name="F:Spike.Scripting.Runtime.ScriptObjectFlag.Observe">
+            <summary>
+            Represents an observed script object.
+            </summary>
+        </member>
+        <member name="T:Spike.Scripting.Runtime.PropertyChangeType">
+            <summary>
+            Type of property change.
+            </summary>
+        </member>
+        <member name="F:Spike.Scripting.Runtime.PropertyChangeType.Put">
+            <summary>
+            A new property was assigned.
+            </summary>
+        </member>
+        <member name="F:Spike.Scripting.Runtime.PropertyChangeType.Set">
+            <summary>
+            A property value has changed.
+            </summary>
+        </member>
+        <member name="F:Spike.Scripting.Runtime.PropertyChangeType.Delete">
+            <summary>
+            A property was deleted.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.typeOf(Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Implements the unary `typeof` operator.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.not(Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Implements the unary `!` operator.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.bitCmpl(Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Implements the unary `~` operator.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.plus(Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Implements the unary `+` operator.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.minus(Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Implements the unary `-` operator.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.in(Spike.Scripting.Runtime.Environment,Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Implements the binary `in` operator.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.instanceOf(Spike.Scripting.Runtime.Environment,Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Implements the binary `instanceof` operator.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.Compare(Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue,System.Boolean,System.Func{System.String,System.String,System.Boolean},System.Func{System.Double,System.Double,System.Boolean})">
+            <summary>
+            Supports the binary comparison operators.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.lt(Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Implements the binary `&lt;` operator.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.ltEq(Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Implements the binary `&lt;=` operator.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.gt(Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Implements the binary `&gt;` operator.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.gtEq(Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Implements the binary `&gt;=` operator.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.eq(Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Implements the binary `==` operator.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.notEq(Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Implements the binary `!=` operator.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.same(Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Implements the binary `===` operator.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.notSame(Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Implements the binary `!==` operator.
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.Operators.add(Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+            <summary>
+            Implements the binary `+` operator.
+            </summary>
+        </member>
+        <member name="T:Spike.Scripting.Runtime.SuffixString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.SuffixString.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.SuffixString.Concat(Spike.Scripting.Runtime.SuffixString,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="current"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.SuffixString.Concat(System.Object,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spike.Scripting.Runtime.TypeConverter.ToString(System.Double)">
+            These steps are outlined in the ECMA-262, Section 9.8.1
+        </member>
+    </members>
+</doc>

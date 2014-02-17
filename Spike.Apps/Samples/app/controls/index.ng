@@ -1,0 +1,26 @@
+﻿<!-- using controls/notify -->
+<!-- using controls/well-sm -->
+
+<header class="panel-heading"><h2><strong>controls</strong> demo</h2></header>
+<div ng-controller="Controls" class="panel-body">
+
+	<notify text="'Number 1'">
+		<p>This is the contents of the first component.</p>
+		
+		<p>Another paragraph</p>
+		
+	</notify>
+	
+	<notify text="'Number 2'">
+		<p>And here we have the contents of the second component.</p>
+	</notify>
+	
+	<well-sm>
+		This text is inside a 'well' component.
+	</well-sm>
+</div>
+
+
+<footer class="panel-footer">
+This sample illustrates how reusable controls can be used. Internally, they are transformed to angularjs directives by the engine.
+</footer>

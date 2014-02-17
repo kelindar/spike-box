@@ -1,0 +1,6 @@
+﻿<!-- using controls/icon -->
+<div class="alert alert-success"> 
+	<icon type="'search'" /> Component {{text}} 
+	<span ng-transclude></span>
+</div>
+	

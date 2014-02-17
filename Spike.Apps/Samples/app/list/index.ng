@@ -1,0 +1,23 @@
+﻿<header class="panel-heading"><h2><strong>list</strong> demo</h2></header>
+<div ng-controller="List" class="panel-body">
+	<br />
+	<div class="btn-group">
+		<button class="btn btn-default" ng-click="push()">push</button>
+		<button class="btn btn-default" ng-click="pop()">pop</button>
+		<button class="btn btn-default" ng-click="shift()">shift</button>
+		<button class="btn btn-default" ng-click="splice()">splice</button>
+		<button class="btn btn-default" ng-click="swap()">swap</button>
+		<button class="btn btn-default" ng-click="removeAll()">removeAll</button>
+	</div>
+
+	<ul class="list-item angle">
+		<li ng-repeat="item in items">
+			Random number: <strong>{{item.Number}}</strong>
+		</li>
+	</ul>
+
+</div>
+
+<footer class="panel-footer">
+This sample demonstrates a two-way data binding between client and the server of array named <b>items</b> that contains simple javascript objects.
+</footer>

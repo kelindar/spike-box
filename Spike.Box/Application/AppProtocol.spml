@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Protocol Name="AppProtocol" xmlns="http://www.spike-engine.com/2011/spml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Operations>
+
+    <Operation Name="Handshake"
+               Direction="Pull"
+               SuppressSecurity="true"
+               Compression="Both">
+      <Incoming>
+        <Member Name="Value" Type="String" Description="The handshake parameters, loosely defined in a JSON object." />
+        <Member Name="Callback" Type="Int32" Description="The identifier of the callback request." />
+      </Incoming>
+
+      <Outgoing>
+        <Member Name="Callback" Type="Int32" Description="The identifier of the callback request." />
+        <Member Name="Target" Type="Int32" Description="The target identifier." />
+      </Outgoing>
+    </Operation>
+    
+    <Operation Name="Query" 
+               Direction="Pull"
+               SuppressSecurity="true"
+               Compression="Both">
+      <Incoming>
+        <Member Name="Session" Type="String" Description="The identifier of the session." />
+        <Member Name="Callback" Type="Int32" Description="The identifier of the callback request." />
+        <Member Name="Target" Type="Int32" Description="The target identifier." />
+        <Member Name="Method" Type="String" Description="The identifier of the method to call." />
+        <Member Name="Arguments" Type="ListOfString" Description="The list of arguments that should be passed to the call." />
+      </Incoming>
+
+      <Outgoing>
+        <Member Name="Callback" Type="Int32" Description="The identifier of the callback inform." />
+        <Member Name="Result" Type="String" Description="The compressed JSON payload of the inform." />
+      </Outgoing>
+    </Operation>
+
+    <Operation Name="Event"
+               Direction="Push"
+               SuppressSecurity="true"
+               Compression="Outgoing">
+      <Outgoing>
+        <Member Name="Type"   Type="Byte"   Description="The type of the event." />
+        <Member Name="Target" Type="Int32"  Description="The target id of the event." />
+        <Member Name="Name"   Type="String" Description="The name of the event." />
+        <Member Name="Value"  Type="String" Description="The value of the event, compressed in JSON if necessary." />
+      </Outgoing>
+      
+    </Operation>
+
+    <Operation Name="Notify"
+               Direction="Pull"
+               SuppressSecurity="true"
+               Compression="Outgoing">
+      <Incoming>
+        <Member Name="Session" Type="String" Description="The identifier of the session." />
+        <Member Name="Type"   Type="Byte"   Description="The type of the event." />
+        <Member Name="Target" Type="Int32"  Description="The target id of the event." />
+        <Member Name="Name"   Type="String" Description="The name of the event." />
+        <Member Name="Value"  Type="String" Description="The value of the event, compressed in JSON if necessary." />
+      </Incoming>
+
+    </Operation>
+    
+  </Operations>
+</Protocol>

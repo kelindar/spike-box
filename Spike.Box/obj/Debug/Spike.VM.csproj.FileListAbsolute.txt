@@ -1,0 +1,15 @@
+D:\Workspace\Spike\Spike.Projects\Spike.VM\bin\Debug\Spike.VM.pdb
+D:\Workspace\Spike\Spike.Projects\Spike.VM\bin\Debug\Spike.Runtime.dll
+D:\Workspace\Spike\Spike.Projects\Spike.VM\bin\Debug\Spike.Runtime.pdb
+D:\Workspace\Spike\Spike.Projects\Spike.VM\bin\Debug\Spike.Runtime.xml
+D:\Workspace\Spike\Spike.Projects\Spike.VM\obj\Debug\Spike.VM.csprojResolveAssemblyReference.cache
+D:\Workspace\Spike\Spike.Projects\Spike.VM\obj\Debug\Spike.VM.pdb
+D:\Workspace\Spike\Spike.Projects\Spike.VM\bin\Debug\Spike.Scripting.dll
+D:\Workspace\Spike\Spike.Projects\Spike.VM\bin\Debug\Spike.Scripting.Runtime.dll
+D:\Workspace\Spike\Spike.Projects\Spike.VM\bin\Debug\Spike.Scripting.Runtime.pdb
+D:\Workspace\Spike\Spike.Projects\Spike.VM\bin\Debug\Spike.Scripting.pdb
+D:\Workspace\Spike\Spike.Projects\Spike.VM\bin\Debug\Spike.Scripting.xml
+D:\Workspace\Spike\Spike.Projects\Spike.VM\bin\Debug\Spike.VM.exe
+D:\Workspace\Spike\Spike.Projects\Spike.VM\obj\Debug\Spike.VM.exe
+D:\Workspace\Spike\Spike.Projects\Spike.VM\obj\Debug\Spike.VM.Properties.Resources.resources
+D:\Workspace\Spike\Spike.Projects\Spike.VM\obj\Debug\Spike.VM.csproj.GenerateResource.Cache

@@ -1,0 +1,33 @@
+﻿<header class="panel-heading"><h2><strong>table</strong> demo</h2></header>
+<div ng-controller="Table" class="panel-body">
+	<br />
+	<div class="btn-group">
+		<button class="btn btn-primary" ng-click="newOrder()">new order</button>
+		<button class="btn btn-success" ng-click="deliver()">deliver</button>
+		<button class="btn btn-inverse" ng-click="archive()">archive</button>
+	</div>
+	
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead>
+					<tr>
+						<th style="border-bottom-color: rgb(108, 195, 160);">ID</th>
+						<th style="border-bottom-color: rgb(108, 195, 160);">Name</th>
+						<th style="border-bottom-color: rgb(108, 195, 160);">Quantity</th>
+						<th style="border-bottom-color: rgb(108, 195, 160);">Status</th>
+					</tr>
+			</thead>
+		
+			<tr ng-repeat="item in items">
+				<td><strong>{{item.id}}</strong></td>
+				<td>{{item.name}}</td>
+				<td>{{item.quantity}}</td>
+				<td><span class="label label-{{item.type}}">{{item.status}}</span></td>
+			</tr>
+		</table> 
+	</div>
+</div>
+
+<footer class="panel-footer">
+This sample demonstrates a two-way data binding between client and the server on an array of complex javascript objects with nested properties. The nested property changes within the exposed <b>items</b> array are automatically dispatched on every change.
+</footer>

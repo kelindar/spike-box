@@ -1,0 +1,15 @@
+﻿<header class="panel-heading"><h2><strong>setter</strong> sample</h2></header>
+<div ng-controller="Setter" class="panel-body">
+
+
+	<input type="text" ng-model="text" class="form-control" placeholder="start typing here..."><br />
+	
+	
+	<p>Received: <b>{{text}}</b></p>
+
+	
+</div>
+
+<footer class="panel-footer">
+This sample shows a <b>text</b> property, exposed by the server and the input field bound to that property. The value on the server is automatically updated as you type.
+</footer>

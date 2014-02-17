@@ -1,0 +1,30 @@
+﻿<header class="panel-heading"><h2><strong>nested</strong> demo</h2></header>
+<div ng-controller="Nested" class="panel-body">
+
+
+	<h3>Team of {{team.leader.name}} {{team.leader.surname}}, <b>{{team.leader.role.name}}</b></h3>
+	<hr />
+	
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead>
+					<tr>
+						<th style="border-bottom-color: rgb(108, 195, 160);">Name</th>
+						<th style="border-bottom-color: rgb(108, 195, 160);">Surname</th>
+					</tr>
+			</thead>
+		
+			<tr ng-repeat="person in team.people">
+				<td>{{person.name}}</td>
+				<td>{{person.surname}}</td>
+			</tr>
+		</table> 
+	</div>
+	
+	
+	
+</div>
+
+<footer class="panel-footer">
+This sample shows that nested objects are automatically monitored by simply exposing a getter to the root object.
+</footer>

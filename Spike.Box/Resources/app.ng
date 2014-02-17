@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="app" ng-controller="box" ng-init="bind('{{host}}', {{app}}, {{view}})">
+<head>
+    <meta charset="utf-8" />
+    <title>{{title}}</title>
+
+    <script type="application/javascript" src="/js/jquery.min.js"></script>
+    <script type="application/javascript" src="/js/spike.box.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="/css/styles.min.css" />
+
+</head>
+<body>
+    <section class="panel panel-shadow" ng-include src="url"></section>
+</body>
+</html>

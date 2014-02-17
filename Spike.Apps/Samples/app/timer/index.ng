@@ -1,0 +1,11 @@
+﻿<header class="panel-heading"><h2><strong>timer</strong> demo</h2></header>
+<div ng-controller="Timer" class="panel-body">
+
+	<button ng-click="toggleInterval()" class="btn btn-primary" >Toggle Interval</button>
+	<span> {{counter.text}}</span>
+
+</div>
+
+<footer class="panel-footer">
+This sample illustrates <b>setInterval()</b> api, where a simple counter is changed 10 times per second and all the listeners get automatically notified.
+</footer>

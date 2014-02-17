@@ -1,0 +1,11 @@
+﻿<header class="panel-heading"><h2><strong>compose</strong> demo</h2></header>
+<div ng-controller="Compose" class="panel-body">
+
+	<p>{{text}}</p>
+</div>
+
+<div class="panel panel-shadow" ng-include src="'/view/compose/other'"></div>
+
+<footer class="panel-footer">
+This sample illustrates view composability where another view (<b>/view/compose/other</b>) is included in the current view.
+</footer>

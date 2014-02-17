@@ -1,0 +1,39 @@
+﻿<style type="text/css">
+.done-true {
+	text-decoration: line-through;
+	color: grey;
+}
+
+</style>
+
+<header class="panel-heading"><h2><strong>todo</strong> demo</h2></header>
+
+<div ng-controller="Todo" class="panel-body">
+
+	<button ng-click="archive()" class="btn btn-default">archive</button>
+	<span>{{remaining}} of {{todos.length}} remaining</span>
+
+	<ul class="unstyled">
+		<li ng-repeat="todo in todos">
+			<input type="checkbox" ng-model="todo.done">
+			<span class="done-{{todo.done}}">{{todo.text}}</span>
+		</li>
+	</ul>
+
+	<br />
+	<form ng-submit="addTodo(todoText)">
+		<div class="input-group">
+			<input type="text" ng-model="todoText" class="form-control" size="30" placeholder="add new todo here">
+			<span class="input-group-btn">
+				<input class="btn btn-primary" type="submit" value="add">
+			</span>
+		</div>
+	</form>
+	  
+
+</div>
+
+<footer class="panel-footer">
+This sample demonstrates an array of todo items, named <b>todo</b> which exposes both public getter and a setter, making it possible to automatically bind inputs (checkboxes) to the properties of items within the array.
+</footer>
+

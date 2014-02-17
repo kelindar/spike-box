@@ -1,0 +1,9 @@
+body{
+	background-color:#F7F6F1;
+	margin:15px;
+}
+
+.panel{
+	margin: auto;
+	max-width: 650px;
+}

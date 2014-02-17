@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B4C8E87-E749-4BC0-8F02-F5BEFF1DF107}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Spike.Box</RootNamespace>
+    <AssemblyName>Spike.Box</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Spike.Runtime, Version=2.3.5154.36988, Culture=neutral, PublicKeyToken=bbbae3b375c299b6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Spike.Externals\Spike.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application\AppClient.cs" />
+    <Compile Include="Application\AppConfig\AppElement.cs" />
+    <Compile Include="Application\AppHandler\HandlerElement.cs" />
+    <Compile Include="Application\AppProtocol.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppProtocol.spml</DependentUpon>
+    </Compile>
+    <Compile Include="Compilation\MetaDependancies.cs" />
+    <Compile Include="Compilation\MetaDependancy.cs" />
+    <Compile Include="Compilation\MetaElement.cs" />
+    <Compile Include="Compilation\MetaElementStore.cs" />
+    <Compile Include="Compilation\MetaExtension.cs" />
+    <Compile Include="Compilation\SurrogateFunction.cs" />
+    <Compile Include="Compilation\SurrogateModifier.cs" />
+    <Compile Include="Compilation\SurrogateProperty.cs" />
+    <Compile Include="Compilation\SurrogateMember.cs" />
+    <Compile Include="Execution\Native\Native.Observe.cs" />
+    <Compile Include="Execution\Native\Native.Extend.cs" />
+    <Compile Include="Execution\Objects\BufferObject.cs" />
+    <Compile Include="Execution\Objects\FileObject.cs" />
+    <Compile Include="Execution\Channel.cs" />
+    <Compile Include="Execution\Scope\ElementScope.cs" />
+    <Compile Include="Execution\Scope\PageScope.cs" />
+    <Compile Include="Execution\ScriptExtension.cs" />
+    <Compile Include="Compilation\MetaFile.cs" />
+    <Compile Include="Compilation\MetaStore.cs" />
+    <Compile Include="Compilation\MetaViewStore.cs" />
+    <Compile Include="Compilation\MetaView.cs" />
+    <Compile Include="Application\AppHandler\HandlerApp.cs" />
+    <Compile Include="Application\AppHandler\HandlerView.cs" />
+    <Compile Include="Application\AppHandler\HandlerCss.cs" />
+    <Compile Include="Application\AppHandler\HandlerJs.cs" />
+    <Compile Include="Application\AppHandler\HandlerResource.cs" />
+    <Compile Include="Application\App.cs" />
+    <Compile Include="Application\AppConfig\AppConfig.cs" />
+    <Compile Include="Application\AppConfig\AppHostName.cs" />
+    <Compile Include="Application\AppServer.cs" />
+    <Compile Include="Application\AppConfig\AppUrlRewriteRule.cs" />
+    <Compile Include="Compilation\Surrogate.cs" />
+    <Compile Include="Application\AppFolder.cs" />
+    <Compile Include="Execution\ScriptContext.cs" />
+    <Compile Include="Execution\Scope\AppScope.cs" />
+    <Compile Include="Execution\Scope\SessionScope.cs" />
+    <Compile Include="Execution\Native\Native.Network.cs" />
+    <Compile Include="Execution\Objects\BaseObject.cs" />
+    <Compile Include="Execution\Objects\ClientObject.cs" />
+    <Compile Include="Execution\Native\Native.Global.cs" />
+    <Compile Include="Execution\Objects\ConsoleObject.cs" />
+    <Compile Include="Execution\Scope\Scope.cs" />
+    <Compile Include="Execution\Objects\ReferenceObject.cs" />
+    <Compile Include="Execution\Native\Native.cs" />
+    <Compile Include="Application\AppEvent.cs" />
+    <Compile Include="Compilation\MetaScriptStore.cs" />
+    <Compile Include="Compilation\MetaScriptWriter.cs" />
+    <Compile Include="Execution\ScriptMap.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Compilation\MetaScript.cs" />
+    <Compile Include="Application\AppSocket.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Spike.Scripting.Runtime\Spike.Scripting.Runtime.csproj">
+      <Project>{f2322575-40e5-4e98-be72-bf4af9c77e77}</Project>
+      <Name>Spike.Scripting.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Spike.Scripting\Spike.Scripting.fsproj">
+      <Project>{9e257324-94e7-49af-ae83-718288e925d8}</Project>
+      <Name>Spike.Scripting</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Application\AppProtocol.spml">
+      <Generator>SpikeProtocolProcessor</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>AppProtocol.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\app.ng" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Application\AppClient\spike-cache.ts" />
+    <None Include="Resources\Linq.js" />
+    <None Include="Resources\Json.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Application\AppClient\angular-animate.min.js" />
+    <EmbeddedResource Include="Application\AppClient\angular-cookies.min.js" />
+    <EmbeddedResource Include="Application\AppClient\angular-loader.min.js" />
+    <EmbeddedResource Include="Application\AppClient\angular-resource.min.js" />
+    <EmbeddedResource Include="Application\AppClient\angular-route.min.js" />
+    <EmbeddedResource Include="Application\AppClient\angular-sanitize.min.js" />
+    <EmbeddedResource Include="Application\AppClient\angular-touch.min.js" />
+    <EmbeddedResource Include="Application\AppClient\angular.min.js" />
+    <EmbeddedResource Include="Application\AppClient\spike-box.js" />
+    <EmbeddedResource Include="Application\AppClient\spike-cache.js" />
+    <EmbeddedResource Include="Application\AppClient\spike-sdk.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Application\AppClient\angular-animate.js" />
+    <EmbeddedResource Include="Application\AppClient\angular-cookies.js" />
+    <EmbeddedResource Include="Application\AppClient\angular-loader.js" />
+    <EmbeddedResource Include="Application\AppClient\angular-resource.js" />
+    <EmbeddedResource Include="Application\AppClient\angular-route.js" />
+    <EmbeddedResource Include="Application\AppClient\angular-sanitize.js" />
+    <EmbeddedResource Include="Application\AppClient\angular-touch.js" />
+    <EmbeddedResource Include="Application\AppClient\angular.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>for /R $(ProjectDir)Framework/Impl %25%25f in (*.js) do copy %25%25f $(ProjectDir)Resources</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

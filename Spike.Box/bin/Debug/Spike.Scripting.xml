@@ -1,0 +1,5392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Spike.Scripting</name></assembly>
+<members>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.DynamicScopeHelpers.Set(System.String,Spike.Scripting.Runtime.BoxedValue,Microsoft.FSharp.Collections.FSharpList{System.Tuple{System.Int32,Spike.Scripting.Runtime.ScriptObject}},System.Int32,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue[],System.Int32)">
+
+</member>
+<member name="M:Spike.Scripting.DynamicScopeHelpers.Push(Microsoft.FSharp.Collections.FSharpList{System.Tuple{System.Int32,Spike.Scripting.Runtime.ScriptObject}}@,Spike.Scripting.Runtime.ScriptObject,System.Int32)">
+
+</member>
+<member name="M:Spike.Scripting.DynamicScopeHelpers.Pop(Microsoft.FSharp.Collections.FSharpList{System.Tuple{System.Int32,Spike.Scripting.Runtime.ScriptObject}}@)">
+
+</member>
+<member name="M:Spike.Scripting.DynamicScopeHelpers.Get(System.String,Microsoft.FSharp.Collections.FSharpList{System.Tuple{System.Int32,Spike.Scripting.Runtime.ScriptObject}},System.Int32,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue[],System.Int32)">
+
+</member>
+<member name="M:Spike.Scripting.DynamicScopeHelpers.Delete(Microsoft.FSharp.Collections.FSharpList{System.Tuple{System.Int32,Spike.Scripting.Runtime.ScriptObject}},Spike.Scripting.Runtime.ScriptObject,System.String)">
+
+</member>
+<member name="M:Spike.Scripting.DynamicScopeHelpers.Call``1(System.String,System.Object[],Microsoft.FSharp.Collections.FSharpList{System.Tuple{System.Int32,Spike.Scripting.Runtime.ScriptObject}},System.Int32,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue[],System.Int32)">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.DynamicScopeHelpers">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.VariadicFunction">
+<summary>
+ This delegate type is used for functions that are called
+ with more then four arguments. Instead of compiling a function
+ for each arity above six we pass in an array of BV values 
+ instead and then sort it out inside the function body.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.EvalTarget">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Analyzer.findVariable(System.String,Microsoft.FSharp.Core.FSharpOption{Spike.Scripting.Compiler.Parser.ScopeData})">
+<summary>
+ Tries to find a variable in a ScopeData chain
+</summary>
+</member>
+<member name="T:Spike.Scripting.Compiler.Analyzer">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Ast.Variable">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Ast.ScopeOption">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Ast.CatchScope">
+<summary>
+ Represents a catch scope
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Ast.FunctionScope">
+<summary>
+ Represents a function scope
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Ast.LookupMode">
+<summary>
+ The two different types of lookup modes that a 
+ function can use, dynamic is used if a function 
+ contains either an eval call or a with statement
+ otherwise static is used (which is a lot faster)
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Ast.EvalMode">
+<summary>
+ The ways in a function can be effected by eval
+ 
+ Clean = No eval call that can effect this function detected
+ Contains = An eval call exists inside this function
+ Effected = An eval call exists in one of the scopes containing this function
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Ast.ScopeType">
+<summary>
+ The two different types of scopes possible
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Ast.Cases">
+<summary>
+ Switch statement cases
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Ast.Tree">
+<summary>
+ The AST tree type, contains all AST nodes
+ except Case and Default nodes for switch statements
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Ast.Directive">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Ast.UnaryOp">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Ast.BinaryOp">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.promotePrivateToShared(System.String,Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.createSharedVariable(System.String,System.Int32,System.Int32,Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.createPrivateVariable(System.String,Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.addVariable(System.String,Spike.Scripting.Compiler.Ast.Variable,Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.addFunction(Spike.Scripting.Compiler.Ast.Tree,Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.addParameterName(System.String,Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.increasePrivateCount(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.increaseSharedCount(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.catchScopes(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.sharedCount(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.privateCount(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.parameterCount(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.parameterNames(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.variableCount(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.hasVariable(System.String,Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.variables(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.hasArgumentsObject(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.hasDynamicLookup(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.increaseWithCount(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.setSelfReference(System.String,Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.setDynamicLookup(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.setContainsEval(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.setContainsArguments(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.closureLevel(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.globalLevel(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.isGlobal(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.isFunction(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.id(Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.clone``1(Microsoft.FSharp.Core.FSharpRef{``0})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.createCatchScope(System.String,System.Int32,System.Int32)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.createGlobalScope">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Ast.Utils.createFunctionScope">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Ast.Utils">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Ast">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Binary.compoundAssign(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.BinaryOp,Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Ast.Tree)">
+<summary>
+ Implements compilation for
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Binary.assign(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Ast.Tree)">
+<summary>
+ Implements compilation for 11.13.1 assignment operator =
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Binary.compile(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.BinaryOp,Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Ast.Tree)">
+<summary>
+ Implements compilation for:
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Binary.compileExpr(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.BinaryOp,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Binary.equalityOperator``1(Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression}},Microsoft.FSharp.Core.FSharpFunc{System.Tuple{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression},System.Linq.Expressions.Expression},``0,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Binary.relationalOperator(Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression}},Microsoft.FSharp.Core.FSharpFunc{System.Tuple{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression},System.Linq.Expressions.Expression},System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Binary.addOperator(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Binary.bitShiftOperator``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,``1}},Microsoft.FSharp.Core.FSharpFunc{``2,``0},``2,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Binary.bitOperator``1(Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,``0}},System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Binary.numericOperator``1(Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,``0}},System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Binary.getStaticExpression(System.Collections.Generic.List{System.Linq.Expressions.ParameterExpression},System.Collections.Generic.List{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression)">
+<summary>
+ This method is intended for internal use only
+ and uses mutable lists for performance reasons
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Binary.toInt32(System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Binary.toUInt32(System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Binary.toNumber(System.Linq.Expressions.Expression)">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Binary">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Context.getInternalVariables(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Context.getInternalParameters(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Context.compile(Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Context">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.ControlFlow.continue'(Spike.Scripting.Compiler.Context.T,Microsoft.FSharp.Core.FSharpOption{System.String})">
+<summary>
+ 12.7 continue
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.ControlFlow.compileJump``1(Microsoft.FSharp.Collections.FSharpList{System.Tuple{Microsoft.FSharp.Collections.FSharpMap{System.String,System.Tuple{System.Int32,System.Linq.Expressions.LabelTarget}},Microsoft.FSharp.Core.FSharpRef{Microsoft.FSharp.Collections.FSharpMap{System.Int32,System.Linq.Expressions.LabelTarget}}}},System.String,System.Linq.Expressions.LabelTarget)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.ControlFlow.locateLabelGroup``1(System.String,Microsoft.FSharp.Collections.FSharpList{System.Tuple{Microsoft.FSharp.Collections.FSharpMap{System.String,System.Tuple{System.Int32,System.Linq.Expressions.LabelTarget}},Microsoft.FSharp.Core.FSharpRef{Microsoft.FSharp.Collections.FSharpMap{System.Int32,System.Linq.Expressions.LabelTarget}}}},``0)">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.ControlFlow">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Core.compileFunctionT``1(Spike.Scripting.Runtime.Environment,Spike.Scripting.Compiler.Ast.Tree)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Core.compileFunction(Spike.Scripting.Runtime.Environment,System.Type,Spike.Scripting.Compiler.Ast.Tree)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Core.compileEval(Spike.Scripting.Runtime.Environment,Spike.Scripting.Compiler.Ast.Tree)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Core.compileGlobal(Spike.Scripting.Runtime.Environment,Spike.Scripting.Compiler.Ast.Tree)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Core.compile(Spike.Scripting.Compiler.Target.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Core.cloneScope(Spike.Scripting.Compiler.Target.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Core.compileAst(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.Tree)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Core.compileDirective(Spike.Scripting.Compiler.Ast.Directive,Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Core.compileRegExp(System.String,System.String,Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Core.compileComma(Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Core.compileBlock(Microsoft.FSharp.Collections.FSharpList{Spike.Scripting.Compiler.Ast.Tree},Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Core.compileVar(Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Core">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Exception.try'(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.Tree,Microsoft.FSharp.Core.FSharpOption{Spike.Scripting.Compiler.Ast.Tree},Microsoft.FSharp.Core.FSharpOption{Spike.Scripting.Compiler.Ast.Tree})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Exception.finally'(System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{System.Linq.Expressions.CatchBlock},Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Exception.buildCatchJumpBlock(System.Type,Microsoft.FSharp.Core.FSharpRef{Microsoft.FSharp.Collections.FSharpMap{System.Int32,System.Linq.Expressions.LabelTarget}})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Exception.returnCompiler(System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Exception.compileCatch(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.Tree)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Exception.throw(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.Tree)">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Exception">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Function.evalInvocation(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.Tree)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Function.return'(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.Tree)">
+<summary>
+ 12.9 the return statement
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Function.invoke(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.Tree,System.Collections.Generic.IEnumerable{Spike.Scripting.Compiler.Ast.Tree})">
+<summary>
+ 11.2.3 function calls
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Function.new'(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.Tree,System.Collections.Generic.IEnumerable{Spike.Scripting.Compiler.Ast.Tree})">
+<summary>
+ 11.2.2 the new operator
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Function.createTempVars(Microsoft.FSharp.Collections.FSharpList{System.Linq.Expressions.Expression})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Function.invokeIndex(Spike.Scripting.Compiler.Context.T,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,Microsoft.FSharp.Collections.FSharpList{System.Linq.Expressions.Expression})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Function.invokeProperty``1(Spike.Scripting.Compiler.Context.T,System.Linq.Expressions.Expression,``0,Microsoft.FSharp.Collections.FSharpList{System.Linq.Expressions.Expression})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Function.invokeIdentifier(Spike.Scripting.Compiler.Context.T,System.String,Microsoft.FSharp.Collections.FSharpList{System.Linq.Expressions.Expression})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Function.invokeIdentifierDynamic``1(Spike.Scripting.Compiler.Context.T,System.String,System.Collections.Generic.IEnumerable{``0})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Function.invokeFunction(Spike.Scripting.Compiler.Context.T,System.Linq.Expressions.Expression,Microsoft.FSharp.Collections.FSharpList{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Function.invokeVariadic``1(System.Linq.Expressions.Expression,Microsoft.FSharp.Core.FSharpOption{``0},Microsoft.FSharp.Collections.FSharpList{System.Linq.Expressions.Expression})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Function.create(Spike.Scripting.Compiler.Context.T,Microsoft.FSharp.Core.FSharpRef{Spike.Scripting.Compiler.Ast.FunctionScope},Spike.Scripting.Compiler.Ast.Tree)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Function.getScopeParameterStorage(Spike.Scripting.Compiler.Ast.FunctionScope)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Function.createCompiler(Microsoft.FSharp.Core.FSharpFunc{Spike.Scripting.Compiler.Target.T,System.Delegate},Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Function">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.HostFunction">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Identifier.setValue(Spike.Scripting.Compiler.Context.T,System.String,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Identifier.getValue(Spike.Scripting.Compiler.Context.T,System.String)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Identifier.isGlobal(Spike.Scripting.Compiler.Context.T,System.String)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Identifier.setValueDynamic(Spike.Scripting.Compiler.Context.T,System.String,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Identifier.getValueDynamic(Spike.Scripting.Compiler.Context.T,System.String)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Identifier.getDynamicArgs(Spike.Scripting.Compiler.Context.T,System.String)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Identifier.getVariableStorage(System.String,Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Identifier">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Labels.T">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Labels.addLoopLabels(Microsoft.FSharp.Core.FSharpOption{System.String},System.Linq.Expressions.LabelTarget,System.Linq.Expressions.LabelTarget,Spike.Scripting.Compiler.Labels.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Labels.addNamedBreak(System.String,System.Linq.Expressions.LabelTarget,Spike.Scripting.Compiler.Labels.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Labels.setDefaultBreak(System.Linq.Expressions.LabelTarget,Spike.Scripting.Compiler.Labels.T)">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Labels">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Lexer.Input">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Lexer.Symbol">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Lexer.Char">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Lexer">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Object.getMember_Ast(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.Tree,System.String,System.Boolean)">
+<summary>
+ MemberExpression . String
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Object.getMember(Spike.Scripting.Compiler.Context.T,System.Linq.Expressions.Expression,System.String,System.Boolean)">
+<summary>
+ MemberExpression . String
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Object.putMember_Ast(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.Tree,System.String,Spike.Scripting.Compiler.Ast.Tree)">
+<summary>
+ MemberExpression . String = Expression
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Object.putMember(Spike.Scripting.Compiler.Context.T,System.Linq.Expressions.Expression,System.String,System.Linq.Expressions.Expression)">
+<summary>
+ MemberExpression . String = Expression
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Object.getIndex_Ast(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Ast.Tree)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Object.getIndex(Spike.Scripting.Compiler.Context.T,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+<summary>
+ MemberExpression [ Expression ]
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Object.Index.putConvert``1(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,Microsoft.FSharp.Core.FSharpOption{``0})">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Object.Index">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Object.Property.attr(System.Linq.Expressions.Expression,System.UInt16,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Object.Property.delete(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Object.Property.get(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Object.Property.put(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Object.Property">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Object">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Parameters.T">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Parameters.returnBox(Spike.Scripting.Compiler.Parameters.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Parameters.globals(Spike.Scripting.Compiler.Parameters.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Parameters.environment(Spike.Scripting.Compiler.Parameters.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Parameters.functionAsExpr(Spike.Scripting.Compiler.Parameters.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Parameters.thisAsExpr(Spike.Scripting.Compiler.Parameters.T)">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Parameters">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.parse(System.String,Spike.Scripting.Runtime.Environment)">
+<summary>
+ Parses a source string into 
+ an abstract syntax tree
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.directive``1(``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements:
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.codeBlock``1(``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.identifier``1(``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.for'``1(``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 12.6.3 The for Statement
+ Implements: 12.6.4 The for-in Statement
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.var``1(System.Boolean,``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 12.2 Variable statement
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.function'``1(System.Boolean,``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 
+</summary>
+</member>
+<member name="P:Spike.Scripting.Compiler.Parser.functionDefinitionNotAllowed">
+<summary>
+ Implements: 11.2.5 Function Expressions
+ Implements: 13 Function Definition
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.objectLiteral``1(``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 11.1.5 Object Initialiser
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.arrayLiteral``1(``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 11.1.4 Array Initialiser
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.continue'``1(``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 12.7 The continue Statement
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.break'``1(``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 12.8 The break Statement
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.throw``1(``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 12.13 The throw statement
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.return'``1(``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 12.9 The return Statement
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.call'``1(``0,Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 11.2.3 Function Calls
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.new'``1(``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 11.2.2 The new Operator
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.indexAccessor``1(``0,Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Expect that the current token is
+ an identifier and skip it
+ Implements: 11.2.1 Property Accessors
+ The index version []
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.propertyAccessor``1(``0,Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 11.2.1 Property Accessors
+ The property version .
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.doWhile``1(``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 12.6.1 The do-while Statement
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.while'``1(``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 12.6.2 The while statement
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.regExp``3(``0,System.String,``1,``2,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 7.8.5 Regular Expression Literals
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.simpleAssignment``1(``0,Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 11.13.1 Simple Assignment ( = )
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.if'(System.Int32,System.String,System.Int32,System.Int32,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 12.5 The if Statement
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.switch``1(``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 12.11 The switch Statement
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.grouping``1(``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 11.1.6 The Grouping Operator
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.comma``1(``0,Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 11.14 Comma Operator ( , )
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.condition``1(``0,Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 11.12 Conditional Operator ( ?: )
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.try'``1(``0,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 12.14 The try statement
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.postfixOrPrefix(System.Int32,Spike.Scripting.Compiler.Ast.UnaryOp,Spike.Scripting.Compiler.Ast.UnaryOp,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 11.3.1 Postfix Increment Operator
+ Implements: 11.3.2 Postfix Decrement Operator
+ Implements: 11.4.4 Prefix Increment Operator
+ Implements: 11.4.5 Prefix Decrement Operator
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.compoundAssign(System.Int32,Spike.Scripting.Compiler.Ast.BinaryOp,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Implements: 11.13.2 Compound Assignment ( op= )
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.nullStmt(System.Int32,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Defines a null statement, used for single line terminators
+ and semicolons that occur where a statement could be
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.simplef(System.Int32,Microsoft.FSharp.Core.FSharpFunc{System.Tuple{System.Int32,System.String,System.Int32,System.Int32},Spike.Scripting.Compiler.Ast.Tree},Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Defines a simple symbol that applies a function 
+ to a token for generating it&apos;s output AST
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.simple(System.Int32,Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Defines a simple symbol that has a fixed AST output
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.unary(System.Int32,System.Int32,Spike.Scripting.Compiler.Ast.UnaryOp,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Defines a unary operator
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.binary(System.Int32,System.Int32,Spike.Scripting.Compiler.Ast.BinaryOp,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Defines a binary operator
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.argumentList(Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Parses an argument list, which is
+ zero or more expressions separated
+ by commas ending with a right 
+ parenthesis
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.block(Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Parses a block, which is either
+ a single statement or a left curly brace 
+ followed by zero or more statements and then 
+ a closing right curly brace
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.statementList(Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Parses a list of statements
+ untill we reach end of input
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.statement(Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Parses a statement, which is either
+ a token that has a statement function
+ or an expression statement
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.expressionStatement(Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Parses an expression statement, which
+ is any expression followed by either
+ a semi colon, newline, right brace
+ or end of input or it&apos;s an identifier
+ followed by a colon (a label) followed
+ by another non-expression statement
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.tryEndStatement(Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Tries to end a statement by
+ looking at the current symbol
+ or if we just passed a line
+ terminator
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.expression(System.Int32,System.Int32,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Parses the next expression untill
+ either a token with the same symbol
+ as stop is found or a token
+ with a bindingpower that is less
+ then rbpw is found
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.expect(System.Int32,Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Consumes the current token if it&apos;s
+ symbol is equal to s and forwards
+ to the next non-line terminator token
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.consumeIdentifier(Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Consumes an identifier and 
+ returns its name
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.consume(Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ Consumes the current token and
+ forwards to the next non-line
+ terminator token
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.cstmt(Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ The current tokens statement binding
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.cleft(Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ The current tokens left binding
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.cnull(Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ The current tokens null binding
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.cpower(Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ The current tokens binding power
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.cvalue(Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ The current tokens value
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.csymbol(Spike.Scripting.Compiler.Parser.State)">
+<summary>
+ The current tokens symbol
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.hexToNumber(System.String)">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Parser.toOctal(System.String)">
+<summary>
+ Util function for converting
+ a string to an octal value
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Parser.BindingPowers">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Parser">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.compile(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.compileAsClrValue(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.initHoistedFunctions(Microsoft.FSharp.Core.FSharpFunc{Spike.Scripting.Compiler.Context.T,Microsoft.FSharp.Core.FSharpFunc{System.String,Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression}}},Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.getAst(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.initDynamicScope(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.with'(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Ast.Tree)">
+<summary>
+ 12.10 the with statement
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.EvalScope.compile(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Scope.EvalScope">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.GlobalScope.compile(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.GlobalScope.putHoistedFunction(Spike.Scripting.Compiler.Context.T,System.String,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.GlobalScope.initGlobalVariables(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.GlobalScope.initPrivateAndSharedScopes(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Scope.GlobalScope">
+<summary>
+ Global scope compiler
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.FunctionScope.compile(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.FunctionScope.initArgumentsObject(Microsoft.FSharp.Core.FSharpFunc{Spike.Scripting.Compiler.Context.T,Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression}},Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.FunctionScope.initSelfReference(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.FunctionScope.fromThisScope``1(Spike.Scripting.Compiler.Context.T,``0,Spike.Scripting.Compiler.Ast.Variable)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.FunctionScope.initDefinedVariable``1(Spike.Scripting.Compiler.Context.T,``0,Spike.Scripting.Compiler.Ast.Variable)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.FunctionScope.compileAst(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.FunctionScope.initSharedScope(Spike.Scripting.Compiler.Context.T)">
+<summary>
+ Initializes the shared scope storage
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.FunctionScope.initPrivateScope(Spike.Scripting.Compiler.Context.T)">
+<summary>
+ Initializes the private scope storage
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.FunctionScope.VariadicArity.compile(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.FunctionScope.VariadicArity.initArgument(System.Linq.Expressions.Expression,Spike.Scripting.Compiler.Context.T,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.FunctionScope.VariadicArity.initVariables(System.Linq.Expressions.ParameterExpression,Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Scope.FunctionScope.VariadicArity">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.FunctionScope.StaticArity.compile(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.FunctionScope.StaticArity.initArguments(Spike.Scripting.Compiler.Context.T,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.FunctionScope.StaticArity.getDelegateType(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Scope.FunctionScope.StaticArity.initVariables(Spike.Scripting.Compiler.Context.T)">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Scope.FunctionScope.StaticArity">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Scope.FunctionScope">
+<summary>
+ Function scope compiler
+</summary>
+</member>
+<member name="T:Spike.Scripting.Compiler.Scope">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Target.T">
+<summary>
+ Record that represents a compilation target
+ which is a grouping of the following properties:
+ 
+ * Ast - The syntax tree to compile
+ * Mode - The target mode (eval, global or function)
+ * DelegateType - The target delegate signature we&apos;re targeting
+ * ParameterTypes - The parameter types of the delegate signature&apos;s invoke method
+ * Environment - The Spike.Scripting environment object we&apos;re compiling for
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Target.Mode">
+<summary>
+ There are three types of compilation
+ targets. Eval for code compiled through
+ the eval function, Global for code
+ that is compiled in the global scope
+ and Function for code inside function bodies
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Target.createGlobal(Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Runtime.Environment)">
+<summary>
+ Creates a new T record with Global mode
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Target.createEval(Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Runtime.Environment)">
+<summary>
+ Creates a new T record with Eval mode
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Target.create(Spike.Scripting.Compiler.Ast.Tree,Spike.Scripting.Compiler.Target.Mode,Microsoft.FSharp.Core.FSharpOption{System.Type},Spike.Scripting.Runtime.Environment)">
+<summary>
+ Creates a new T record
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Target.getParameterTypes(Microsoft.FSharp.Core.FSharpOption{System.Type})">
+<summary>
+ Extracts the parameter types from a delegate
+</summary>
+</member>
+<member name="M:Spike.Scripting.Compiler.Target.parameterCount(Spike.Scripting.Compiler.Target.T)">
+<summary>
+ The amount of parameters for this target
+</summary>
+</member>
+<member name="T:Spike.Scripting.Compiler.Target">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Unary.compile(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.UnaryOp,Spike.Scripting.Compiler.Ast.Tree)">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Unary">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.ensureFunction``2(Spike.Scripting.Compiler.Context.T,System.Linq.Expressions.Expression,Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,``0},Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,``1})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.ensureObject``2(Spike.Scripting.Compiler.Context.T,System.Linq.Expressions.Expression,Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,``0},Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,``1})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.toStatic(System.Collections.Generic.List{System.Linq.Expressions.ParameterExpression},System.Collections.Generic.List{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.compileIndex(Spike.Scripting.Compiler.Context.T,Spike.Scripting.Compiler.Ast.Tree)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.assign(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.tempBlockT``1(System.Linq.Expressions.Expression,Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,Microsoft.FSharp.Collections.FSharpList{System.Linq.Expressions.Expression}})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.tempBlock(System.Linq.Expressions.Expression,Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,Microsoft.FSharp.Collections.FSharpList{System.Linq.Expressions.Expression}})">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.clrBoxed(System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.unbox(System.Type,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.box(System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.normalizeVal(System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.voidAsUndefined(System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.isBoxed(System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.|IsBox|IsRef|IsVal|(System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.Convert.toObject(Spike.Scripting.Compiler.Context.T,System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.Convert.toNumber(System.Linq.Expressions.Expression)">
+
+</member>
+<member name="M:Spike.Scripting.Compiler.Utils.Convert.convert``2(System.Linq.Expressions.Expression,Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,``0},Microsoft.FSharp.Core.FSharpFunc{System.Linq.Expressions.Expression,``1},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.Unit,System.Linq.Expressions.Expression})">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Utils.Convert">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Utils.Box">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Utils.Constants.Boxed">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Utils.Constants">
+
+</member>
+<member name="T:Spike.Scripting.Compiler.Utils">
+
+</member>
+<member name="M:Spike.Scripting.DelegateUtils.getCallSiteDelegateForArguments``1(``0[])">
+
+</member>
+<member name="M:Spike.Scripting.DelegateUtils.getCallSiteDelegate(System.Collections.Generic.IEnumerable{System.Type})">
+
+</member>
+<member name="M:Spike.Scripting.DelegateUtils.hasVariadicParameter(System.Type)">
+
+</member>
+<member name="M:Spike.Scripting.DelegateUtils.getPublicParameterTypes(System.Type)">
+
+</member>
+<member name="M:Spike.Scripting.DelegateUtils.getInternalParameterTypes">
+
+</member>
+<member name="M:Spike.Scripting.DelegateUtils.hasInternalParameters(System.Type)">
+
+</member>
+<member name="M:Spike.Scripting.DelegateUtils.getAllParameterTypes(System.Type)">
+
+</member>
+<member name="M:Spike.Scripting.DelegateUtils.getReturnType(System.Type)">
+
+</member>
+<member name="M:Spike.Scripting.DelegateUtils.removeInternalParameters(System.Type[])">
+
+</member>
+<member name="M:Spike.Scripting.DelegateUtils.containsInternalParameters(System.Type[])">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.DelegateUtils">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Dlr.ExtensionMethods">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Dlr.Operators">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Dlr.Utils">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Dlr.FSharp">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Dlr.Restrict">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Dlr.Fast.String">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Dlr.Fast.Object">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Dlr.Fast.Utils">
+
+</member>
+<member name="T:Spike.Scripting.Dlr.Fast">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Dlr.ArrayUtils">
+
+</member>
+<member name="T:Spike.Scripting.Dlr">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Error.RuntimeError">
+<summary>
+ Represents an error raised during runtime
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Error.CompileError">
+<summary>
+ Represents an error raised from the 
+ lexer, parser, analyzer or compiler
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Error.Error">
+<summary>
+ Base class of all Spike.Scripting exceptions
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="P:Spike.Scripting.Error.sprintError">
+<summary>
+ Partially applied sprintError function
+ that prints the default 3 lines above and
+ 0 lines after for Spike.Scripting
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Error.SourceCodePrinter">
+
+</member>
+<member name="T:Spike.Scripting.Error">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.ErrorUtils">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.FSharp.Reflection">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.Ref.decru64(Microsoft.FSharp.Core.FSharpRef{System.UInt64})">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.Ref.incru64(Microsoft.FSharp.Core.FSharpRef{System.UInt64})">
+
+</member>
+<member name="T:Spike.Scripting.FSharp.Ref">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.Array.skip``1(System.Int32,``0[])">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.Array.appendOne``1(``0,``0[])">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.Array.removeLast``1(``0[])">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.Array.removeFirst``1(``0[])">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.Array.shrinkEnd``1(System.Int32,``0[])">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.Array.shrinkStart``1(System.Int32,``0[])">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.Array.shrink``1(System.Int32,System.Int32,``0[])">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.Array.copyFrom``1(System.Int32,``0[])">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.Array.expandBack``1(System.Int32,``0[])">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.Array.expandFront``1(System.Int32,``0[])">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.Array.expand``1(System.Int32,System.Boolean,``0[])">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.Array.copyRange``1(System.Int32,System.Int32,``0[])">
+
+</member>
+<member name="T:Spike.Scripting.FSharp.Array">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.List.tryHead``1(Microsoft.FSharp.Collections.FSharpList{``0})">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.List.headOr``1(System.Lazy{``0},Microsoft.FSharp.Collections.FSharpList{``0})">
+
+</member>
+<member name="T:Spike.Scripting.FSharp.List">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.Seq.first``1(System.Collections.Generic.IEnumerable{``0})">
+
+</member>
+<member name="T:Spike.Scripting.FSharp.Seq">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.FSharp.Utils">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.String.couldBeNumber(System.String)">
+
+</member>
+<member name="T:Spike.Scripting.FSharp.String">
+
+</member>
+<member name="M:Spike.Scripting.FSharp.Char.isDigit(System.Char)">
+
+</member>
+<member name="T:Spike.Scripting.FSharp.Char">
+
+</member>
+<member name="T:Spike.Scripting.FSharp">
+
+</member>
+<member name="">
+
+</member>
+<member name="P:Spike.Scripting.Hosting.CSharp.Context.Globals">
+
+</member>
+<member name="P:Spike.Scripting.Hosting.CSharp.Context.Environment">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.CSharp.Context.SetGlobal``1(System.String,``0)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.CSharp.Context.GetGlobalAs``1(System.String)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.CSharp.Context.GetGlobal(System.String)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.CSharp.Context.GetFunctionAs``1(System.String)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.CSharp.Context.ExecuteFile``1(System.String)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.CSharp.Context.ExecuteFile(System.String)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.CSharp.Context.Execute``1(System.String)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.CSharp.Context.Execute(System.String)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.CSharp.Context.CreatePrintFunction">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Hosting.CSharp.Context">
+
+</member>
+<member name="T:Spike.Scripting.Hosting.CSharp">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Hosting.FSharp.T">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.FSharp.executeFileAs``1(System.String,Spike.Scripting.Hosting.FSharp.T)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.FSharp.executeFile(System.String,Spike.Scripting.Hosting.FSharp.T)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.FSharp.executeAs``1(System.String,Spike.Scripting.Hosting.FSharp.T)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.FSharp.execute(System.String,Spike.Scripting.Hosting.FSharp.T)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.FSharp.compileFile(System.String,Spike.Scripting.Hosting.FSharp.T)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.FSharp.compile(System.String,Spike.Scripting.Hosting.FSharp.T)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.FSharp.run(System.Delegate,Spike.Scripting.Hosting.FSharp.T)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.FSharp.getFunctionAs``1(System.String,Spike.Scripting.Hosting.FSharp.T)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.FSharp.getGlobalAs``1(System.String,Spike.Scripting.Hosting.FSharp.T)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.FSharp.getGlobal(System.String,Spike.Scripting.Hosting.FSharp.T)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.FSharp.setGlobal(System.String,System.Object,Spike.Scripting.Hosting.FSharp.T)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.FSharp.globals(Spike.Scripting.Hosting.FSharp.T)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.FSharp.env(Spike.Scripting.Hosting.FSharp.T)">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.FSharp.createContext">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.FSharp.Utils.createPrintFunction(Spike.Scripting.Hosting.FSharp.T)">
+
+</member>
+<member name="T:Spike.Scripting.Hosting.FSharp.Utils">
+
+</member>
+<member name="T:Spike.Scripting.Hosting.FSharp">
+
+</member>
+<member name="M:Spike.Scripting.Hosting.Environment.create">
+
+</member>
+<member name="T:Spike.Scripting.Hosting.Environment">
+
+</member>
+<member name="T:Spike.Scripting.Native.Array.Sort">
+
+</member>
+<member name="M:Spike.Scripting.Native.Array.setup(Spike.Scripting.Runtime.Environment)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Array.constructor'(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue[])">
+
+</member>
+<member name="M:Spike.Scripting.Native.Array.Prototype.setup(Spike.Scripting.Runtime.Environment)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Array.Prototype.create(Spike.Scripting.Runtime.Environment,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Array.Prototype.splice(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue[])">
+<summary>
+ Implements: 15.4.4.12 Array.prototype.splice (start, deleteCount [ , item1 [ , item2 [ , … ] ] ] )
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.Array.Prototype.unshift(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue[])">
+<summary>
+ Implements: 15.4.4.13 Array.prototype.unshift ( [ item1 [, item2 [, ...]]])
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.Array.Prototype.slice(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+<summary>
+ Implements: 15.4.4.10 Array.prototype.slice (start, end)
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.Array.Prototype.sort(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue)">
+<summary>
+ Implements: 15.4.4.11 Array.prototype.sort (comparefn)
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Native.Array.Prototype.reverse(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+<summary>
+ Implements: 15.4.4.8 Array.prototype.reverse ( )
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.Array.Prototype.shift(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+<summary>
+ Implements: 15.4.4.9 Array.prototype.shift ( )
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.Array.Prototype.push(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue[])">
+<summary>
+ Implements: 15.4.4.7 Array.prototype.push ( [ item1 [ , item2 [ , … ] ] ] )
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.Array.Prototype.pop(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+<summary>
+ Implements: 15.4.4.6 Array.prototype.pop ( )
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.Array.Prototype.toLocaleString(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+<summary>
+ Implements: 15.4.4.3 Array.prototype.toLocaleString ( )
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.Array.Prototype.toString(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+<summary>
+ Implements: 15.4.4.2 Array.prototype.toString ( )
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.Array.Prototype.join(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue)">
+<summary>
+ Implements: 15.4.4.5 Array.prototype.join (separator)
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.Array.Prototype.concat(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue[])">
+<summary>
+ Implements: 15.4.4.4 Array.prototype.concat ( [ item1 [ , item2 [ , … ] ] ] )
+</summary>
+</member>
+<member name="T:Spike.Scripting.Native.Array.Prototype">
+
+</member>
+<member name="T:Spike.Scripting.Native.Array">
+
+</member>
+<member name="M:Spike.Scripting.Native.Boolean.setup(Spike.Scripting.Runtime.Environment)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Boolean.constructor'(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Boolean.Prototype.setup(Spike.Scripting.Runtime.Environment)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Boolean.Prototype.create(Spike.Scripting.Runtime.Environment,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Boolean.Prototype.toString(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Boolean.Prototype.valueOf(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="T:Spike.Scripting.Native.Boolean.Prototype">
+
+</member>
+<member name="T:Spike.Scripting.Native.Boolean">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Native.Date.Prototype.DT">
+
+</member>
+<member name="T:Spike.Scripting.Native.Date.Prototype">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Native.Date.Formats">
+
+</member>
+<member name="T:Spike.Scripting.Native.Date">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Native.Error.Utils">
+
+</member>
+<member name="T:Spike.Scripting.Native.Error">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Native.EvalError">
+
+</member>
+<member name="M:Spike.Scripting.Native.Function.setup(Spike.Scripting.Runtime.Environment)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Function.constructor'(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue[])">
+
+</member>
+<member name="M:Spike.Scripting.Native.Function.Prototype.setup(Spike.Scripting.Runtime.Environment)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Function.Prototype.create(Spike.Scripting.Runtime.Environment,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Function.Prototype.call(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue[])">
+
+</member>
+<member name="M:Spike.Scripting.Native.Function.Prototype.apply(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Function.Prototype.getThisObject(Spike.Scripting.Runtime.Environment,Spike.Scripting.Runtime.BoxedValue)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Function.Prototype.toString(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Function.Prototype.prototype``1(Spike.Scripting.Runtime.FunctionObject,``0)">
+
+</member>
+<member name="T:Spike.Scripting.Native.Function.Prototype">
+
+</member>
+<member name="T:Spike.Scripting.Native.Function">
+
+</member>
+<member name="M:Spike.Scripting.Native.Global.setup(Spike.Scripting.Runtime.Environment)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Global.encodeURIComponent(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Global.encodeURI(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue)">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Native.Global.decodeURIComponent(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Global.decodeURI(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue)">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Native.Global.isFinite(System.Double)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Global.isNaN(System.Double)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Global.parseFloat(Spike.Scripting.Runtime.BoxedValue)">
+<summary>
+ These steps are outlined in the ECMA-262, Section 15.1.2.3
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.Global.parseInt(Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+<summary>
+ These steps are outlined in the ECMA-262, Section 15.1.2.2
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.Global.parseWithRadix(System.String,System.Int32)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Global.eval(Spike.Scripting.Compiler.EvalTarget)">
+
+</member>
+<member name="T:Spike.Scripting.Native.Global">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Native.Math">
+
+</member>
+<member name="M:Spike.Scripting.Native.Number.setup(Spike.Scripting.Runtime.Environment)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Number.constructor'(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue[])">
+
+</member>
+<member name="M:Spike.Scripting.Native.Number.Prototype.setup(Spike.Scripting.Runtime.Environment)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Number.Prototype.create(Spike.Scripting.Runtime.Environment,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Number.Prototype.toPrecision(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Number.Prototype.toExponential(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue)">
+<summary>
+ This implementation is a C# to F# adaption of the Jint sources
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.Number.Prototype.toFixed(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,System.Double)">
+<summary>
+ These steps are outlined in the ECMA-262, Section 15.7.4.5
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.Number.Prototype.verifyFractions(Spike.Scripting.Runtime.Environment,System.Int32)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Number.Prototype.valueOf(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Number.Prototype.toLocaleString(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Number.Prototype.toString(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Number.Prototype.nanToString(System.Double)">
+
+</member>
+<member name="T:Spike.Scripting.Native.Number.Prototype">
+
+</member>
+<member name="T:Spike.Scripting.Native.Number">
+
+</member>
+<member name="M:Spike.Scripting.Native.Object.setup(Spike.Scripting.Runtime.Environment)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Object.constructor'(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Object.Prototype.setup(Spike.Scripting.Runtime.Environment)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Object.Prototype.create(Spike.Scripting.Runtime.Environment)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Object.Prototype.propertyIsEnumerable(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,System.String)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Object.Prototype.isPrototypeOf(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Object.Prototype.hasOwnProperty(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,System.String)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Object.Prototype.valueOf(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="P:Spike.Scripting.Native.Object.Prototype.toLocaleString">
+
+</member>
+<member name="M:Spike.Scripting.Native.Object.Prototype.toString(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="T:Spike.Scripting.Native.Object.Prototype">
+
+</member>
+<member name="T:Spike.Scripting.Native.Object">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Native.RangeError">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Native.ReferenceError">
+
+</member>
+<member name="M:Spike.Scripting.Native.RegExp.setup(Spike.Scripting.Runtime.Environment)">
+
+</member>
+<member name="M:Spike.Scripting.Native.RegExp.constructor'(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+<summary>
+ These steps are outlined in the ECMA-262, Section 15.10.4.1
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.RegExp.Prototype.setup(Spike.Scripting.Runtime.Environment)">
+
+</member>
+<member name="M:Spike.Scripting.Native.RegExp.Prototype.create(Spike.Scripting.Runtime.Environment,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.RegExp.Prototype.test(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue)">
+
+</member>
+<member name="M:Spike.Scripting.Native.RegExp.Prototype.exec(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue)">
+<summary>
+ These steps are outlined in the ECMA-262, Section 15.10.6.2
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.RegExp.Prototype.toString(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="T:Spike.Scripting.Native.RegExp.Prototype">
+
+</member>
+<member name="T:Spike.Scripting.Native.RegExp">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.setup(Spike.Scripting.Runtime.Environment)">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.fromCharCode(Spike.Scripting.Runtime.BoxedValue[])">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.constructor'(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue[])">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.setup(Spike.Scripting.Runtime.Environment)">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.create(Spike.Scripting.Runtime.Environment,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.toLocaleUpperCase(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.toUpperCase(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.toLocaleLowerCase(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.toLowerCase(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.substr(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+<summary>
+ These steps are outlined in the ECMA-262, Appendix B.1.2
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.substring(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,System.Double,Spike.Scripting.Runtime.BoxedValue)">
+<summary>
+ These steps are outlined in the ECMA-262, Section 15.5.4.15
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.split(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.slice(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,System.Double,Spike.Scripting.Runtime.BoxedValue)">
+<summary>
+ These steps are outlined in the ECMA-262, Section 15.5.4.13
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.search(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue)">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.replace(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.localeCompare(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,System.String)">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.lastIndexOf(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue,Spike.Scripting.Runtime.BoxedValue)">
+<summary>
+ These steps are outlined in the ECMA-262, Section 15.5.4.8
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.indexOf(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,System.String,System.Double)">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.concat(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue[])">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.charCodeAt(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,System.Double)">
+<summary>
+ These steps are outlined in the ECMA-262, Section 15.5.4.5
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.charAt(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,System.Double)">
+<summary>
+ These steps are outlined in the ECMA-262, Section 15.5.4.4
+</summary>
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.valueOf(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="M:Spike.Scripting.Native.String.Prototype.toString(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="T:Spike.Scripting.Native.String.Prototype">
+
+</member>
+<member name="T:Spike.Scripting.Native.String">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Native.SyntaxError">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Native.TypeError">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Native.URIError">
+
+</member>
+<member name="M:Spike.Scripting.Native.Utils.trapSyntaxError``1(Spike.Scripting.Runtime.Environment,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.Unit,``0})">
+
+</member>
+<member name="M:Spike.Scripting.Native.Utils.createVariadicFunc``1(Spike.Scripting.Runtime.Environment,Microsoft.FSharp.Core.FSharpOption{System.Int32},Microsoft.FSharp.Core.FSharpFunc{Spike.Scripting.Runtime.FunctionObject,Microsoft.FSharp.Core.FSharpFunc{Spike.Scripting.Runtime.ScriptObject,Microsoft.FSharp.Core.FSharpFunc{Spike.Scripting.Runtime.BoxedValue[],``0}}})">
+
+</member>
+<member name="M:Spike.Scripting.Native.Utils.createFunc4``5(Spike.Scripting.Runtime.Environment,Microsoft.FSharp.Core.FSharpOption{System.Int32},Microsoft.FSharp.Core.FSharpFunc{Spike.Scripting.Runtime.FunctionObject,Microsoft.FSharp.Core.FSharpFunc{Spike.Scripting.Runtime.ScriptObject,Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.FSharpFunc{``3,``4}}}}}})">
+
+</member>
+<member name="M:Spike.Scripting.Native.Utils.createFunc3``4(Spike.Scripting.Runtime.Environment,Microsoft.FSharp.Core.FSharpOption{System.Int32},Microsoft.FSharp.Core.FSharpFunc{Spike.Scripting.Runtime.FunctionObject,Microsoft.FSharp.Core.FSharpFunc{Spike.Scripting.Runtime.ScriptObject,Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,Microsoft.FSharp.Core.FSharpFunc{``2,``3}}}}})">
+
+</member>
+<member name="M:Spike.Scripting.Native.Utils.createFunc2``3(Spike.Scripting.Runtime.Environment,Microsoft.FSharp.Core.FSharpOption{System.Int32},Microsoft.FSharp.Core.FSharpFunc{Spike.Scripting.Runtime.FunctionObject,Microsoft.FSharp.Core.FSharpFunc{Spike.Scripting.Runtime.ScriptObject,Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}}}})">
+
+</member>
+<member name="M:Spike.Scripting.Native.Utils.createFunc1``2(Spike.Scripting.Runtime.Environment,Microsoft.FSharp.Core.FSharpOption{System.Int32},Microsoft.FSharp.Core.FSharpFunc{Spike.Scripting.Runtime.FunctionObject,Microsoft.FSharp.Core.FSharpFunc{Spike.Scripting.Runtime.ScriptObject,Microsoft.FSharp.Core.FSharpFunc{``0,``1}}})">
+
+</member>
+<member name="M:Spike.Scripting.Native.Utils.createFunc0``1(Spike.Scripting.Runtime.Environment,Microsoft.FSharp.Core.FSharpOption{System.Int32},Microsoft.FSharp.Core.FSharpFunc{Spike.Scripting.Runtime.FunctionObject,Microsoft.FSharp.Core.FSharpFunc{Spike.Scripting.Runtime.ScriptObject,``0}})">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Native.Utils.createConstructor``1(Spike.Scripting.Runtime.Environment,Microsoft.FSharp.Core.FSharpOption{System.Int32},``0)">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Native.Utils.createFunction``1(Spike.Scripting.Runtime.Environment,Microsoft.FSharp.Core.FSharpOption{System.Int32},``0)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Utils.createHostFunctionObject``1(Spike.Scripting.Runtime.Environment,Microsoft.FSharp.Core.FSharpOption{System.Int32},``0,Spike.Scripting.Runtime.FunctionMetaData)">
+
+</member>
+<member name="M:Spike.Scripting.Native.Utils.createHostFunction``1(Spike.Scripting.Runtime.Environment,``0)">
+<summary>
+ Deprecated
+</summary>
+</member>
+<member name="T:Spike.Scripting.Native.Utils">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Runtime.Optimizations.InlineVariadicInvokeCache.Invoke(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,Spike.Scripting.Runtime.BoxedValue[])">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Runtime.Optimizations.InlineVariadicInvokeCache">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Runtime.Optimizations.InlineInvokeCache`4.Invoke(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,`0,`1,`2,`3)">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Runtime.Optimizations.InlineInvokeCache`4">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Runtime.Optimizations.InlineInvokeCache`3.Invoke(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,`0,`1,`2)">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Runtime.Optimizations.InlineInvokeCache`3">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Runtime.Optimizations.InlineInvokeCache`2.Invoke(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,`0,`1)">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Runtime.Optimizations.InlineInvokeCache`2">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Runtime.Optimizations.InlineInvokeCache`1.Invoke(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject,`0)">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Runtime.Optimizations.InlineInvokeCache`1">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Runtime.Optimizations.InlineInvokeCache.Invoke(Spike.Scripting.Runtime.FunctionObject,Spike.Scripting.Runtime.ScriptObject)">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Runtime.Optimizations.InlineInvokeCache">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Runtime.Optimizations.InlinePropertyPutCache">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Spike.Scripting.Runtime.Optimizations.InlinePropertyGetCache.Get(Spike.Scripting.Runtime.BoxedValue,System.String)">
+
+</member>
+<member name="M:Spike.Scripting.Runtime.Optimizations.InlinePropertyGetCache.Get(Spike.Scripting.Runtime.ScriptObject,System.String)">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Runtime.Optimizations.InlinePropertyGetCache">
+
+</member>
+<member name="M:Spike.Scripting.Runtime.Optimizations.Utils.getInvokeInlineCache(System.Type[])">
+
+</member>
+<member name="T:Spike.Scripting.Runtime.Optimizations.Utils">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Support.Debug">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Support.Aliases">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Support.CustomOperators">
+
+</member>
+<member name="M:Spike.Scripting.TypeUtils.getType(System.Object)">
+
+</member>
+<member name="M:Spike.Scripting.TypeUtils.getTypeArray``1(``0[])">
+
+</member>
+<member name="T:Spike.Scripting.TypeUtils">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Spike.Scripting.Version">
+
+</member>
+</members>
+</doc>
