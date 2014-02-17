@@ -1,7 +1,0 @@
-D:\Workspace\Spike\Spike.Projects\Spike.Scripting.Runtime\bin\Debug\Spike.Scripting.Runtime.dll
-D:\Workspace\Spike\Spike.Projects\Spike.Scripting.Runtime\bin\Debug\Spike.Scripting.Runtime.pdb
-D:\Workspace\Spike\Spike.Projects\Spike.Scripting.Runtime\obj\Debug\Spike.Scripting.Runtime.dll
-D:\Workspace\Spike\Spike.Projects\Spike.Scripting.Runtime\obj\Debug\Spike.Scripting.Runtime.pdb
-D:\Workspace\Spike\Spike.Projects\Spike.Scripting.Runtime\obj\Debug\Spike.Scripting.Runtime.csprojResolveAssemblyReference.cache
-D:\Workspace\Spike\Spike.Projects\Spike.Scripting.Runtime\bin\Debug\FSharp.Core.dll
-D:\Workspace\Spike\Spike.Projects\Spike.Scripting.Runtime\bin\Debug\FSharp.Core.xml

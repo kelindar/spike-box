@@ -1,5 +1,0 @@
-D:\Workspace\Spike\Spike.Projects\Spike.Scripting.Runtime\bin\Release\Spike.Scripting.Runtime.xml
-D:\Workspace\Spike\Spike.Projects\Spike.Scripting.Runtime\bin\Release\Spike.Scripting.Runtime.dll
-D:\Workspace\Spike\Spike.Projects\Spike.Scripting.Runtime\bin\Release\Spike.Scripting.Runtime.pdb
-D:\Workspace\Spike\Spike.Projects\Spike.Scripting.Runtime\obj\Release\Spike.Scripting.Runtime.dll
-D:\Workspace\Spike\Spike.Projects\Spike.Scripting.Runtime\obj\Release\Spike.Scripting.Runtime.pdb
