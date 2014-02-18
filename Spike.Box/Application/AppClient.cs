@@ -38,7 +38,7 @@ namespace Spike.Box
                     source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.angular-touch.js"));
                     source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.spike-sdk.min.js"));
                     source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.spike-cache.js"));
-                    source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.spike-box.js"));
+                    source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.spike-box.js").Replace("{{host}}", AppServer.Current.Endpoint));
                     
 
                     DateTime lastWriteUtc = DateTime.UtcNow;

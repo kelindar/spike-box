@@ -43,7 +43,7 @@ app.factory('$server', ['$q', '$rootScope', function ($q, $rootScope) {
     var currentInstanceId = 0;
 
     // Create the actual channel used for mapping
-    var server = new ServerChannel("127.0.0.1:8002");
+    var server = new ServerChannel("{{host}}");
 
     /**
     * Creates a new callback identifier for a request.
@@ -330,9 +330,8 @@ app.factory('$server', ['$q', '$rootScope', function ($q, $rootScope) {
 
 app.controller('box', function ($scope, $server) {
 
-    $scope.bind = function (host, app, url) {
+    $scope.bind = function (app, url) {
         // Set the application identifier and a view url
-        $server.server = new ServerChannel(host);
         $server.currentApp = app;
         $scope.url = url;
     };

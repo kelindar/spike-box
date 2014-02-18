@@ -1,0 +1,29 @@
+﻿<header class="panel-heading"><h2><strong>Services</strong> demo</h2></header>
+
+<div ng-controller="Services" class="panel-body">
+    <button ng-click="toggleInterval()" class="btn btn-primary">Toggle Interval</button>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th style="border-bottom-color: rgb(108, 195, 160);">Service name</th>
+                    <th style="border-bottom-color: rgb(108, 195, 160);">Service listeners</th>
+                    <th style="border-bottom-color: rgb(108, 195, 160);">Available protocols</th>
+                    <th style="border-bottom-color: rgb(108, 195, 160);">Price</th>
+                </tr>
+            </thead>
+
+            <tr ng-repeat="service in services">
+                <td><strong>{{service.serviceName}}</strong></td>
+                <td>{{service.listeners}}</td>
+                <td>
+                    <select>
+                        <option ng-repeat="protocol in service.protocols">{{protocol.protocolName}}</option>
+                    </select>
+                    <ul><li</li></ul>
+                </td>
+                <td><span class="label label-{{item.type}}">{{service.cost}}</span></td>
+            </tr>
+        </table>
+    </div>
+</div>

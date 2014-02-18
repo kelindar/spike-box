@@ -16,6 +16,7 @@
     <Rule Source="/compose$" Destination="/app/compose/index" />
 	<Rule Source="/controls$" Destination="/app/controls/index" />
     <Rule Source="/buffer$" Destination="/app/buffer/index" />
+	<Rule Source="/test$" Destination="/app/test/index" />
   </Rules>
   <Elements>
 	<Element Name="notify" Template="controls/notify" Transclude="true" />
