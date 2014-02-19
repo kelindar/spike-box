@@ -67,6 +67,8 @@
     <Compile Include="Compilation\SurrogateModifier.cs" />
     <Compile Include="Compilation\SurrogateProperty.cs" />
     <Compile Include="Compilation\SurrogateMember.cs" />
+    <Compile Include="Execution\Module\IModule.cs" />
+    <Compile Include="Execution\Module\Module.cs" />
     <Compile Include="Execution\Native\Native.Observe.cs" />
     <Compile Include="Execution\Native\Native.Extend.cs" />
     <Compile Include="Execution\Objects\BufferObject.cs" />

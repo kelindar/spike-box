@@ -47,6 +47,9 @@ namespace Spike.Box
             this.Import("json", Resources.Json);
             //this.Import("linq", Resources.Linq);
 
+            // Include all the native modules
+            Module.IncludeIn(this);
+
             // Set the runtime
             this.Runtime = this.Context.Globals.Get("Runtime").Object;
         }
