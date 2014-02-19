@@ -252,6 +252,29 @@ namespace Spike.Box
             get { return ThreadChannel; }
             internal set { ThreadChannel = value; }
         }
+
+        /// <summary>
+        /// Invokes a function on a specific channel.
+        /// </summary>
+        public static void Invoke(Action action, Channel channel)
+        {
+            // Keep the original channel
+            var original = Channel.Current;
+            try
+            {
+                // Attach the channel
+                if (Channel.Current == null)
+                    Channel.Current = channel;
+
+                // Invoke
+                action();
+            }
+            finally
+            {
+                Channel.Current = original;
+            }
+
+        }
         #endregion
 
         #region IDisposable Members
