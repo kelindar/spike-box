@@ -198,7 +198,7 @@ namespace Spike.Box
         /// </summary>
         /// <param name="value">The value to serialize.</param>
         /// <returns>Serialized value.</returns>
-        internal static BoxedValue Serialize(Env environment, BoxedValue value)
+        public static BoxedValue Serialize(Env environment, BoxedValue value)
         {
             // If undefined or null, return a boxed null value
             if (value.IsUndefined || value.IsNull)
@@ -226,7 +226,7 @@ namespace Spike.Box
         /// </summary>
         /// <param name="value">The value to deserialize.</param>
         /// <returns>Deserialized value.</returns>
-        internal static BoxedValue Deserialize(Env environment, string value)
+        public static BoxedValue Deserialize(Env environment, string value)
         {
             try
             {
