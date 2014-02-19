@@ -120,13 +120,25 @@ namespace Spike.Box
         {
             // Count the globals before
             var typesOffset = this.Context.Globals.Members.Count;
-            var sourceCode = this.Context.Execute(script.CodeBehind);
+            var sourceFunc = this.Context.Execute(script.CodeBehind) as FunctionObject;
+            // TODO: detect the name
+            /*if(sourceFunc != null)
+            {
+                Console.WriteLine(sourceFunc.Name);
+
+            }*/
 
             // A list that contains proxies to generate
             var proxies = new List<Surrogate>();
 
             // Loop through all new types that the script has introduced
             var typesCount = this.Context.Globals.Members.Count;
+
+            // No new types!
+            if (typesCount == typesOffset)
+                throw new ApplicationException("No new types were detected in " + script.Key + ". Make sure you have a global variable assigned and it haven't been declared already.");
+
+            // Loop through new types
             for (int i = typesOffset; i < typesCount; ++i)
             {
                 var name = this.Context.Globals.Members.Keys.ElementAt(i);
