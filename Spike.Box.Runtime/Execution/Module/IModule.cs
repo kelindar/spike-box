@@ -9,7 +9,7 @@ namespace Spike.Box
     /// <summary>
     /// Represents a module that can extend native functionality of the box.
     /// </summary>
-    interface IModule
+    public interface IModule
     {
         /// <summary>
         /// Gets the name of the module.
