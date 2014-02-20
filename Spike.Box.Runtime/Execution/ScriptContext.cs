@@ -308,6 +308,42 @@ namespace Spike.Box
         /// <summary>
         /// Creates a function within ghis <see cref="ScriptContext"/>.
         /// </summary>
+        /// <typeparam name="T1">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T2">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T3">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T4">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T5">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T6">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T7">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="TResult">Type of the result for this function.</typeparam>
+        /// <param name="function">The native function to execute.</param>
+        public FunctionObject CreateFunction<T1, T2, T3, T4, T5, T6, T7, TResult>(Func<T1, T2, T3, T4, T5, T6, T7, TResult> function)
+        {
+            return this.CreateDelegate<Func<T1, T2, T3, T4, T5, T6, T7, TResult>>(7, function);
+        }
+
+        /// <summary>
+        /// Creates a function within ghis <see cref="ScriptContext"/>.
+        /// </summary>
+        /// <typeparam name="T1">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T2">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T3">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T4">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T5">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T6">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T7">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T8">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="TResult">Type of the result for this function.</typeparam>
+        /// <param name="function">The native function to execute.</param>
+        public FunctionObject CreateFunction<T1, T2, T3, T4, T5, T6, T7, T8, TResult>(Func<T1, T2, T3, T4, T5, T6, T7, T8, TResult> function)
+        {
+            return this.CreateDelegate<Func<T1, T2, T3, T4, T5, T6, T7, T8, TResult>>(8, function);
+        }
+
+
+        /// <summary>
+        /// Creates a function within ghis <see cref="ScriptContext"/>.
+        /// </summary>
         /// <param name="function">The native function to execute.</param>
         public FunctionObject CreateFunction(Action function)
         {
@@ -389,6 +425,40 @@ namespace Spike.Box
             return this.CreateDelegate<Action<T1, T2, T3, T4, T5, T6>>(6, function);
         }
 
+
+        /// <summary>
+        /// Creates a function within ghis <see cref="ScriptContext"/>.
+        /// </summary>
+        /// <typeparam name="T1">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T2">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T3">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T4">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T5">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T6">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T7">Type of the parameter for this function.</typeparam>
+        /// <param name="function">The native function to execute.</param>
+        public FunctionObject CreateFunction<T1, T2, T3, T4, T5, T6, T7>(Action<T1, T2, T3, T4, T5, T6, T7> function)
+        {
+            return this.CreateDelegate<Action<T1, T2, T3, T4, T5, T6, T7>>(7, function);
+        }
+
+
+        /// <summary>
+        /// Creates a function within ghis <see cref="ScriptContext"/>.
+        /// </summary>
+        /// <typeparam name="T1">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T2">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T3">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T4">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T5">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T6">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T7">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T8">Type of the parameter for this function.</typeparam>
+        /// <param name="function">The native function to execute.</param>
+        public FunctionObject CreateFunction<T1, T2, T3, T4, T5, T6, T7, T8>(Action<T1, T2, T3, T4, T5, T6, T7, T8> function)
+        {
+            return this.CreateDelegate<Action<T1, T2, T3, T4, T5, T6, T7, T8>>(8, function);
+        }
 
 
         /// <summary>
@@ -480,6 +550,41 @@ namespace Spike.Box
         public NamedFunctionObject CreateFunction<T1, T2, T3, T4, T5, T6, TResult>(string name, Func<T1, T2, T3, T4, T5, T6, TResult> function)
         {
             return this.CreateDelegate<Func<T1, T2, T3, T4, T5, T6, TResult>>(name, 6, function);
+        }
+
+        /// <summary>
+        /// Creates a function within ghis <see cref="ScriptContext"/>.
+        /// </summary>
+        /// <typeparam name="T1">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T2">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T3">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T4">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T5">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T6">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T7">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="TResult">Type of the result for this function.</typeparam>
+        /// <param name="function">The native function to execute.</param>
+        public NamedFunctionObject CreateFunction<T1, T2, T3, T4, T5, T6, T7, TResult>(string name, Func<T1, T2, T3, T4, T5, T6, T7, TResult> function)
+        {
+            return this.CreateDelegate<Func<T1, T2, T3, T4, T5, T6, T7, TResult>>(name, 7, function);
+        }
+
+        /// <summary>
+        /// Creates a function within ghis <see cref="ScriptContext"/>.
+        /// </summary>
+        /// <typeparam name="T1">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T2">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T3">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T4">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T5">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T6">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T7">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="T8">Type of the parameter for this function.</typeparam>
+        /// <typeparam name="TResult">Type of the result for this function.</typeparam>
+        /// <param name="function">The native function to execute.</param>
+        public NamedFunctionObject CreateFunction<T1, T2, T3, T4, T5, T6, T7, T8, TResult>(string name, Func<T1, T2, T3, T4, T5, T6, T7, T8, TResult> function)
+        {
+            return this.CreateDelegate<Func<T1, T2, T3, T4, T5, T6, T7, T8, TResult>>(name, 8, function);
         }
 
         /// <summary>
