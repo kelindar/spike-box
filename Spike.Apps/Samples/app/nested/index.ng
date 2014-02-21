@@ -21,7 +21,21 @@
 		</table> 
 	</div>
 	
-	
+	<form role="form">
+		<div class="form-group">
+			<label for="i1">Name</label>
+			<input class="form-control" id="i1" type="text" ng-model="name" placeholder="Enter name">
+		</div>
+
+		<div class="form-group">
+			<label for="i2">Surname</label>
+			<input class="form-control" id="i2" type="text" ng-model="surname" placeholder="Enter surname">
+		</div>
+
+
+		<button class="btn btn-primary" ng-click="addMember(name, surname)">Add Team Member</button>
+
+	</form>
 	
 </div>
 

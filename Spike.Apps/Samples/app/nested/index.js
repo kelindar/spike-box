@@ -28,5 +28,12 @@ var Nested = (function () {
         enumerable: true,
         configurable: true
     });
+
+    /**
+    * Adds a member to the team list.
+    */
+    Nested.prototype.addMember = function (name, surname) {
+        this._people.push({ name: name, surname: surname });
+    };
     return Nested;
 })();

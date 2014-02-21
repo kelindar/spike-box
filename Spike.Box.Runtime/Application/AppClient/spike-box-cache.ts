@@ -1,14 +1,14 @@
-var AppCache = (function () {
-    function AppCache() {
-        this.array = [];
-        this.size = 0;
-    }
-    /**
+class AppCache {
+
+    private array: any[] = [];
+    private size: number = 0;
+
+    /** 
     * Scans an object and adds it to the cache.
     */
-    AppCache.prototype.scan = function (target) {
-        // Make sure we have a target
-        if (typeof (target) == 'undefined' || target == null)
+    public scan(target: any): void {
+        // Make sure we have a target 
+        if (typeof (target) === 'undefined' || target == null)
             return;
 
         // If the value is an array, convert it
@@ -24,7 +24,8 @@ var AppCache = (function () {
                 // Set to the cache
                 this.setItem(arrayId, target);
 
-                for (var i = 0; i < target.length; ++i) {
+                // For each element in the array, check
+                for (var i: number = 0; i < target.length; ++i) {
                     this.scan(target[i]);
                 }
             }
@@ -43,29 +44,30 @@ var AppCache = (function () {
             // Set to the cache
             this.setItem(id, target);
 
+            // For each property, recursively scan as well
             for (var propertyName in target) {
                 this.scan(target[propertyName]);
             }
         }
-    };
+    }
 
     /**
     * Removes empty elements from an array.
     */
-    AppCache.prototype.cleanArray = function (value) {
+    private cleanArray(value: any[]) {
         for (var i = 0; i < value.length; i++) {
-            if (typeof (value[i]) == 'undefined' || value[i] == null) {
+            if (typeof (value[i]) == 'undefined' || value[i] == null){
                 value.splice(i, 1);
                 i--;
             }
         }
         return value;
-    };
+    }
 
     /**
     * Adds a new member to the target object.
     */
-    AppCache.prototype.putMember = function (key, propertyName, propertyValue) {
+    public putMember(key: number, propertyName: string, propertyValue: any) {
         // Get the item by the key and make sure it exists
         var target = this.getItem(key);
 
@@ -91,12 +93,12 @@ var AppCache = (function () {
 
         // Scan the new value
         this.scan(propertyValue);
-    };
+    }
 
     /**
     * Updates a member of the target object.
     */
-    AppCache.prototype.setMember = function (key, propertyName, propertyValue) {
+    public setMember(key: number, propertyName: string, propertyValue: any) {
         // Get the item by the key and make sure it exists
         var target = this.getItem(key);
 
@@ -112,22 +114,25 @@ var AppCache = (function () {
             value[parseInt(propertyName)] = propertyValue;
             this.cleanArray(value);
         } else {
+
             // If it doesn't have the property, ignore
             if (!value.hasOwnProperty(propertyName))
                 return;
+
 
             // Set the value of the object
             value[propertyName] = propertyValue;
         }
 
+
         // Scan the new value
         this.scan(propertyValue);
-    };
+    }
 
     /**
     * Deletes a member from the target object.
     */
-    AppCache.prototype.deleteMember = function (key, propertyName) {
+    public deleteMember(key: number, propertyName: string) {
         // Get the item by the key and make sure it exists
         var target = this.getItem(key);
 
@@ -150,75 +155,81 @@ var AppCache = (function () {
         // If it's an array, overwrite the index
         // Two cases, one for the array and one for the object
         if (Object.prototype.toString.call(value) === '[object Array]') {
+
             // Set the value of the array
             var index = parseInt(propertyName);
 
+            // Check which index we have
             switch (index) {
-                case 0:
-                    value.shift();
-                    break;
 
-                case value.length:
-                    value.pop();
-                    break;
+                // First element, just do shift
+                case 0: value.shift(); break;
 
+                // Last element, just do pop
+                case value.length: value.pop(); break;
+
+                // Default handling, delete and remove empty
                 default:
                     delete value[index];
                     this.cleanArray(value);
                     break;
             }
+
         } else {
             // Set the value of the object
             delete value[propertyName];
         }
-    };
+    }
 
-    /**
+    /** 
     * Removes a target item from the cache and returns the removed item.
     */
-    AppCache.prototype.remove = function (key) {
+    public remove(key: number): any {
         if (this.contains(key)) {
             var previous = this.array[key];
             this.size--;
             delete this.array[key];
             return previous;
-        } else {
+        }
+        else {
             return undefined;
         }
-    };
+    }
 
-    /**
+    /** 
     * Checks whether the key is contained in the cache.
     */
-    AppCache.prototype.contains = function (key) {
+    public contains(key: number): boolean{
         return this.array.hasOwnProperty(key.toString());
-    };
+    }
 
     /**
     * Gets a value from the cache.
     */
-    AppCache.prototype.getItem = function (key) {
+    private getItem(key: number): any {
         return this.contains(key) ? this.array[key] : undefined;
-    };
+    }
 
     /**
     * Gets a clone attached to the object.
     */
-    AppCache.prototype.getClone = function (key) {
+    public getClone(key: number): any {
         return this.contains(key) ? this.array[key].c : undefined;
-    };
+    }
 
     /**
     * Sets a value into the cache.
     */
-    AppCache.prototype.setItem = function (key, value) {
+    private setItem(key: number, value: any) {
         if (this.contains(key)) {
+            
             // Set the object and replace the old one
             this.array[key] = {
                 v: value,
                 c: this.cloneObject(value)
             };
         } else {
+            
             // Put a new object
             this.size++;
             this.array[key] = {
@@ -226,28 +237,28 @@ var AppCache = (function () {
                 c: this.cloneObject(value)
             };
         }
-    };
+    }
 
     /**
     * Clears tne entire cache.
     */
-    AppCache.prototype.clear = function () {
+    public clear(): void{
         this.array = [];
         this.size = 0;
-    };
+    }
 
     /**
     * Creates a shallow copy of the object.
     */
-    AppCache.prototype.cloneObject = function (obj) {
+    private cloneObject(obj: any): any {
         if (null === obj || "object" != typeof obj)
             return obj;
         var copy = obj.constructor();
         for (var attr in obj) {
-            if (obj.hasOwnProperty(attr))
-                copy[attr] = obj[attr];
+            if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
         }
         return copy;
-    };
-    return AppCache;
-})();
+    }
+    
+}
+

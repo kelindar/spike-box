@@ -1,19 +1,72 @@
 var app = angular.module('app', ['ngRoute', 'ngAnimate']);
 
+// Returns a angular module, searching for its name, if it's a string
+function getModule(name) {
+    if (typeof name === "string") {
+        return angular.module(name);
+    }
+    return name;
+};
+
+var moduleExtender = function (sourceModule) {
+    var modules = Array.prototype.slice.call(arguments);
+
+    // Take sourceModule out of the array
+    modules.shift();
+
+    // Parse the source module
+    sourceModule = getModule(sourceModule);
+    if (!sourceModule._appBoxDecorated) {
+        throw new Error("Can't extend a module which hasn't been decorated.");
+    }
+
+    // Merge all modules into the source module
+    modules.forEach(function (module) {
+        module = getModule(module);
+        module._invokeQueue.reverse().forEach(function (call) {
+            // call is in format [ provider, function, args ]
+            var provider = sourceModule._lazyProviders[call[0]];
+
+            // Same as for example $controllerProvider.register("Ctrl", function() { ... })
+            provider && provider[call[1]].apply(provider, call[2]);
+        });
+    });
+};
+
+/**
+* Allows lazy extension, loading modules asychronously.
+*/
+app.extend = moduleExtender.bind(null, app);
+
+/**
+* Configures the application.
+*/
 app.config([
     '$routeProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', '$animateProvider',
     function ($routeProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, $animateProvider) {
-    // save references to the providers
-    app.lazy = {
-        controller: $controllerProvider.register,
-        directive: $compileProvider.directive,
-        filter: $filterProvider.register,
-        factory: $provide.factory,
-        service: $provide.service,
-        animate: $animateProvider.register
-    };
+        // Lazy providers
+        app._lazyProviders = {
+            $compileProvider: $compileProvider,
+            $controllerProvider: $controllerProvider,
+            $filterProvider: $filterProvider,
+            $provide: $provide
+        };
 
-    // Register routes with the $routeProvider
+        // Lazy functions
+        app.lazy = {
+            controller: $controllerProvider.register,
+            directive: $compileProvider.directive,
+            filter: $filterProvider.register,
+            factory: $provide.factory,
+            service: $provide.service,
+            animate: $animateProvider.register,
+            extend : app.extend
+        };
+
+        // Register routes with the $routeProvider
+
+        // Set the decorated field
+        app._appBoxDecorated = true;
 }]);
 
 if (!Object.keys) {
@@ -43,7 +96,7 @@ app.factory('$server', ['$q', '$rootScope', function ($q, $rootScope) {
     var currentInstanceId = 0;
 
     // Create the actual channel used for mapping
-    var server = new ServerChannel("{{host}}");
+    var server = null;
 
     /**
     * Creates a new callback identifier for a request.
@@ -245,95 +298,122 @@ app.factory('$server', ['$q', '$rootScope', function ($q, $rootScope) {
     }
 
     /**
-    * Occurs when we have received a handhsake response from the server.
+    * Performs the connection to a remote endpoint and binds the callbacks.
     */
-    server.handshakeInform = function (packet) {
-        // Get the members of the packet
-        var cid = packet.callback;
-        var oid = packet.target;
+    service.connect = function (endpoint, callback) {
 
-        // console.log(packet);
+        // Create a new channel
+        server = new ServerChannel(endpoint);
 
-        // Resolve the appropriate promise
-        if (callbacks.hasOwnProperty(cid)) {
-            $rootScope.$apply(callbacks[cid].cb.resolve(oid));
-            delete callbacks[cid];
-        }
-    };
-
-    // Occurs when we get a notification from the server
-    server.queryInform = function (packet) {
-        // Get the members of the packet
-        var cid = packet.callback;
-        var data = service.deserialize(packet.result);
-
-        //console.log(packet);
-
-        // Resolve the appropriate promise
-        if (callbacks.hasOwnProperty(cid)) {
-
-            // Make sure we have the object in the cache
-            service.cache.scan(data);
-
-            // Execute the apply on the scope
-            $rootScope.$apply(callbacks[cid].cb.resolve(data));
-            delete callbacks[cid];
+        // Bind the callback if provided
+        if (callback != null && typeof (callback) !== 'undefined') {
+            server.onConnect(callback);
         }
 
-    };
+        /**
+        * Occurs when we have received a handhsake response from the server.
+        */
+        server.handshakeInform = function (packet) {
+            // Get the members of the packet
+            var cid = packet.callback;
+            var oid = packet.target;
 
-    server.eventInform = function (packet) {
-        var type   = packet.type;
-        var target = packet.target;
-        var name   = packet.name;
+            // console.log(packet);
 
-        // We're receiving
-        service.receiving[target] = true;
+            // Resolve the appropriate promise
+            if (callbacks.hasOwnProperty(cid)) {
+                $rootScope.$apply(callbacks[cid].cb.resolve(oid));
+                delete callbacks[cid];
+            }
+        };
 
-        //console.log(packet);
+        // Occurs when we get a notification from the server
+        server.queryInform = function (packet) {
+            // Get the members of the packet
+            var cid = packet.callback;
+            var data = service.deserialize(packet.result);
 
-        try
-        {
-            // Deserialize the value
-            var value = service.deserialize(packet.value);
+            //console.log(packet);
 
-            // If it's a property set on a page, update the cache
-            if (type == 1) {
-                service.cache.scan(packet.value);
+            // Resolve the appropriate promise
+            if (callbacks.hasOwnProperty(cid)) {
+
+                // Make sure we have the object in the cache
+                service.cache.scan(data);
+
+                // Execute the apply on the scope
+                $rootScope.$apply(callbacks[cid].cb.resolve(data));
+                delete callbacks[cid];
             }
 
-            switch(type)
-            {
-                case 0: $rootScope.$broadcast('e:custom', packet); break;
-                case 1: log(name, value); break;
-                case 2: $rootScope.$broadcast('e:property', packet); break;
-                case 3: service.cache.putMember(target, name, value); break;
-                case 4: service.cache.setMember(target, name, value); break;
-                case 5: service.cache.deleteMember(target, name, value); break;
+        };
+
+        server.eventInform = function (packet) {
+            var type = packet.type;
+            var target = packet.target;
+            var name = packet.name;
+
+            // We're receiving
+            service.receiving[target] = true;
+
+            //console.log(packet);
+
+            try {
+                // Deserialize the value
+                var value = service.deserialize(packet.value);
+
+                // If it's a property set on a page, update the cache
+                if (type == 1) {
+                    service.cache.scan(packet.value);
+                }
+
+                switch (type) {
+                    case 0: $rootScope.$broadcast('e:custom', packet); break;
+                    case 1: log(name, value); break;
+                    case 2: $rootScope.$broadcast('e:property', packet); break;
+                    case 3: service.cache.putMember(target, name, value); break;
+                    case 4: service.cache.setMember(target, name, value); break;
+                    case 5: service.cache.deleteMember(target, name, value); break;
+                }
+
+                $rootScope.$apply();
             }
-        
-            $rootScope.$apply();
-        }
-        /*catch (e) {
-            console.error(e);
-        }*/
-        finally {
-            // We're done with reception handling
-            service.receiving[target] = false;
-        }
-    };
+            /*catch (e) {
+                console.error(e);
+            }*/
+            finally {
+                // We're done with reception handling
+                service.receiving[target] = false;
+            }
+        };
+    }
+
 
 
     return service;
 }]);
 
 
-app.controller('box', function ($scope, $server) {
+app.controller('box', function ($scope, $server, $parse, $injector) {
 
-    $scope.bind = function (app, url) {
+    $scope.bind = function (config) {
         // Set the application identifier and a view url
-        $server.currentApp = app;
-        $scope.url = url;
+        $server.currentApp = config.app;
+        $scope.url = config.view;
+
+        // Connect to the host
+        $server.connect(config.host);
+
+        // If we have a require, inject the dependancies
+        if (config.requires != null && typeof (config.requires) !== 'undefined' && config.requires.length > 0) {
+            for (var i = 0; i < config.requires.length; ++i) {
+                // Get the dependancy
+                var dependancy = config.requires[0];
+
+                // Add to the requires list
+                app.lazy.extend(dependancy);
+            }
+        }
     };
 
 });

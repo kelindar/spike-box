@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="app" ng-controller="box" ng-init="bind({{app}}, {{view}})">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="app" ng-controller="box" box-app="{{app}}" box-host="{{host}}" box-view="{{view}}">
 <head>
     <meta charset="utf-8" />
     <title>{{title}}</title>
@@ -10,6 +10,6 @@
 
 </head>
 <body>
-    <section class="panel panel-shadow" ng-include src="url"></section>
+    <section box-app2 class="panel panel-shadow" ng-include src="url"></section>
 </body>
 </html>

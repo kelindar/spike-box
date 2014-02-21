@@ -8,9 +8,7 @@ class List{
     * Make a new random number between 0 and 100
     */
     private _rand() {
-        return {
-            value: Math.round(Math.random() * 100, 0)
-        };
+        return { value: Math.round(Math.random() * 100, 0) };
     }
 
     /**

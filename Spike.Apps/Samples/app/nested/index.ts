@@ -24,7 +24,11 @@ class Nested{
     public get team() { return this._team; }
     public set team(v) { this._team = v; }
 
-
-
+    /**
+    * Adds a member to the team list.
+    */
+    public addMember(name: string, surname: string){
+        this._people.push({ name: name, surname: surname });
+    }
 
 } 

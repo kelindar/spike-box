@@ -9,12 +9,14 @@ namespace Spike.Box
     /// <summary>
     /// Module helper.
     /// </summary>
-    internal static class Module
+    internal static class Modules
     {
+        #region Constructor
         /// <summary>
         /// The list of resolved modules
         /// </summary>
-        private static IEnumerable<IModule> Modules = null;
+        private static IEnumerable<IModule> Cache = null;
+
 
         /// <summary>
         /// Registers all the modules into the script context.
@@ -22,25 +24,18 @@ namespace Spike.Box
         /// <param name="context"></param>
         public static void IncludeIn(ScriptContext context)
         {
-            // Inject the modules
-            foreach (var module in Module.Resolve())
+            // Inject the modules in parallel, as they are no dependancies
+            // at the moment between components.
+            Parallel.ForEach(Modules.Resolve(), (module) =>
             {
-                try
-                {
-                    //Print what we are doing
-                    Console.WriteLine("Scripting: Importing {0} library ...", module.Name);
-
-                    // Attempt to register
-                    module.Register(context);
-                }
-                catch (Exception ex)
-                {
-                    // Log the exception
-                    Service.Logger.Log(ex);
-                }
-            }
+                context.Import(module.Name, module.Register);
+            });
         }
 
+        #endregion
+
+
+        #region Resove() Method
         /// <summary>
         /// Resolve all the native modules.
         /// </summary>
@@ -48,8 +43,8 @@ namespace Spike.Box
         public static IEnumerable<IModule> Resolve()
         {
             // Return cached
-            if (Modules != null)
-                return Modules;
+            if (Cache != null)
+                return Cache;
 
             // Module interface
             var contract = typeof(IModule);
@@ -91,10 +86,12 @@ namespace Spike.Box
             }
             
             // Cache the modules
-            Modules = modules;
+            Cache = modules;
 
             // Return the modules
             return modules;
         }
+
+        #endregion
     }
 }

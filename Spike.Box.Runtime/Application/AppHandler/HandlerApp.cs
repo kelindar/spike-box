@@ -38,7 +38,7 @@ namespace Spike.Box
             var content = app
                 .Replace("{{host}}", AppServer.Current.Endpoint)
                 .Replace("{{app}}", site.Key.ToString())
-                .Replace("{{view}}", "'" + view + "'")
+                .Replace("{{view}}",  view)
                 .Replace("{{title}}", "Spike.Box");
                 
 

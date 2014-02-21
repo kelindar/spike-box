@@ -9,6 +9,7 @@ using Spike.Box.Properties;
 using Env = Spike.Scripting.Runtime.Environment;
 using Microsoft.FSharp.Core;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace Spike.Box
 {
@@ -39,16 +40,8 @@ namespace Spike.Box
             this.Context.CreatePrintFunction();
             this.AttachGlobal("global", this.Context.Globals);
 
-            // Include core interop
-            Console.WriteLine("Scripting: Importing native library ...");
-            Native.IncludeIn(this);
-
-            // Execute core libraries
-            this.Import("json", Resources.Json);
-            //this.Import("linq", Resources.Linq);
-
-            // Include all the native modules
-            Module.IncludeIn(this);
+            // Include all the modules
+            Modules.IncludeIn(this);
 
             // Set the runtime
             this.Runtime = this.Context.Globals.Get("Runtime").Object;
@@ -66,17 +59,48 @@ namespace Spike.Box
         }
         #endregion
 
-        #region Public Members (Helpers)
+        #region Public Members (Import)
 
         /// <summary>
         /// Imports a javascript library to this context.
         /// </summary>
         /// <param name="name">The name of the library to import.</param>
-        /// <param name="script">The contents of the library.</param>
-        private void Import(string name, string script)
+        /// <param name="import">The action that does the importing.</param>
+        public void Import(string name, Action<ScriptContext> import)
         {
-            Console.WriteLine("Scripting: Importing {0} library...", name);
-            this.Context.Execute(script);
+            try
+            {
+                // Measure the time before importing
+                var start = DateTime.Now;
+
+                // Start importing
+                import(this);
+
+                // We're done importing, successfully
+                var timeTaken = (DateTime.Now - start);
+                Console.WriteLine("Scripting: Imported {0} library, {1}ms.", name, timeTaken.TotalMilliseconds);
+            }
+            catch(Exception ex)
+            {
+                // Write why we were unable to import.
+                Service.Logger.Log(LogLevel.Error, 
+                    String.Format("Scripting: Unable to import {0} library. Error: {1}", name, ex.Message)
+                    );
+            }
+            
+        }
+
+        #endregion
+
+        #region Public Members (Helpers)
+        /// <summary>
+        /// Evaluates a javascript within this context.
+        /// </summary>
+        /// <param name="source">The source to execute.</param>
+        public dynamic Eval(string source)
+        {
+            // Import within this context by simply executing it
+            return this.Context.Execute(source);
         }
 
         /// <summary>

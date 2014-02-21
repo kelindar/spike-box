@@ -68,6 +68,7 @@
     <Compile Include="Compilation\SurrogateProperty.cs" />
     <Compile Include="Compilation\SurrogateMember.cs" />
     <Compile Include="Execution\Module\IModule.cs" />
+    <Compile Include="Execution\Module\ModulesE.cs" />
     <Compile Include="Execution\Module\Module.cs" />
     <Compile Include="Execution\Native\Native.Observe.cs" />
     <Compile Include="Execution\Native\Native.Extend.cs" />
@@ -147,7 +148,8 @@
     <None Include="Resources\app.ng" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Application\AppClient\spike-cache.ts" />
+    <TypeScriptCompile Include="Application\AppClient\spike-box-directives.ts" />
+    <TypeScriptCompile Include="Application\AppClient\spike-box-cache.ts" />
     <None Include="Resources\Linq.js" />
     <None Include="Resources\Json.js" />
   </ItemGroup>
@@ -161,7 +163,7 @@
     <EmbeddedResource Include="Application\AppClient\angular-touch.min.js" />
     <EmbeddedResource Include="Application\AppClient\angular.min.js" />
     <EmbeddedResource Include="Application\AppClient\spike-box.js" />
-    <EmbeddedResource Include="Application\AppClient\spike-cache.js" />
+    <EmbeddedResource Include="Application\AppClient\spike-box-cache.js" />
     <EmbeddedResource Include="Application\AppClient\spike-sdk.min.js" />
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +175,9 @@
     <EmbeddedResource Include="Application\AppClient\angular-sanitize.js" />
     <EmbeddedResource Include="Application\AppClient\angular-touch.js" />
     <EmbeddedResource Include="Application\AppClient\angular.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Application\AppClient\spike-box-directives.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

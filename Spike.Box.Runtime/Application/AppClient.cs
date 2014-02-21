@@ -36,9 +36,12 @@ namespace Spike.Box
                     source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.angular-route.js"));
                     source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.angular-sanitize.js"));
                     source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.angular-touch.js"));
+
+                    // Spike.Box 
                     source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.spike-sdk.min.js"));
-                    source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.spike-cache.js"));
-                    source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.spike-box.js").Replace("{{host}}", AppServer.Current.Endpoint));
+                    source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.spike-box-cache.js"));
+                    source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.spike-box.js"));
+                    source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.spike-box-directives.js"));
                     
 
                     DateTime lastWriteUtc = DateTime.UtcNow;

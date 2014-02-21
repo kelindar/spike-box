@@ -9,13 +9,21 @@ namespace Spike.Box
     /// <summary>
     /// Represents a class that contains native interop.
     /// </summary>
-    public partial class Native
+    public partial class Native : IModule
     {
         /// <summary>
-        /// Includes the object into the context.
+        /// Gets the name of the module.
         /// </summary>
-        /// <param name="context">The context to include it in.</param>
-        public static void IncludeIn(ScriptContext context)
+        public string Name
+        {
+            get { return "native"; }
+        }
+
+        /// <summary>
+        /// Registers the module inside a script context.
+        /// </summary>
+        /// <param name="context">The context to register the module to.</param>
+        public void Register(ScriptContext context)
         {
             // Contains in F#: NaN
             // Contains in F#: Infinity

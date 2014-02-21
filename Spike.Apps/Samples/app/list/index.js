@@ -14,9 +14,7 @@ var List = (function () {
     * Make a new random number between 0 and 100
     */
     List.prototype._rand = function () {
-        return {
-            value: Math.round(Math.random() * 100, 0)
-        };
+        return { value: Math.round(Math.random() * 100, 0) };
     };
 
     /**
