@@ -148,7 +148,7 @@ if (typeof JSON !== 'object') {
                     if (value.hasOwnProperty('$i')) {
                         // JSON array with the last element as $i
                         v = partial.length === 0
-                            ? '[]'
+                            ? '[' + value['$i'] + ']'
                             : '[' + partial.join(',') + ',' + value['$i'] + ']';
 
                     } else {

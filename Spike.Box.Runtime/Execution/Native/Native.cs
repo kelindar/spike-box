@@ -122,10 +122,11 @@ namespace Spike.Box
 
             // Extend Native
             context.AttachFunction<FunctionObject, ScriptObject, ScriptObject, string, ScriptObject>(context.Environment.Prototypes.Object, "defineProperty", Native.DefineProperty);
-            context.AttachFunction<FunctionObject, ScriptObject, FunctionObject, BoxedValue>(context.Environment.Prototypes.Array, "forEach", Native.ForEach);
-            context.AttachFunction<FunctionObject, ScriptObject, FunctionObject, BoxedValue>(context.Environment.Prototypes.Array, "removeAll", Native.RemoveAll);
-            context.AttachFunction<FunctionObject, ScriptObject, FunctionObject, BoxedValue, BoxedValue>(context.Environment.Prototypes.Array, "every", Native.Every);
-            context.AttachFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue, BoxedValue>(context.Environment.Prototypes.Array, "swap", Native.Swap);
+            context.AttachFunction<FunctionObject, ScriptObject, FunctionObject, BoxedValue>(context.Environment.Prototypes.Array, "forEach", Native.Array_ForEach);
+            context.AttachFunction<FunctionObject, ScriptObject, FunctionObject, BoxedValue>(context.Environment.Prototypes.Array, "removeAll", Native.Array_RemoveAll);
+            context.AttachFunction<FunctionObject, ScriptObject, FunctionObject, BoxedValue, BoxedValue>(context.Environment.Prototypes.Array, "every", Native.Array_Every);
+            context.AttachFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue, BoxedValue>(context.Environment.Prototypes.Array, "swap", Native.Array_Swap);
+            context.AttachFunction<FunctionObject, ScriptObject>(context.Environment.Prototypes.Array, "clear", Native.Array_Clear);
 
             // Create global instances
             context.AttachGlobal("console", new ConsoleObject(context));

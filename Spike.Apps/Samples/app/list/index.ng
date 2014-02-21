@@ -8,11 +8,12 @@
 		<button class="btn btn-default" ng-click="splice()">splice</button>
 		<button class="btn btn-default" ng-click="swap()">swap</button>
 		<button class="btn btn-default" ng-click="removeAll()">removeAll</button>
+		<button class="btn btn-default" ng-click="clear()">clear</button>
 	</div>
 
 	<ul class="list-item angle">
 		<li ng-repeat="item in items">
-			Random number: <strong>{{item.Number}}</strong>
+			Random number: <strong>{{item.value}}</strong>
 		</li>
 	</ul>
 

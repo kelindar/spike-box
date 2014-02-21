@@ -1,6 +1,6 @@
 var List = (function () {
     function List() {
-        this._items = [{ Number: 0 }];
+        this._items = [];
     }
     Object.defineProperty(List.prototype, "items", {
         get: function () {
@@ -15,7 +15,7 @@ var List = (function () {
     */
     List.prototype._rand = function () {
         return {
-            Number: Math.round(Math.random() * 100, 0)
+            value: Math.round(Math.random() * 100, 0)
         };
     };
 
@@ -52,6 +52,13 @@ var List = (function () {
     */
     List.prototype.swap = function () {
         this._items.swap(0, this._items.length - 1);
+    };
+
+    /**
+    * The clear() method clears the array.
+    */
+    List.prototype.clear = function () {
+        this._items.clear();
     };
 
     /**

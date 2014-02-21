@@ -81,7 +81,7 @@ namespace Spike.Box
         /// Executes a foreach loop on every element of the array.
         /// </summary>
         /// <param name="callback">The callback to execute for each item in the array.</param>
-        internal static void ForEach(FunctionObject ctx, ScriptObject instance, FunctionObject callback, BoxedValue thisArg)
+        internal static void Array_ForEach(FunctionObject ctx, ScriptObject instance, FunctionObject callback, BoxedValue thisArg)
         {
             // Make sure the instance is an array
             var array = instance as ArrayObject;
@@ -104,7 +104,7 @@ namespace Spike.Box
         /// Removes all elements in the array that match the predicate.
         /// </summary>
         /// <param name="callback">The callback to execute for each item in the array.</param>
-        internal static void RemoveAll(FunctionObject ctx, ScriptObject instance, FunctionObject callback, BoxedValue thisArg)
+        internal static void Array_RemoveAll(FunctionObject ctx, ScriptObject instance, FunctionObject callback, BoxedValue thisArg)
         {
             // Make sure the instance is an array
             var array = instance as ArrayObject;
@@ -154,13 +154,45 @@ namespace Spike.Box
             }
         }
 
+        /// <summary>
+        /// Removes all elements in the array.
+        /// </summary>
+        /// <param name="callback">The callback to execute for each item in the array.</param>
+        internal static void Array_Clear(FunctionObject ctx, ScriptObject instance)
+        {
+            // Make sure the instance is an array
+            var array = instance as ArrayObject;
+            if (array == null)
+                return;
 
+            lock (array)
+            {
+                // Delete and fill the descriptors
+                var length = array.Length;
+                for (uint i = 0; i < length; ++i)
+                {
+                    // Get the item and make sure it's ignored
+                    var item = array.Get(i);
+                    if (item.IsStrictlyObject)
+                        item.Object.Ignore();
+
+                    // Delete matched
+                    array.QuickDelete(i);
+                }
+
+                // Set the new length
+                array.Length = (uint)0;
+
+                // Invoke the changed event
+                ScriptObject.InvokePropertyChange(array, PropertyChangeType.Delete, "all", Undefined.Boxed, Undefined.Boxed);
+            }
+        }
 
         /// <summary>
         /// The every() method tests whether all elements in the array pass the test implemented by the provided function.
         /// </summary>
         /// <param name="callback">The callback to execute for each item in the array.</param>
-        internal static BoxedValue Every(FunctionObject ctx, ScriptObject instance, FunctionObject callback, BoxedValue thisArg)
+        internal static BoxedValue Array_Every(FunctionObject ctx, ScriptObject instance, FunctionObject callback, BoxedValue thisArg)
         {
             // Make sure the instance is an array
             var array = instance as ArrayObject;
@@ -192,7 +224,7 @@ namespace Spike.Box
         /// <summary>
         /// The swap() method swaps the items at two specified indices and returns whether the swap succeded.
         /// </summary>
-        internal static BoxedValue Swap(FunctionObject ctx, ScriptObject instance, BoxedValue index1, BoxedValue index2)
+        internal static BoxedValue Array_Swap(FunctionObject ctx, ScriptObject instance, BoxedValue index1, BoxedValue index2)
         {
             // Make sure the instance is an array
             var array = instance as ArrayObject;

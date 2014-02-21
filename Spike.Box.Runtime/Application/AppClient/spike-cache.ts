@@ -142,6 +142,12 @@ class AppCache {
         if (typeof (value) == 'undefined' || value == null)
             return;
 
+        // If we have all instead of an index, remove them all
+        if (Object.prototype.toString.call(value) === '[object Array]' && propertyName === "all") {
+            value.splice(0, value.length);
+            return;
+        }
+
         // If it doesn't have the property, ignore
         if (!value.hasOwnProperty(propertyName))
             return;
@@ -149,9 +155,11 @@ class AppCache {
         // If it's an array, overwrite the index
         // Two cases, one for the array and one for the object
         if (Object.prototype.toString.call(value) === '[object Array]') {
+
             // Set the value of the array
             var index = parseInt(propertyName);
 
+            // Check which index we have
             switch (index) {
 
                 // First element, just do shift

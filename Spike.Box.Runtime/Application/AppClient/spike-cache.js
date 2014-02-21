@@ -137,6 +137,12 @@ var AppCache = (function () {
         if (typeof (value) == 'undefined' || value == null)
             return;
 
+        // If we have all instead of an index, remove them all
+        if (Object.prototype.toString.call(value) === '[object Array]' && propertyName === "all") {
+            value.splice(0, value.length);
+            return;
+        }
+
         // If it doesn't have the property, ignore
         if (!value.hasOwnProperty(propertyName))
             return;

@@ -1,6 +1,6 @@
 class List{
 
-    private _items = [{Number: 0}];
+    private _items = [];
     
     public get items() { return this._items; }
 
@@ -9,7 +9,7 @@ class List{
     */
     private _rand() {
         return {
-            Number: Math.round(Math.random() * 100, 0)
+            value: Math.round(Math.random() * 100, 0)
         };
     }
 
@@ -46,6 +46,13 @@ class List{
     */
     public swap() {
         this._items.swap(0, this._items.length - 1);
+    }
+
+    /**
+    * The clear() method clears the array.
+    */
+    public clear() {
+        this._items.clear();
     }
 
     /**
