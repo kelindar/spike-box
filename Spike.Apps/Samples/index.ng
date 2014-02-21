@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="app" ng-controller="box" box-app="{{app}}" box-host="{{host}}" box-view="{{view}}">
 <head>
     <meta charset="utf-8" />

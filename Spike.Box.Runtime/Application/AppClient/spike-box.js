@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute', 'ngAnimate']);
+var app = angular.module('app', []);
 
 // Returns a angular module, searching for its name, if it's a string
 function getModule(name) {
@@ -42,8 +42,8 @@ app.extend = moduleExtender.bind(null, app);
 * Configures the application.
 */
 app.config([
-    '$routeProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', '$animateProvider',
-    function ($routeProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, $animateProvider) {
+    '$controllerProvider', '$compileProvider', '$filterProvider', '$provide',
+    function ($controllerProvider, $compileProvider, $filterProvider, $provide) {
         // Lazy providers
         app._lazyProviders = {
             $compileProvider: $compileProvider,
@@ -59,8 +59,8 @@ app.config([
             filter: $filterProvider.register,
             factory: $provide.factory,
             service: $provide.service,
-            animate: $animateProvider.register,
-            extend : app.extend
+            extend: app.extend
+            //animate: $animateProvider.register
         };
 
         // Register routes with the $routeProvider
@@ -394,7 +394,7 @@ app.factory('$server', ['$q', '$rootScope', function ($q, $rootScope) {
 }]);
 
 
-app.controller('box', function ($scope, $server, $parse, $injector) {
+app.controller('box', ['$scope', '$server', function ($scope, $server) {
 
     $scope.bind = function (config) {
         // Set the application identifier and a view url
@@ -416,7 +416,7 @@ app.controller('box', function ($scope, $server, $parse, $injector) {
         }
     };
 
-});
+}]);
 
 
 /**

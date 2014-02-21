@@ -28,16 +28,6 @@ namespace Spike.Box
                 {
                     // Load all the sources
                     var source = new StringBuilder();
-                    source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.angular.js"));
-                    source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.angular-animate.js"));
-                    source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.angular-cookies.js"));
-                    source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.angular-loader.js"));
-                    source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.angular-resource.js"));
-                    source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.angular-route.js"));
-                    source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.angular-sanitize.js"));
-                    source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.angular-touch.js"));
-
-                    // Spike.Box 
                     source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.spike-sdk.min.js"));
                     source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.spike-box-cache.js"));
                     source.AppendLine(AppClient.Load("Spike.Box.Application.AppClient.spike-box.js"));
@@ -49,8 +39,8 @@ namespace Spike.Box
                     AppClient.Source = new HttpResource(
                         lastWriteUtc,
                         Encoding.UTF8.GetBytes(
-                            source.ToString()
-                            //new Minifier().MinifyJavaScript(source.ToString())
+                            //source.ToString()
+                            new Minifier().MinifyJavaScript(source.ToString())
                         ), "application/javascript");
                 }
 

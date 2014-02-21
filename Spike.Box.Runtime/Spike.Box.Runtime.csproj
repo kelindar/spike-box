@@ -154,27 +154,9 @@
     <None Include="Resources\Json.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Application\AppClient\angular-animate.min.js" />
-    <EmbeddedResource Include="Application\AppClient\angular-cookies.min.js" />
-    <EmbeddedResource Include="Application\AppClient\angular-loader.min.js" />
-    <EmbeddedResource Include="Application\AppClient\angular-resource.min.js" />
-    <EmbeddedResource Include="Application\AppClient\angular-route.min.js" />
-    <EmbeddedResource Include="Application\AppClient\angular-sanitize.min.js" />
-    <EmbeddedResource Include="Application\AppClient\angular-touch.min.js" />
-    <EmbeddedResource Include="Application\AppClient\angular.min.js" />
     <EmbeddedResource Include="Application\AppClient\spike-box.js" />
     <EmbeddedResource Include="Application\AppClient\spike-box-cache.js" />
     <EmbeddedResource Include="Application\AppClient\spike-sdk.min.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Application\AppClient\angular-animate.js" />
-    <EmbeddedResource Include="Application\AppClient\angular-cookies.js" />
-    <EmbeddedResource Include="Application\AppClient\angular-loader.js" />
-    <EmbeddedResource Include="Application\AppClient\angular-resource.js" />
-    <EmbeddedResource Include="Application\AppClient\angular-route.js" />
-    <EmbeddedResource Include="Application\AppClient\angular-sanitize.js" />
-    <EmbeddedResource Include="Application\AppClient\angular-touch.js" />
-    <EmbeddedResource Include="Application\AppClient\angular.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Application\AppClient\spike-box-directives.js" />

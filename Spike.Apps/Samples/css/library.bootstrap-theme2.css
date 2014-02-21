@@ -5789,7 +5789,7 @@ ul.parsley-error-list {
 }
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) {
 #header .logo-area a.logo {
 	background:url(../img/logo2x.png) no-repeat center center;
 	background-size: 120px 30px;
