@@ -13,5 +13,7 @@
 </head>
 <body>
     <section class="panel panel-shadow" ng-include src="url"></section>
+	
+	
 </body>
 </html>
