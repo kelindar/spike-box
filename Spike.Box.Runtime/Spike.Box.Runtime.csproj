@@ -68,7 +68,7 @@
     <Compile Include="Compilation\SurrogateProperty.cs" />
     <Compile Include="Compilation\SurrogateMember.cs" />
     <Compile Include="Execution\Module\IModule.cs" />
-    <Compile Include="Execution\Module\ModulesE.cs" />
+    <Compile Include="Execution\Module\Modules.cs" />
     <Compile Include="Execution\Module\Module.cs" />
     <Compile Include="Execution\Native\Native.Observe.cs" />
     <Compile Include="Execution\Native\Native.Extend.cs" />
@@ -77,8 +77,7 @@
     <Compile Include="Execution\Channel.cs" />
     <Compile Include="Execution\Scope\ElementScope.cs" />
     <Compile Include="Execution\Scope\PageScope.cs" />
-    <Compile Include="Threading\ThreadSandbox.cs" />
-    <Compile Include="Threading\ThreadQueue.cs" />
+    <Compile Include="Threading\QueuedTaskScheduler.cs" />
     <Compile Include="Execution\ScriptExtension.cs" />
     <Compile Include="Compilation\MetaFile.cs" />
     <Compile Include="Compilation\MetaStore.cs" />

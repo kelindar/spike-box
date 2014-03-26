@@ -114,7 +114,7 @@ namespace Spike.Box
                     var session = scope.Channel.AddClient(client);
 
                     // TODO: Handle arguments
-                    var result = scope.Invoke(method, arguments);
+                    var result = scope.CallMethod(method, arguments, Channel.Current);
 
                     // Return in any case (whether we have a result or not)
                     client.SendQueryInform(callback, result);
@@ -162,6 +162,9 @@ namespace Spike.Box
 
                 try
                 {
+                    // Deserialize the property value
+                    var instanceValue = Native.Deserialize(instance.Env, value);
+
                     // Make sure we have a thread static channel bound
                     Channel.Current = (instance is Scope) 
                         ? (instance as Scope).Channel
@@ -173,25 +176,24 @@ namespace Spike.Box
                     if (Channel.Current != null)
                         Channel.Current.AddClient(client);
 
-                    // Deserialize the property value
-                    var instanceValue = Native.Deserialize(instance.Env, value);
-
                     // In the case the instance is a scope and we have a setter 
                     // defined, we need to invoke the setter too.
                     if (instance is Scope)
                     {
-                        // Get the setter 
-                        var setter = instance.Get(name);
-                        if (setter.IsFunction)
-                        {
-                            // Call the setter function with the specified value
-                            setter.Func.Call(instance, instanceValue);
-                        }
+                        // Get the scope
+                        var scope = instance as Scope;
+
+                        // Call the setter
+                        scope.CallSetter(name, instanceValue, Channel.Current);
                     }
                     else
                     {
-                        // Assign to the property without observing the assignment
-                        instance.Set(name, instanceValue);
+                        // Lock the instance to avoid data races
+                        lock (instance)
+                        {
+                            // Assign to the property without observing the assignment
+                            instance.Set(name, instanceValue);
+                        }
                     }
                     
                 }

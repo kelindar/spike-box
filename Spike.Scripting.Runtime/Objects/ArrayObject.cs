@@ -468,7 +468,7 @@ namespace Spike.Scripting.Runtime
             return false;
         }
 
-
+        #region Sparse Array
         public class SparseArray
         {
             internal SortedDictionary<uint, BoxedValue> storage = new SortedDictionary<uint, BoxedValue>();
@@ -599,5 +599,6 @@ namespace Spike.Scripting.Runtime
                 return sparse;
             }
         }
+        #endregion
     }
 }

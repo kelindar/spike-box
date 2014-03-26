@@ -27,24 +27,8 @@ namespace Spike.Box
             var channel = Channel.Current;
             var timer = Timer.PeriodicCall(TimeSpan.FromMilliseconds(timeout), () =>
             {
-                try
-                {
-                    // Make sure we have a thread static session set
-                    Channel.Current = channel;
-
-                    // This is global object in this case.
-                    function.Call(function.Env.Globals, param1, param2, param3);
-                }
-                catch (Exception ex)
-                {
-                    // Send the exception
-                    Channel.Current.SendException(ex);
-                }
-                finally
-                {
-                    // Reset the scope back to null
-                    Channel.Current = null;
-                }
+                // Dispatch to the channel we have in our lambda context. 'this' is global object in this case.
+                channel.Dispatch(() => function.Call(function.Env.Globals, param1, param2, param3));
             });
 
             // Return the timer as a reference
@@ -62,24 +46,8 @@ namespace Spike.Box
             var channel = Channel.Current;
             var timer = Timer.DelayCall(TimeSpan.FromMilliseconds(timeout), () =>
             {
-                try
-                {
-                    // Make sure we have a thread static session set
-                    Channel.Current = channel;
-
-                    // This is global object in this case.
-                    function.Call(function.Env.Globals, param1, param2, param3);
-                }
-                catch (Exception ex)
-                {
-                    // Send the exception
-                    Channel.Current.SendException(ex);
-                }
-                finally
-                {
-                    // Reset the scope back to null
-                    Channel.Current = null;
-                }
+                // Dispatch to the channel we have in our lambda context. 'this' is global object in this case.
+                channel.Dispatch(() => function.Call(function.Env.Globals, param1, param2, param3));
             });
 
             // Return the timer as a reference
@@ -162,7 +130,7 @@ namespace Spike.Box
         /// <param name="methodName">The method to invoke.</param>
         /// <param name="args">The arguments to pass to this method.</param>
         /// <returns>The result as a string or a JSON string.</returns>
-        public static string Invoke(Scope scope, string methodName, IList<string> args)
+        public static string Call(Scope scope, string methodName, IList<string> args)
         {
             // Prepare the arguments
             BoxedValue[] arguments = null;

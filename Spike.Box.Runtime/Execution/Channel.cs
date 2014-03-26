@@ -7,6 +7,7 @@ using Spike.Scripting.Hosting;
 using Spike.Scripting.Runtime;
 using Spike.Box.Properties;
 using Spike.Network;
+using System.Threading.Tasks;
 
 namespace Spike.Box
 {
@@ -20,7 +21,7 @@ namespace Spike.Box
         /// <summary>
         /// The scripting context for this channel.
         /// </summary>
-        private readonly ScriptContext Context;
+        private readonly ScriptContext ScriptContext;
 
         /// <summary>
         /// The clients within this session.
@@ -34,7 +35,7 @@ namespace Spike.Box
         /// <param name="context">The execution context that is used to execute scripts.</param>
         internal Channel(ScriptContext context)
         {
-            this.Context = context;
+            this.ScriptContext = context;
         }
 
         /// <summary>
@@ -44,6 +45,14 @@ namespace Spike.Box
         {
             get;
             private set;
+        }
+
+        /// <summary>
+        /// Gets the context of the channel.
+        /// </summary>
+        public ScriptContext Context
+        {
+            get { return this.ScriptContext; }
         }
         #endregion
 
@@ -56,7 +65,7 @@ namespace Spike.Box
         {
             // Get the key
             var cid = client.GetHashCode();
-            var obj = new ClientObject(this.Context.Environment, client);
+            var obj = new ClientObject(this.ScriptContext.Environment, client);
 
             // Try add the client
             if (this.Clients.TryAdd(cid, obj))
@@ -130,7 +139,7 @@ namespace Spike.Box
             {
                 // Serialize the value to send first
                 var serializedValue = TypeConverter.ToNullableString(
-                    Native.Serialize(this.Context.Environment, propertyValue)
+                    Native.Serialize(this.ScriptContext.Environment, propertyValue)
                     );
 
                 // Broadcast to each client
@@ -240,6 +249,58 @@ namespace Spike.Box
 
         #endregion
 
+        #region Public Members (Threading)
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="script">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public async Task DispatchAsync(Action script)
+        {
+            // Forward the dispatch
+            await this.Context.DispatchAsync(script, this);
+        }
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="script">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <returns>The result of the invoke.</returns>
+        public void Dispatch(Action script)
+        {
+            // Forward the dispatch
+            this.Context.Dispatch(script, this);
+        }
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="script">The function to execute.</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public async Task<T> DispatchAsync<T>(Func<T> script)
+        {
+            // Forward the dispatch
+            return await this.Context.DispatchAsync<T>(script, this);
+        }
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="script">The function to execute.</param>
+        /// <returns>The result of the invoke.</returns>
+        public T Dispatch<T>(Func<T> script)
+        {
+            // Forward the dispatch
+            return this.Context.Dispatch<T>(script, this);
+        }
+        #endregion
+
         #region Thread Static Members
         [ThreadStatic]
         private static Channel ThreadChannel;
@@ -266,8 +327,8 @@ namespace Spike.Box
                 if (Channel.Current == null)
                     Channel.Current = channel;
 
-                // Invoke
-                action();
+                // Get the context of the channel
+                channel.Dispatch(action);
             }
             finally
             {

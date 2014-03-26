@@ -6,6 +6,7 @@ using System.Text;
 using Spike.Scripting.Hosting;
 using Spike.Scripting.Runtime;
 using Spike.Box.Properties;
+using System.Threading.Tasks;
 
 namespace Spike.Box
 {
@@ -215,26 +216,35 @@ namespace Spike.Box
         /// Invokes a method on this scope, with the provided arguments.
         /// </summary>
         /// <param name="methodName">The method to invoke.</param>
-        /// 
+        /// <param name="args">The arguments to pass to this method.</param>
+        /// <param name="channel">The channel</param>
         /// <returns>The result as a string or a JSON string.</returns>
-        public string Invoke(string methodName)
+        public string CallMethod(string methodName, IList<string> args, Channel channel)
         {
-            // Invoke natively
-            return Native.Invoke(this, methodName, null);
+            // Invoke on the script context, natively
+            return channel.Dispatch<string>(() => Native.Call(this, methodName, args));
         }
 
         /// <summary>
-        /// Invokes a method on this scope, with the provided arguments.
+        /// Call a property setter.
         /// </summary>
-        /// <param name="methodName">The method to invoke.</param>
-        /// <param name="args">The arguments to pass to this method.</param>
-        /// <returns>The result as a string or a JSON string.</returns>
-        public string Invoke(string methodName, IList<string> args)
+        /// <param name="propertyName">The name of the property.</param>
+        /// <param name="propertyValue">The value of the property.</param>
+        /// <param name="channel">The channel</param>
+        public void CallSetter(string propertyName, BoxedValue propertyValue, Channel channel)
         {
-            // Invoke natively
-            return Native.Invoke(this, methodName, args);
+            // Invoke on the context
+            channel.Dispatch(() =>
+            {
+                // Get the setter 
+                var setter = this.Get(propertyName);
+                if (setter.IsFunction)
+                {
+                    // Call the setter function with the specified value
+                    setter.Func.Call(this, propertyValue);
+                }
+            });
         }
-
         #endregion
 
         #region Private Members

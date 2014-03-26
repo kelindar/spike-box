@@ -97,6 +97,7 @@
     <Compile Include="MarshalModes.cs" />
     <Compile Include="Objects\ArgumentsObject.cs" />
     <Compile Include="Objects\ArrayObject.cs" />
+    <Compile Include="Objects\ArrayObject.Export.cs" />
     <Compile Include="Objects\BooleanObject.cs" />
     <Compile Include="Objects\ArrayObject.Observe.cs" />
     <Compile Include="Objects\ScriptObject.Dispose.cs" />
