@@ -52,20 +52,71 @@ namespace Spike.Scripting.Runtime
         [FieldOffset(BoxedValueOffsets.Marker)]
         public ushort Marker;
 
+        /// <summary>
+        /// Gets whether the boxed value is a number.
+        /// </summary>
         public bool IsNumber { get { return this.Marker < Markers.Tagged; } }
+
+        /// <summary>
+        /// Gets whether the boxed is tagged.
+        /// </summary>
         public bool IsTagged { get { return this.Marker > Markers.Number; } }
+
+        /// <summary>
+        /// Gets whether the boxed value is a string.
+        /// </summary>
         public bool IsString { get { return this.IsTagged && (this.Tag == TypeTags.String || this.Tag == TypeTags.SuffixString); } }
+
+        /// <summary>
+        /// Gets whether the boxed value is an object.
+        /// </summary>
         public bool IsObject { get { return this.IsTagged && this.Tag >= TypeTags.Object; } }
+
+        /// <summary>
+        /// Gets whether the boxed value is strictly an object and not a function.
+        /// </summary>
         public bool IsStrictlyObject { get { return this.IsTagged && this.Tag == TypeTags.Object; } }
+
+        /// <summary>
+        /// Gets whether the boxed value is a function object.
+        /// </summary>
         public bool IsFunction { get { return this.IsTagged && this.Tag >= TypeTags.Function; } }
+
+        /// <summary>
+        /// Gets whether the boxed value is a boolean value.
+        /// </summary>
         public bool IsBoolean { get { return this.IsTagged && this.Tag == TypeTags.Bool; } }
+
+        /// <summary>
+        /// Gets whether the boxed value is undefined.
+        /// </summary>
         public bool IsUndefined { get { return this.IsTagged && this.Tag == TypeTags.Undefined; } }
+
+        /// <summary>
+        /// Gets whether the boxed value is a clr object.
+        /// </summary>
         public bool IsClr { get { return this.IsTagged && this.Tag == TypeTags.Clr; } }
+
+        /// <summary>
+        /// Gets whether the boxed value is a regular expression.
+        /// </summary>
         public bool IsRegExp { get { return this.IsObject && this.Object is RegExpObject; } }
+
+        /// <summary>
+        /// Gets whether the boxed value is a regular expression.
+        /// </summary>
+        public bool IsArray { get { return this.IsObject && this.Object is ArrayObject; } }
+
+        /// <summary>
+        /// Gets whether the boxed value is null.
+        /// </summary>
         public bool IsNull { get { return this.IsClr && this.Clr == null; } }
 
-        // As per ECMA-262, Section 8.6.2, the following types are primitive:
-        //  Undefined, Null, Boolean, String, or Number
+        /// <summary>
+        /// Gets whether the boxed value is a ECMA-262 compliant primitive. As per ECMA-262, 
+        /// Section 8.6.2, the following types are primitive:  Undefined, Null, Boolean, 
+        /// String, or Number
+        /// </summary>
         public bool IsPrimitive
         {
             get
