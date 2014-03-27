@@ -249,7 +249,204 @@ namespace Spike.Box
 
         #endregion
 
+        #region Public Members (Callback)
+        /// <summary>
+        /// Dispatches a callback event, usually onComplete or onError to the single-threaded javascript scheduler.
+        /// </summary>
+        /// <param name="function">The callback function to dispatch.</param>
+        /// <param name="thisInstance">The 'this' parameter value.</param>
+        /// <param name="arg1">The argument to pass to the callback.</param>
+        public void DispatchCallback(BoxedValue function, ScriptObject thisInstance, BoxedValue arg1)
+        {
+            Task task;
+            if (!function.IsUndefined && function.IsFunction)
+                task = this.Context.DispatchAsync(function.Func, thisInstance, new[] { arg1 }, this);
+        }
+
+        /// <summary>
+        /// Dispatches a callback event, usually onComplete or onError to the single-threaded javascript scheduler.
+        /// </summary>
+        /// <param name="function">The callback function to dispatch.</param>
+        /// <param name="thisInstance">The 'this' parameter value.</param>
+        /// <param name="arg1">The argument to pass to the callback.</param>
+        /// <param name="arg2">The argument to pass to the callback.</param>
+        public void DispatchCallback(BoxedValue function, ScriptObject thisInstance, BoxedValue arg1, BoxedValue arg2)
+        {
+            Task task;
+            if (!function.IsUndefined && function.IsFunction)
+                task = this.Context.DispatchAsync(function.Func, thisInstance, new[] { arg1, arg2 }, this);
+        }
+
+        /// <summary>
+        /// Dispatches a callback event, usually onComplete or onError to the single-threaded javascript scheduler.
+        /// </summary>
+        /// <param name="function">The callback function to dispatch.</param>
+        /// <param name="thisInstance">The 'this' parameter value.</param>
+        /// <param name="arg1">The argument to pass to the callback.</param>
+        /// <param name="arg2">The argument to pass to the callback.</param>
+        /// <param name="arg3">The argument to pass to the callback.</param>
+        public void DispatchCallback(BoxedValue function, ScriptObject thisInstance, BoxedValue arg1, BoxedValue arg2, BoxedValue arg3)
+        {
+            Task task;
+            if (!function.IsUndefined && function.IsFunction)
+                task = this.Context.DispatchAsync(function.Func, thisInstance, new[] { arg1, arg2, arg3 }, this);
+        }
+
+        /// <summary>
+        /// Dispatches a callback event, usually onComplete or onError to the single-threaded javascript scheduler.
+        /// </summary>
+        /// <param name="function">The callback function to dispatch.</param>
+        /// <param name="thisInstance">The 'this' parameter value.</param>
+        /// <param name="arg1">The argument to pass to the callback.</param>
+        /// <param name="arg2">The argument to pass to the callback.</param>
+        /// <param name="arg3">The argument to pass to the callback.</param>
+        /// <param name="arg4">The argument to pass to the callback.</param>
+        public void DispatchCallback(BoxedValue function, ScriptObject thisInstance, BoxedValue arg1, BoxedValue arg2, BoxedValue arg3, BoxedValue arg4)
+        {
+            Task task;
+            if (!function.IsUndefined && function.IsFunction)
+                task = this.Context.DispatchAsync(function.Func, thisInstance, new[] { arg1, arg2, arg3, arg4 }, this);
+        }
+
+        /// <summary>
+        /// Dispatches a callback event, usually onComplete or onError to the single-threaded javascript scheduler.
+        /// </summary>
+        /// <param name="function">The callback function to dispatch.</param>
+        /// <param name="thisInstance">The 'this' parameter value.</param>
+        /// <param name="arg1">The argument to pass to the callback.</param>
+        /// <param name="arg2">The argument to pass to the callback.</param>
+        /// <param name="arg3">The argument to pass to the callback.</param>
+        /// <param name="arg4">The argument to pass to the callback.</param>
+        /// <param name="arg5">The argument to pass to the callback.</param>
+        public void DispatchCallback(BoxedValue function, ScriptObject thisInstance, BoxedValue arg1, BoxedValue arg2, BoxedValue arg3, BoxedValue arg4, BoxedValue arg5)
+        {
+            Task task;
+            if (!function.IsUndefined && function.IsFunction)
+                task = this.Context.DispatchAsync(function.Func, thisInstance, new[] { arg1, arg2, arg3, arg4, arg5 }, this);
+        }
+
+        /// <summary>
+        /// Dispatches a callback event, usually onComplete or onError to the single-threaded javascript scheduler.
+        /// </summary>
+        /// <param name="function">The callback function to dispatch.</param>
+        /// <param name="thisInstance">The 'this' parameter value.</param>
+        /// <param name="args">The arguments to pass to the callback.</param>
+        public void DispatchCallback(BoxedValue function, ScriptObject thisInstance, BoxedValue[] args)
+        {
+            Task task;
+            if (!function.IsUndefined && function.IsFunction)
+                task = this.Context.DispatchAsync(function.Func, thisInstance, args, this);
+        }
+
+        /// <summary>
+        /// Dispatches a callback event, usually onComplete or onError to the single-threaded javascript scheduler.
+        /// </summary>
+        /// <param name="function">The callback function to dispatch.</param>
+        /// <param name="thisInstance">The 'this' parameter value.</param>
+        public void DispatchCallback(BoxedValue function, ScriptObject thisInstance)
+        {
+            Task task;
+            if (!function.IsUndefined && function.IsFunction)
+                task = this.Context.DispatchAsync(function.Func, thisInstance, null, this);
+        }
+
+        #endregion
+
         #region Public Members (Threading)
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="function">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public async Task DispatchAsync(FunctionObject function, ScriptObject thisInstance, BoxedValue arg1)
+        {
+            // Forward the dispatch
+            await this.Context.DispatchAsync(function, thisInstance, new []{ arg1 }, this);
+        }
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="function">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public async Task DispatchAsync(FunctionObject function, ScriptObject thisInstance, BoxedValue arg1, BoxedValue arg2)
+        {
+            // Forward the dispatch
+            await this.Context.DispatchAsync(function, thisInstance, new[] { arg1, arg2 }, this);
+        }
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="function">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public async Task DispatchAsync(FunctionObject function, ScriptObject thisInstance, BoxedValue arg1, BoxedValue arg2, BoxedValue arg3)
+        {
+            // Forward the dispatch
+            await this.Context.DispatchAsync(function, thisInstance, new[] { arg1, arg2, arg3 }, this);
+        }
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="function">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public async Task DispatchAsync(FunctionObject function, ScriptObject thisInstance, BoxedValue arg1, BoxedValue arg2, BoxedValue arg3, BoxedValue arg4)
+        {
+            // Forward the dispatch
+            await this.Context.DispatchAsync(function, thisInstance, new[] { arg1, arg2, arg3, arg4 }, this);
+        }
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="function">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public async Task DispatchAsync(FunctionObject function, ScriptObject thisInstance, BoxedValue arg1, BoxedValue arg2, BoxedValue arg3, BoxedValue arg4, BoxedValue arg5)
+        {
+            // Forward the dispatch
+            await this.Context.DispatchAsync(function, thisInstance, new[] { arg1, arg2, arg3, arg4, arg5 }, this);
+        }
+
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="function">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <param name="args">The arguments to pass to the function.</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public async Task DispatchAsync(FunctionObject function, ScriptObject thisInstance, BoxedValue[] args)
+        {
+            // Forward the dispatch
+            await this.Context.DispatchAsync(function, thisInstance, args, this);
+        }
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="function">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public async Task DispatchAsync(FunctionObject function, ScriptObject thisInstance)
+        {
+            // Forward the dispatch
+            await this.Context.DispatchAsync(function, thisInstance, null, this);
+        }
+
         /// <summary>
         /// Invokes a function within this context.
         /// </summary>
@@ -268,19 +465,6 @@ namespace Spike.Box
         /// </summary>
         /// <typeparam name="T">The expected result of the function.</typeparam>
         /// <param name="script">The function to execute.</param>
-        /// <param name="channel">The channel to execute on.</param>
-        /// <returns>The result of the invoke.</returns>
-        public void Dispatch(Action script)
-        {
-            // Forward the dispatch
-            this.Context.Dispatch(script, this);
-        }
-
-        /// <summary>
-        /// Invokes a function within this context.
-        /// </summary>
-        /// <typeparam name="T">The expected result of the function.</typeparam>
-        /// <param name="script">The function to execute.</param>
         /// <returns>The awaitable asynchrounous task.</returns>
         public async Task<T> DispatchAsync<T>(Func<T> script)
         {
@@ -288,6 +472,32 @@ namespace Spike.Box
             return await this.Context.DispatchAsync<T>(script, this);
         }
 
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="function">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public void Dispatch(FunctionObject function, ScriptObject thisInstance)
+        {
+            // Forward the dispatch
+            this.Context.Dispatch(function, thisInstance, this);
+        }
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="script">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <returns>The result of the invoke.</returns>
+        public void Dispatch(Action script)
+        {
+            // Forward the dispatch
+            this.Context.Dispatch(script, this);
+        }
         /// <summary>
         /// Invokes a function within this context.
         /// </summary>
@@ -299,6 +509,33 @@ namespace Spike.Box
             // Forward the dispatch
             return this.Context.Dispatch<T>(script, this);
         }
+
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="action">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public Task Async(Action action)
+        {
+            // Forward the dispatch
+            return this.Context.StartTask(action, this);
+        }
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="function">The function to execute.</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public Task<T> Async<T>(Func<T> function)
+        {
+            // Forward the dispatch
+            return this.Context.StartTask<T>(function, this);
+        }
+
         #endregion
 
         #region Thread Static Members
@@ -314,28 +551,6 @@ namespace Spike.Box
             internal set { ThreadChannel = value; }
         }
 
-        /// <summary>
-        /// Invokes a function on a specific channel.
-        /// </summary>
-        public static void Invoke(Action action, Channel channel)
-        {
-            // Keep the original channel
-            var original = Channel.Current;
-            try
-            {
-                // Attach the channel
-                if (Channel.Current == null)
-                    Channel.Current = channel;
-
-                // Get the context of the channel
-                channel.Dispatch(action);
-            }
-            finally
-            {
-                Channel.Current = original;
-            }
-
-        }
         #endregion
 
         #region IDisposable Members

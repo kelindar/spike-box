@@ -56,11 +56,22 @@ namespace Spike.Box
                 context.CreateFunction<FunctionObject, ScriptObject>("groupEnd", ConsoleObject.GroupEnd)
                 );
 
-            context.CreateType<FileObject>("File", (prototype) => new FileObject(prototype),
-                context.CreateFunction<FunctionObject, ScriptObject, string, string>("writeText", FileObject.WriteText),
-                context.CreateFunction<FunctionObject, ScriptObject, string, BoxedValue>("readText", FileObject.ReadText),
-                context.CreateFunction<FunctionObject, ScriptObject, string, BoxedValue>("writeJson", FileObject.WriteJson),
-                context.CreateFunction<FunctionObject, ScriptObject, string, BoxedValue>("readJson", FileObject.ReadJson)
+            // File: Static API
+            context.CreateType<FileObject>(FileObject.TypeName, (o) => new FileObject(o),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue, BoxedValue, BoxedValue>("appendLines", FileObject.AppendLines),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue, BoxedValue, BoxedValue>("appendText", FileObject.AppendText),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue, BoxedValue, BoxedValue>("writeLines", FileObject.WriteLines),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue, BoxedValue, BoxedValue>("writeText", FileObject.WriteText),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue, BoxedValue>("writeBuffer", FileObject.WriteBuffer),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue, BoxedValue>("writeBuffer", FileObject.WriteBuffer),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue, BoxedValue>("readLines", FileObject.ReadLines),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue, BoxedValue>("readText", FileObject.ReadText),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue>("readBuffer", FileObject.ReadBuffer),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue, BoxedValue, BoxedValue>("copy", FileObject.Copy),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue, BoxedValue>("move", FileObject.Move),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue, BoxedValue>("replace", FileObject.Replace),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue>("exists", FileObject.Exists),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue>("delete", FileObject.Delete)
                 );
 
             // Timer: Delay Call
@@ -138,7 +149,7 @@ namespace Spike.Box
 
             // Create global instances
             context.AttachGlobal("console", new ConsoleObject(context));
-            context.AttachGlobal("file", new FileObject(context));
+            context.AttachGlobal("fs", new FileObject(context));
 
             // Hook the observation
             ScriptObject.PropertyChange += Native.OnPropertyChange;

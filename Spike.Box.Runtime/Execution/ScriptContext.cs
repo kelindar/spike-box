@@ -75,11 +75,69 @@ namespace Spike.Box
         /// <summary>
         /// Invokes a function within this context.
         /// </summary>
+        /// <param name="function">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public async Task DispatchAsync(FunctionObject function, ScriptObject thisInstance, BoxedValue[] args, Channel channel)
+        {
+            // Create a new task. This 
+            var task = new Task(() =>
+            {
+                try
+                {
+                    // Make sure we have a thread static session set
+                    Channel.Current = channel;
+
+                    // Check if we have some arguments specified
+                    if (args == null || args.Length == 0)
+                    {
+                        // No arguments, simple invoke
+                        function.Call(thisInstance);
+                    }
+                    else
+                    {
+                        // Arguments specified, push them
+                        function.Call(thisInstance, args);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Send the exception
+                    try
+                    {
+                        // Log to the remote channel.
+                        Channel.Current.SendException(ex);
+                    }
+                    catch (Exception ex2)
+                    {
+                        // Log to the console.
+                        Service.Logger.Log(ex2);
+                    }
+                }
+                finally
+                {
+                    // Reset the scope back to null
+                    Channel.Current = null;
+                }
+            });
+
+            // Start the task on the specific scheduler
+            task.Start(this.Scheduler);
+
+            // Return the task for awaiting
+            await task;
+
+        }
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
         /// <typeparam name="T">The expected result of the function.</typeparam>
         /// <param name="script">The function to execute.</param>
         /// <param name="channel">The channel to execute on.</param>
+        /// <param name="scheduler">The scheduler to invoke the action on.</param>
         /// <returns>The awaitable asynchrounous task.</returns>
-        public async Task DispatchAsync(Action script, Channel channel)
+        public async Task DispatchAsync(Action script, Channel channel, TaskScheduler scheduler = null)
         {
             // Create a new task. This 
             var task = new Task(() =>
@@ -113,11 +171,113 @@ namespace Spike.Box
                 }
             });
 
+            // If no scheduler was specified, use the single-threaded one
+            if (scheduler == null)
+                scheduler = this.Scheduler;
+
             // Start the task on the specific scheduler
-            task.Start(this.Scheduler);
+            task.Start(scheduler);
 
             // Return the task for awaiting
             await task;
+        }
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="script">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <param name="scheduler">The scheduler to invoke the action on.</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public async Task<T> DispatchAsync<T>(Func<T> script, Channel channel, TaskScheduler scheduler = null)
+        {
+            // Create a new task. This 
+            var task = new Task<T>(() =>
+            {
+                try
+                {
+                    // Make sure we have a thread static session set
+                    Channel.Current = channel;
+
+                    // Execute the function
+                    return script();
+                }
+                catch (Exception ex)
+                {
+                    // Send the exception
+                    try
+                    {
+                        // Log to the remote channel.
+                        Channel.Current.SendException(ex);
+                    }
+                    catch (Exception ex2)
+                    {
+                        // Log to the console.
+                        Service.Logger.Log(ex2);
+                    }
+                }
+                finally
+                {
+                    // Reset the scope back to null
+                    Channel.Current = null;
+                }
+
+                // On error, always return empty
+                return default(T);
+            });
+
+            // If no scheduler was specified, use the single-threaded one
+            if (scheduler == null)
+                scheduler = this.Scheduler;
+
+            // Start the task on the specific scheduler
+            task.Start(scheduler);
+
+            // Return the task 
+            return await task;
+        }
+
+                /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="script">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <param name="scheduler">The scheduler to invoke the action on.</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public Task StartTask(Action script, Channel channel)
+        {
+            return DispatchAsync(script, channel, TaskScheduler.Default);
+        }
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="script">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <param name="scheduler">The scheduler to invoke the action on.</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public Task<T> StartTask<T>(Func<T> script, Channel channel)
+        {
+            return DispatchAsync<T>(script, channel, TaskScheduler.Default);
+        }
+    
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="function">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <returns>The result of the invoke.</returns>
+        public void Dispatch(FunctionObject function, ScriptObject thisInstance, Channel channel)
+        {
+            // Invoke on the script context, natively
+            var task = this.DispatchAsync(function, thisInstance, null, channel);
+
+            // Wait for the script to complete
+            task.Wait();
         }
 
         /// <summary>
@@ -142,57 +302,6 @@ namespace Spike.Box
         /// <typeparam name="T">The expected result of the function.</typeparam>
         /// <param name="script">The function to execute.</param>
         /// <param name="channel">The channel to execute on.</param>
-        /// <returns>The awaitable asynchrounous task.</returns>
-        public async Task<T> DispatchAsync<T>(Func<T> script, Channel channel)
-        {
-            // Create a new task. This 
-            var task = new Task<T>(() =>
-            {
-                try
-                {
-                    // Make sure we have a thread static session set
-                    Channel.Current = channel;
-
-                    // Execute the function
-                    return script();
-                }
-                catch (Exception ex)
-                {
-                    // Send the exception
-                    try
-                    {
-                        // Log to the remote channel.
-                        Channel.Current.SendException(ex);
-                    }
-                    catch(Exception ex2)
-                    {
-                        // Log to the console.
-                        Service.Logger.Log(ex2);
-                    }
-                }
-                finally
-                {
-                    // Reset the scope back to null
-                    Channel.Current = null;
-                }
-
-                // On error, always return empty
-                return default(T);
-            });
-
-            // Start the task on the specific scheduler
-            task.Start(this.Scheduler);
-
-            // Return the task 
-            return await task;
-        }
-
-        /// <summary>
-        /// Invokes a function within this context.
-        /// </summary>
-        /// <typeparam name="T">The expected result of the function.</typeparam>
-        /// <param name="script">The function to execute.</param>
-        /// <param name="channel">The channel to execute on.</param>
         /// <returns>The result of the invoke.</returns>
         public T Dispatch<T>(Func<T> script, Channel channel)
         {
@@ -205,6 +314,9 @@ namespace Spike.Box
             // Return the result
             return task.Result;
         }
+
+
+
         #endregion
 
         #region Public Members (Import)

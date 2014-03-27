@@ -73,8 +73,8 @@
     <Compile Include="Execution\Native\Native.Observe.cs" />
     <Compile Include="Execution\Native\Native.Extend.cs" />
     <Compile Include="Execution\Objects\BufferObject.cs" />
-    <Compile Include="Execution\Objects\FileObject.cs" />
     <Compile Include="Execution\Channel.cs" />
+    <Compile Include="Execution\Objects\FileObject.cs" />
     <Compile Include="Execution\Scope\ElementScope.cs" />
     <Compile Include="Execution\Scope\PageScope.cs" />
     <Compile Include="Threading\QueuedTaskScheduler.cs" />
