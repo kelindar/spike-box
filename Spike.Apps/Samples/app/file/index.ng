@@ -15,5 +15,5 @@
 </div>
 
 <footer class="panel-footer">
-This sample illustrates asynchronous server-side file operations, performed using global <b>file</b> property.
+This sample illustrates asynchronous server-side file system operations, performed using global <b>fs</b> (file system) variable.
 </footer>
