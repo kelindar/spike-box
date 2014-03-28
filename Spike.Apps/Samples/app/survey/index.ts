@@ -16,13 +16,23 @@ class Survey{
         task: this._tasks[0]
     }
 
+    /**
+    * Appends a line to the survey log.
+    */
     private log() {
+        // Select the answers
         var current = this._current;
         var answers = [];
         current.task.choices.forEach(function(a){
             if (a.value != null)
                 answers.push({ text:a.text, value:a.value });
         });
+
+        // If we have no answers, don't log
+        if (answers.length == 0)
+            return;
+
+        // Convert to a string
         var line = JSON.stringify({
             id: current.index,
             date: new Date(),
@@ -33,13 +43,16 @@ class Survey{
         fs.appendLines("survey.txt", [line]);
     }
 
+    /**
+    * Goes to the next question.
+    */
     public next() {
         // Cache the references
         var current = this._current;
         var tasks = this._tasks;
 
         // Log the entry
-       // this.log();
+        this.log();
 
         // Update the index to the next question
         current.index = current.index + 1;
@@ -56,13 +69,16 @@ class Survey{
 
     }
 
+    /**
+    * Goes to the previous question.
+    */
     public back() {
         // Cache the references
         var current = this._current;
         var tasks = this._tasks;
 
         // Log the entry
-        //this.log();
+        this.log();
 
         // Can't go back
         if (current.progress == 0)

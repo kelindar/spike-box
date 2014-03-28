@@ -24,13 +24,23 @@ var Survey = (function () {
         configurable: true
     });
 
+    /**
+    * Appends a line to the survey log.
+    */
     Survey.prototype.log = function () {
+        // Select the answers
         var current = this._current;
         var answers = [];
         current.task.choices.forEach(function (a) {
             if (a.value != null)
                 answers.push({ text: a.text, value: a.value });
         });
+
+        // If we have no answers, don't log
+        if (answers.length == 0)
+            return;
+
+        // Convert to a string
         var line = JSON.stringify({
             id: current.index,
             date: new Date(),
@@ -41,13 +51,17 @@ var Survey = (function () {
         fs.appendLines("survey.txt", [line]);
     };
 
+    /**
+    * Goes to the next question.
+    */
     Survey.prototype.next = function () {
         // Cache the references
         var current = this._current;
         var tasks = this._tasks;
 
         // Log the entry
-        // this.log();
+        this.log();
+
         // Update the index to the next question
         current.index = current.index + 1;
 
@@ -62,13 +76,17 @@ var Survey = (function () {
         }
     };
 
+    /**
+    * Goes to the previous question.
+    */
     Survey.prototype.back = function () {
         // Cache the references
         var current = this._current;
         var tasks = this._tasks;
 
         // Log the entry
-        //this.log();
+        this.log();
+
         // Can't go back
         if (current.progress == 0)
             return;
