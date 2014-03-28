@@ -18,6 +18,7 @@
     <Rule Source="/buffer$" Destination="/app/buffer/index" />
 	<Rule Source="/login$" Destination="/app/login/index" />
 	<Rule Source="/file$" Destination="/app/file/index" />
+	<Rule Source="/survey$" Destination="/app/survey/index" />
   </Rules>
   <Elements>
 	<Element Name="notify" Template="controls/notify" Transclude="true" />

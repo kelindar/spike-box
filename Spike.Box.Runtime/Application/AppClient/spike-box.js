@@ -173,6 +173,9 @@ app.factory('$server', ['$q', '$rootScope', function ($q, $rootScope) {
         try {
             // Try to convert from JSON
             data = JSON.parse(data);
+
+            // Validate the arrays
+            service.cache.validate(data);
         } catch (error) {
             // Not a JSON, continue
         }
@@ -353,7 +356,10 @@ app.factory('$server', ['$q', '$rootScope', function ($q, $rootScope) {
             var target = packet.target;
             var name = packet.name;
 
-            // We're receiving
+            // The array to hold all nested receive ids
+            var nested = [];
+
+            // We're receiving the target
             service.receiving[target] = true;
 
             //console.log(packet);
@@ -362,9 +368,15 @@ app.factory('$server', ['$q', '$rootScope', function ($q, $rootScope) {
                 // Deserialize the value
                 var value = service.deserialize(packet.value);
 
+                // Get all the identifiers we've received and mark them as "receiving".
+                nested = service.cache.getIds(value);
+                for (var i = 0; i < nested.length; ++i) {
+                    service.receiving[nested[i]] = true;
+                }
+
                 // If it's a property set on a page, update the cache
-                if (type == 1) {
-                    service.cache.scan(packet.value);
+                if (type == 4) {
+                    service.cache.scan(value);
                 }
 
                 switch (type) {
@@ -378,12 +390,14 @@ app.factory('$server', ['$q', '$rootScope', function ($q, $rootScope) {
 
                 $rootScope.$apply();
             }
-            /*catch (e) {
-                console.error(e);
-            }*/
             finally {
-                // We're done with reception handling
+                // We're done with reception handling of the target
                 service.receiving[target] = false;
+
+                // We're done with reception handling of all the nested objects
+                for (var i = 0; i < nested.length; ++i) {
+                    service.receiving[nested[i]] = false;
+                }
             }
         };
     }

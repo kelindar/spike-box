@@ -1,0 +1,34 @@
+﻿<header class="panel-heading"><h2><strong>survey</strong> demo</h2></header>
+<div ng-controller="Survey" class="panel-body">
+	
+	<div class="progress">
+	  <div class="progress-bar"  role="progressbar"  style="width: {{current.progress}}%">{{current.progress}}%</div>
+	</div>
+
+	<div class="alert alert-info">{{current.task.question}}</div>
+	
+	<form>
+	<ul class="list-group">
+		<li class="{{current.task.type == 'text' ? '' : 'list-group-item'}}" ng-repeat="choice in current.task.choices">
+			<input class="{{current.task.type == 'text' ? 'form-control' : ''}}"
+				name="answer" 
+				type="{{current.task.type}}" 
+				value="{{choice.text}}"
+				ng-model="choice.value" 
+				placeholder="{{current.task.type == 'text' ? choice.text : ''}}">
+				&nbsp;<b>{{current.task.type == 'text' ? '' : choice.text}}</b>
+		</li>
+	</ul>
+	</form>
+	
+	<ul class="pager">
+		<li class="previous"  ng-hide="current.progress == 0"><a href="#" ng-click="back()"> &larr; Back</a></li>
+		<li class="next"  ng-hide="current.progress == 100"><a href="#" ng-click="next()">Next &rarr;</a></li>
+	</ul>
+	
+
+</div>
+
+<footer class="panel-footer">
+This sample implements a small question and answers survey, when the user is asked to answer one question at a time.
+</footer>

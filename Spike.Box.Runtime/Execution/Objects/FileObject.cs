@@ -167,7 +167,7 @@ namespace Spike.Box
                 // Unbox the array of lines and execute the append
                 File.AppendAllText(
                     path.String,
-                    JsonConvert.SerializeObject(contents.Object),
+                    Native.Serialize(instance.Env, contents).Unbox<string>(),
                     encoding
                     );
 
@@ -286,7 +286,7 @@ namespace Spike.Box
                 // Unbox the array of lines and execute the append
                 File.WriteAllText(
                     path.String,
-                    JsonConvert.SerializeObject(contents.Object),
+                    Native.Serialize(instance.Env, contents).Unbox<string>(),
                     encoding
                     );
 

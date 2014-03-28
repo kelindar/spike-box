@@ -8,24 +8,51 @@ var AppCache = (function () {
     */
     AppCache.prototype.scan = function (target) {
         // Make sure we have a target
+        if (typeof (target) === 'undefined' || target == null || !target.hasOwnProperty('$i'))
+            return;
+
+        // Get the identifier
+        var id = target['$i'];
+
+        // If we have it already in the cache, ignore
+        if (this.contains(id))
+            return;
+
+        // Set to the cache
+        this.setItem(id, target);
+
+        // If the value is an array, convert it
+        if (Object.prototype.toString.call(target) === '[object Array]') {
+            if (target.length > 0) {
+                for (var i = 0; i < target.length; ++i) {
+                    this.scan(target[i]);
+                }
+            }
+        } else {
+            for (var propertyName in target) {
+                this.scan(target[propertyName]);
+            }
+        }
+    };
+
+    /**
+    * Checks and validates the $i property of the array.
+    */
+    AppCache.prototype.validate = function (target) {
+        // Make sure we have a target
         if (typeof (target) === 'undefined' || target == null)
             return;
 
         // If the value is an array, convert it
         if (Object.prototype.toString.call(target) === '[object Array]') {
             if (target.length > 0) {
-                // Get the last element and assign the id to the array
-                var arrayId = target['$i'] = parseInt(target.pop());
-
-                // If we have it already in the cache, ignore
-                if (this.contains(arrayId))
-                    return;
-
-                // Set to the cache
-                this.setItem(arrayId, target);
+                // If there's no $i property, pop it out
+                if (!target.hasOwnProperty('$i')) {
+                    target['$i'] = parseInt(target.pop());
+                }
 
                 for (var i = 0; i < target.length; ++i) {
-                    this.scan(target[i]);
+                    this.validate(target[i]);
                 }
             }
         } else {
@@ -33,18 +60,54 @@ var AppCache = (function () {
             if (!target.hasOwnProperty('$i'))
                 return;
 
-            // Get the identifier
-            var id = target['$i'];
-
-            // If we have it already in the cache, ignore
-            if (this.contains(id))
-                return;
-
-            // Set to the cache
-            this.setItem(id, target);
-
             for (var propertyName in target) {
-                this.scan(target[propertyName]);
+                this.validate(target[propertyName]);
+            }
+        }
+    };
+
+    /**
+    * Scans the object and gets all nested identifiers.
+    */
+    AppCache.prototype.getIds = function (target) {
+        var result = [];
+        this.getIdsRecursive(target, result);
+        return result;
+    };
+
+    /**
+    * Scans the object and gets all nested identifiers.
+    */
+    AppCache.prototype.getIdsRecursive = function (target, result) {
+        // Checks whether we already have a key in the result list
+        var contains = function (key) {
+            return result.hasOwnProperty(key.toString());
+        };
+
+        // Make sure we have a target
+        if (typeof (target) === 'undefined' || target == null || !target.hasOwnProperty('$i'))
+            return;
+
+        // Get the identifier
+        var id = target['$i'];
+
+        // If we have it already in the cache, ignore
+        if (result.hasOwnProperty(id.toString()))
+            return;
+
+        // Add to the result list
+        result.push(id);
+
+        // If the value is an array, convert it
+        if (Object.prototype.toString.call(target) === '[object Array]') {
+            if (target.length > 0) {
+                for (var i = 0; i < target.length; ++i) {
+                    this.getIdsRecursive(target[i], result);
+                }
+            }
+        } else {
+            for (var propertyName in target) {
+                this.getIdsRecursive(target[propertyName], result);
             }
         }
     };

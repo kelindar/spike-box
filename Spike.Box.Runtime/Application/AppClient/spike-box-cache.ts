@@ -8,25 +8,54 @@ class AppCache {
     */
     public scan(target: any): void {
         // Make sure we have a target 
+        if (typeof (target) === 'undefined' || target == null || !target.hasOwnProperty('$i'))
+            return;
+
+        // Get the identifier
+        var id = target['$i'];
+
+        // If we have it already in the cache, ignore
+        if (this.contains(id))
+            return;
+
+        // Set to the cache
+        this.setItem(id, target);
+
+        // If the value is an array, convert it
+        if (Object.prototype.toString.call(target) === '[object Array]') {
+            if (target.length > 0) {
+                // For each element in the array, check
+                for (var i: number = 0; i < target.length; ++i) {
+                    this.scan(target[i]);
+                }
+            }
+        } else {
+            // For each property, recursively scan as well
+            for (var propertyName in target) {
+                this.scan(target[propertyName]);
+            }
+        }
+    }
+
+    /**
+    * Checks and validates the $i property of the array.
+    */
+    public validate(target: any) {
+        // Make sure we have a target 
         if (typeof (target) === 'undefined' || target == null)
             return;
 
         // If the value is an array, convert it
         if (Object.prototype.toString.call(target) === '[object Array]') {
             if (target.length > 0) {
-                // Get the last element and assign the id to the array
-                var arrayId = target['$i'] = parseInt(target.pop());
-
-                // If we have it already in the cache, ignore
-                if (this.contains(arrayId))
-                    return;
-
-                // Set to the cache
-                this.setItem(arrayId, target);
+                // If there's no $i property, pop it out
+                if (!target.hasOwnProperty('$i')) {
+                    target['$i'] = parseInt(target.pop());
+                }
 
                 // For each element in the array, check
                 for (var i: number = 0; i < target.length; ++i) {
-                    this.scan(target[i]);
+                    this.validate(target[i]);
                 }
             }
         } else {
@@ -34,19 +63,59 @@ class AppCache {
             if (!target.hasOwnProperty('$i'))
                 return;
 
-            // Get the identifier
-            var id = target['$i'];
-
-            // If we have it already in the cache, ignore
-            if (this.contains(id))
-                return;
-
-            // Set to the cache
-            this.setItem(id, target);
-
             // For each property, recursively scan as well
             for (var propertyName in target) {
-                this.scan(target[propertyName]);
+                this.validate(target[propertyName]);
+            }
+        }
+    }
+
+
+    /** 
+    * Scans the object and gets all nested identifiers.
+    */
+    public getIds(target: any): number[] {
+        var result: number[] = [];
+        this.getIdsRecursive(target, result);
+        return result;
+    }
+
+    /** 
+    * Scans the object and gets all nested identifiers.
+    */
+    private getIdsRecursive(target: any, result: number[]): void{
+
+        // Checks whether we already have a key in the result list
+        var contains = function (key:number) {
+            return result.hasOwnProperty(key.toString());
+        };
+
+        // Make sure we have a target 
+        if (typeof (target) === 'undefined' || target == null || !target.hasOwnProperty('$i'))
+            return;
+
+        // Get the identifier
+        var id = target['$i'];
+
+        // If we have it already in the cache, ignore
+        if (result.hasOwnProperty(id.toString()))
+            return;
+
+        // Add to the result list
+        result.push(id);
+
+        // If the value is an array, convert it
+        if (Object.prototype.toString.call(target) === '[object Array]') {
+            if (target.length > 0) {
+                // For each element in the array, check
+                for (var i: number = 0; i < target.length; ++i) {
+                    this.getIdsRecursive(target[i], result);
+                }
+            }
+        } else {
+            // For each property, recursively scan as well
+            for (var propertyName in target) {
+                this.getIdsRecursive(target[propertyName], result);
             }
         }
     }
@@ -63,6 +132,7 @@ class AppCache {
         }
         return value;
     }
+
 
     /**
     * Adds a new member to the target object.
