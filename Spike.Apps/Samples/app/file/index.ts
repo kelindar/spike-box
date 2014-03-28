@@ -49,5 +49,25 @@ class FileSample{
         });
     }
 
+	
+    /**
+    * This function writes some text to the text file.
+    */
+    public appendJson() {
+        var file = this._file;
+		var object = {
+			date: new Date(),
+			text: this._text
+		};
+		
+        fs.appendJson(file.name, object, function () {
+            console.info('write completed');
+
+            fs.readText(file.name, function (t) {
+                console.info('read completed');
+                file.contents = t;
+            });
+        });
+    }
 
 } 

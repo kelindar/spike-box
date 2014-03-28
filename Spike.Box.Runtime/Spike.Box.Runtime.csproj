@@ -110,7 +110,6 @@
     <Compile Include="Compilation\MetaScriptStore.cs" />
     <Compile Include="Compilation\MetaScriptWriter.cs" />
     <Compile Include="Execution\ScriptMap.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Compilation\MetaScript.cs" />
     <Compile Include="Application\AppSocket.cs" />

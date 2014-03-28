@@ -4,8 +4,10 @@
 	<div class="input-group">
 		<input type="text" ng-model="text" class="form-control" placeholder="write some text">
 		<span class="input-group-btn">
-			<button class="btn btn-primary" ng-click="appendLine()">append</button>
-			<button class="btn btn-secondary" ng-click="writeText()">write</button>
+			<button class="btn btn-primary" ng-click="appendLine()">append line</button>
+			<button class="btn btn-info" ng-click="appendJson()">append json</button>
+			<button class="btn btn-danger" ng-click="writeText()">write text</button>
+			
 		</span>
 	</div>
 	
