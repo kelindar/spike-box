@@ -58,6 +58,7 @@ namespace Spike.Box
         }
         #endregion
 
+        #region Public Members (Append)
         /// <summary>
         /// Appends lines to a file by using a specified encoding, and then closes the file. If the specified file does not exist, this method creates a file, writes the specified lines to the file, and then closes the file.
         /// </summary>
@@ -174,7 +175,9 @@ namespace Spike.Box
                 channel.DispatchCallback(onComplete, instance);
             });
         }
+        #endregion
 
+        #region Public Members (Write)
         /// <summary>
         /// Creates a new file by using the specified encoding, writes a collection of strings to the file, and then closes the file.
         /// </summary>
@@ -292,7 +295,41 @@ namespace Spike.Box
             });
         }
 
+        /// <summary>
+        /// Creates a new file, writes the specified byte array to the file, and then closes the file. If the target file already exists, it is overwritten.
+        /// </summary>
+        internal static void WriteBuffer(FunctionObject ctx, ScriptObject instance, BoxedValue path, BoxedValue contents, BoxedValue onComplete)
+        {
+            if (!path.IsString)
+                throw new ArgumentException("[writeBuffer] First parameter should be defined and be a string.");
+            if (!contents.IsObject || !(contents.Object is BufferObject))
+                throw new ArgumentException("[writeBuffer] Second parameter should be defined and be a Buffer.");
+            if (!onComplete.IsUndefined && !onComplete.IsFunction)
+                throw new ArgumentException("[writeBuffer] Third parameter should be an onComplete function.");
 
+            // Get the curent channel
+            var channel = Channel.Current;
+
+            // Dispatch the task
+            channel.Async(() =>
+            {
+                // Get the buffer
+                var buffer = contents.Object as BufferObject;
+
+                // Write the contents
+                File.WriteAllBytes(
+                    path.String,
+                    buffer.Array
+                    );
+
+                // Dispatch the on complete asynchronously
+                channel.DispatchCallback(onComplete, instance);
+            });
+        }
+
+        #endregion
+
+        #region Public Members (Read)
         /// <summary>
         /// Opens a file, reads all lines of the file with the specified encoding, and then closes the file.
         /// </summary>
@@ -410,6 +447,40 @@ namespace Spike.Box
 
             });
         }
+
+
+        /// <summary>
+        /// Opens a binary file, reads the contents of the file into a byte array, and then closes the file.
+        /// </summary>
+        internal static void ReadBuffer(FunctionObject ctx, ScriptObject instance, BoxedValue path, BoxedValue onComplete)
+        {
+            if (!path.IsString)
+                throw new ArgumentException("[readBuffer] First parameter should be defined and be a string.");
+            if (!onComplete.IsFunction)
+                throw new ArgumentException("[readBuffer] Second parameter should be an onComplete function.");
+
+            // Get the curent channel
+            var channel = Channel.Current;
+
+            // Dispatch the task
+            channel.Async(() =>
+            {
+                // Read the file
+                var arr = File.ReadAllBytes(path.String);
+                var seg = new ArraySegment<byte>(arr);
+
+                // Unbox the array of lines and execute the append
+                var buffer = BoxedValue.Box(
+                    new BufferObject(seg, instance.Env)
+                    );
+
+                // Dispatch the on complete asynchronously
+                channel.DispatchCallback(onComplete, instance, buffer);
+            });
+        }
+        #endregion
+
+        #region Public Members (Copy, Replace, Move, Delete)
 
         /// <summary>
         /// Copies an existing file to a new file. Overwriting a file of the same name is allowed.
@@ -532,68 +603,8 @@ namespace Spike.Box
                 channel.DispatchCallback(onComplete, instance);
             });
         }
+        #endregion
 
-        /// <summary>
-        /// Creates a new file, writes the specified byte array to the file, and then closes the file. If the target file already exists, it is overwritten.
-        /// </summary>
-        internal static void WriteBuffer(FunctionObject ctx, ScriptObject instance, BoxedValue path, BoxedValue contents, BoxedValue onComplete)
-        {
-            if (!path.IsString)
-                throw new ArgumentException("[writeBuffer] First parameter should be defined and be a string.");
-            if (!contents.IsObject || !(contents.Object is BufferObject))
-                throw new ArgumentException("[writeBuffer] Second parameter should be defined and be a Buffer.");
-            if (!onComplete.IsUndefined && !onComplete.IsFunction)
-                throw new ArgumentException("[writeBuffer] Third parameter should be an onComplete function.");
-
-            // Get the curent channel
-            var channel = Channel.Current;
-
-            // Dispatch the task
-            channel.Async(() =>
-            {
-                // Get the buffer
-                var buffer = contents.Object as BufferObject;
-
-                // Write the contents
-                File.WriteAllBytes(
-                    path.String,
-                    buffer.Array
-                    );
-
-                // Dispatch the on complete asynchronously
-                channel.DispatchCallback(onComplete, instance);
-            });
-        }
-
-        /// <summary>
-        /// Opens a binary file, reads the contents of the file into a byte array, and then closes the file.
-        /// </summary>
-        internal static void ReadBuffer(FunctionObject ctx, ScriptObject instance, BoxedValue path, BoxedValue onComplete)
-        {
-            if (!path.IsString)
-                throw new ArgumentException("[readBuffer] First parameter should be defined and be a string.");
-            if (!onComplete.IsFunction)
-                throw new ArgumentException("[readBuffer] Second parameter should be an onComplete function.");
-
-            // Get the curent channel
-            var channel = Channel.Current;
-
-            // Dispatch the task
-            channel.Async(() =>
-            {
-                // Read the file
-                var arr = File.ReadAllBytes(path.String);
-                var seg = new ArraySegment<byte>(arr);
-
-                // Unbox the array of lines and execute the append
-                var buffer = BoxedValue.Box(
-                    new BufferObject(seg, instance.Env)
-                    );
-
-                // Dispatch the on complete asynchronously
-                channel.DispatchCallback(onComplete, instance, buffer);
-            });
-        }
     }
 
 }
