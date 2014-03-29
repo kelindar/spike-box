@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spike.Box.Runtime", "Spike.Box.Runtime\Spike.Box.Runtime.csproj", "{5B4C8E87-E749-4BC0-8F02-F5BEFF1DF107}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Spike.Scripting", "Spike.Scripting\Spike.Scripting.fsproj", "{9E257324-94E7-49AF-AE83-718288E925D8}"
@@ -16,10 +18,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spike.Box", "Spike.Box\Spike.Box.csproj", "{6ACA4F6E-4DCF-4BA8-B733-59242D3DC5EE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Runtime", "Runtime", "{54B4143C-20B0-4252-86B3-B3B9E168C69D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{42514CEE-5575-4859-AC88-52CF37B98CF1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spike.Box.MongoDb", "Spike.Box.MongoDb\Spike.Box.MongoDb.csproj", "{F17DC280-373E-4902-98B7-20942C78774C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,12 +71,6 @@ Global
 		{6ACA4F6E-4DCF-4BA8-B733-59242D3DC5EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6ACA4F6E-4DCF-4BA8-B733-59242D3DC5EE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6ACA4F6E-4DCF-4BA8-B733-59242D3DC5EE}.Release|x86.ActiveCfg = Release|Any CPU
-		{F17DC280-373E-4902-98B7-20942C78774C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F17DC280-373E-4902-98B7-20942C78774C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F17DC280-373E-4902-98B7-20942C78774C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{F17DC280-373E-4902-98B7-20942C78774C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F17DC280-373E-4902-98B7-20942C78774C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F17DC280-373E-4902-98B7-20942C78774C}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,7 +81,6 @@ Global
 		{72BF8228-78A6-498A-A028-64745AA4168B} = {D749A3DB-E61F-4116-A011-F146EB57135D}
 		{0F78334F-EA74-4C5C-8232-B7D329BE2226} = {D749A3DB-E61F-4116-A011-F146EB57135D}
 		{9E257324-94E7-49AF-AE83-718288E925D8} = {D749A3DB-E61F-4116-A011-F146EB57135D}
-		{F17DC280-373E-4902-98B7-20942C78774C} = {42514CEE-5575-4859-AC88-52CF37B98CF1}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Spike.Projects\Spike.Web\Spike.Web.csproj
