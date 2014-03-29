@@ -53,4 +53,28 @@ namespace Spike.Box
             context.Eval(Resources.Linq);
         }
     }
+
+
+    /// <summary>
+    /// Module that implements requirejs.
+    /// </summary>
+    public sealed class RequireModule : IModule
+    {
+        /// <summary>
+        /// Gets the name of the module.
+        /// </summary>
+        public string Name
+        {
+            get { return "require"; }
+        }
+
+        /// <summary>
+        /// Registers the module inside a script context.
+        /// </summary>
+        /// <param name="context">The context to register the module to.</param>
+        public void Register(ScriptContext context)
+        {
+            context.Eval(Resources.Require);
+        }
+    }
 }

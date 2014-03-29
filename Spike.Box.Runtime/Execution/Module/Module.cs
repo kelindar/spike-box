@@ -24,12 +24,21 @@ namespace Spike.Box
         /// <param name="context"></param>
         public static void IncludeIn(ScriptContext context)
         {
-            // Inject the modules in parallel, as they are no dependancies
-            // at the moment between components.
-            Parallel.ForEach(Modules.Resolve(), (module) =>
+            try
             {
-                context.Import(module.Name, module.Register);
-            });
+                // Set the context to be the current one
+                ScriptContext.Current = context;
+
+                // Inject the modules in parallel, as they are no dependancies
+                // at the moment between components.
+                foreach (var module in Modules.Resolve())
+                    context.Import(module.Name, module.Register);
+            }
+            finally
+            {
+                // Reset back the context
+                ScriptContext.Current = null;
+            }
         }
 
         #endregion
@@ -84,6 +93,11 @@ namespace Spike.Box
                 // Log the exception
                 Service.Logger.Log(ex);
             }
+
+            // Make sure native module is the first loaded
+            modules = modules
+                .OrderBy((m) => m.Name != "native")
+                .ToList();
             
             // Cache the modules
             Cache = modules;

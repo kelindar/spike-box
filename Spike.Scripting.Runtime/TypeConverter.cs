@@ -390,6 +390,10 @@ namespace Spike.Scripting.Runtime
             }
         }
 
+        public static FunctionObject ToFunctionObject(BoxedValue v)
+        {
+            return v.IsFunction ? v.Func : null;
+        }
 
         public static string ToNullableString(BoxedValue v)
         {

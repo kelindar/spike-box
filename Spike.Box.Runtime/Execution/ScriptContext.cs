@@ -1736,6 +1736,27 @@ namespace Spike.Box
 
 
         #endregion
+
+        #region Thread Static Members
+        [ThreadStatic]
+        private static ScriptContext ThreadContext;
+
+        /// <summary>
+        /// Gets the current script context.
+        /// </summary>
+        public static ScriptContext Current
+        {
+            get 
+            {
+                // If we have a channel, just return that value
+                if (Channel.Current != null)
+                    return Channel.Current.Context;
+                return ThreadContext; 
+            }
+            internal set { ThreadContext = value; }
+        }
+
+        #endregion
     }
 
 }

@@ -79,6 +79,8 @@ and DlrTypeConverter() =
   static member ToString(expr:Dlr.Expr) : Dlr.Expr = Dlr.callStaticT<TC> "ToString" [expr]
 
   static member ToNumber(expr:Dlr.Expr) : Dlr.Expr = Dlr.callStaticT<TC> "ToNumber" [expr]
+  
+  static member ToFunctionObject(expr:Dlr.Expr) : Dlr.Expr = Dlr.callStaticT<TC> "ToFunctionObject" [expr]
 
   static member ConvertTo (envExpr:Dlr.Expr, expr:Dlr.Expr, t:Type) =
     // If the types are identical just return the expr
@@ -97,6 +99,7 @@ and DlrTypeConverter() =
       elif t = typeof<BV> then DlrTC.ToBoxedValue expr
       elif t = typeof<CO> then DlrTC.ToObject(envExpr, expr)
       elif t = typeof<obj> then DlrTC.ToClrObject expr
+      elif t = typeof<FO> then DlrTC.ToFunctionObject expr
       else Error.CompileError.Raise(Error.missingNoConversion expr.Type t)
 
 type ClrArgs = obj array

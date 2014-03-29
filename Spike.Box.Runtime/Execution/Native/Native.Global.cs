@@ -24,11 +24,16 @@ namespace Spike.Box
         /// <returns>A unique interval ID you can pass to clearInterval()..</returns>
         internal static ScriptObject SetInterval(FunctionObject function, double timeout, BoxedValue param1, BoxedValue param2, BoxedValue param3)
         {
+            // Context for our lambda
             var channel = Channel.Current;
+            var context = ScriptContext.Current;
+            var globals = function.Env.Globals;
+
+            // Call the timer with the lambda context
             var timer = Timer.PeriodicCall(TimeSpan.FromMilliseconds(timeout), () =>
             {
                 // Dispatch to the channel we have in our lambda context. 'this' is global object in this case.
-                channel.Dispatch(() => function.Call(function.Env.Globals, param1, param2, param3));
+                context.Dispatch(() => function.Call(globals, param1, param2, param3), channel);
             });
 
             // Return the timer as a reference
@@ -43,11 +48,16 @@ namespace Spike.Box
         /// <returns>The timer identifier.</returns>
         internal static ScriptObject SetTimeout(FunctionObject function, double timeout, BoxedValue param1, BoxedValue param2, BoxedValue param3)
         {
+            // Context for our lambda
             var channel = Channel.Current;
+            var context = ScriptContext.Current;
+            var globals = function.Env.Globals;
+
+            // Call the timer with the lambda context
             var timer = Timer.DelayCall(TimeSpan.FromMilliseconds(timeout), () =>
             {
                 // Dispatch to the channel we have in our lambda context. 'this' is global object in this case.
-                channel.Dispatch(() => function.Call(function.Env.Globals, param1, param2, param3));
+                context.Dispatch(() => function.Call(globals, param1, param2, param3), channel);
             });
 
             // Return the timer as a reference

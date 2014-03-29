@@ -50,6 +50,10 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Spike.Box.MongoDb\Spike.Box.MongoDb.csproj">
+      <Project>{f17dc280-373e-4902-98b7-20942c78774c}</Project>
+      <Name>Spike.Box.MongoDb</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Spike.Box.Runtime\Spike.Box.Runtime.csproj">
       <Project>{5b4c8e87-e749-4bc0-8f02-f5beff1df107}</Project>
       <Name>Spike.Box.Runtime</Name>

@@ -160,6 +160,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Application\AppClient\spike-box-directives.js" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Require.js" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>for /R $(ProjectDir)Framework/Impl %25%25f in (*.js) do copy %25%25f $(ProjectDir)Resources</PreBuildEvent>
