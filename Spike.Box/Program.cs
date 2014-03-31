@@ -14,7 +14,7 @@ namespace Spike.Box
         {
             // Set some defaults...
             AppServer.Current.AppRoot = new DirectoryInfo("../../../Spike.Apps/").FullName;
-            AppServer.Current.Endpoint = "127.0.0.1:8080";
+            //AppServer.Current.Endpoint = "127.0.0.1:8080";
 
             // Run the server on the specified endpoints
             Service.Listen(
