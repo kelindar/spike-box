@@ -2,6 +2,7 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5B4C8E87-E749-4BC0-8F02-F5BEFF1DF107}</ProjectGuid>
@@ -40,7 +41,7 @@
   <ItemGroup>
     <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Spike.Runtime, Version=2.3.5154.36988, Culture=neutral, PublicKeyToken=bbbae3b375c299b6, processorArchitecture=MSIL">
+    <Reference Include="Spike.Runtime, Version=2.3.5156.16548, Culture=neutral, PublicKeyToken=bbbae3b375c299b6, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Spike.Externals\Spike.Runtime.dll</HintPath>
     </Reference>
@@ -138,7 +139,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Application\AppProtocol.spml">
       <Generator>SpikeProtocolProcessor</Generator>
       <SubType>Designer</SubType>
