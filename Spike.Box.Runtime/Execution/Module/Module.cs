@@ -43,7 +43,6 @@ namespace Spike.Box
 
         #endregion
 
-
         #region Resove() Method
         /// <summary>
         /// Resolve all the native modules.

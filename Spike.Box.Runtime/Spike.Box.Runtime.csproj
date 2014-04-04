@@ -42,7 +42,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Spike.Runtime, Version=2.3.5156.16548, Culture=neutral, PublicKeyToken=bbbae3b375c299b6, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Spike.Externals\Spike.Runtime.dll</HintPath>
+      <HintPath>..\..\Spike\Spike.Shared\Spike.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
