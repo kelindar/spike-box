@@ -50,6 +50,7 @@ namespace Spike.Box
                 if (app == null)
                     return;
 
+
                 // We need to create a view scope, with the provided class type and the
                 // view name is actually the prototype, as we only create one scope per
                 // session, sharing it accross pages. Subject to change.

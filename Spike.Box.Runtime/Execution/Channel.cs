@@ -536,6 +536,53 @@ namespace Spike.Box
             return this.Context.StartTask<T>(function, this);
         }
 
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="action">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <param name="callback">The callback to execute at the end.</param>
+        /// <param name="thisInstance">The 'this' instance to pass to the callback</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public Task Async(Action action, BoxedValue callback, ScriptObject thisInstance)
+        {
+            // Forward the dispatch
+            return this.Context.StartTask(() =>
+            {
+                // Execute the action
+                action();
+
+                // Dispatch the callback
+                this.DispatchCallback(callback, thisInstance);
+
+            }, this);
+        }
+
+        /// <summary>
+        /// Invokes a function within this context.
+        /// </summary>
+        /// <typeparam name="T">The expected result of the function.</typeparam>
+        /// <param name="function">The function to execute.</param>
+        /// <param name="channel">The channel to execute on.</param>
+        /// <param name="callback">The callback to execute at the end.</param>
+        /// <param name="thisInstance">The 'this' instance to pass to the callback</param>
+        /// <returns>The awaitable asynchrounous task.</returns>
+        public Task Async(Func<BoxedValue> function, BoxedValue callback, ScriptObject thisInstance)
+        {
+            // Forward the dispatch
+            return this.Context.StartTask(() =>
+            {
+                // Execute the action and get the result
+                var result = function();
+
+                // Dispatch the callback
+                this.DispatchCallback(callback, thisInstance, result);
+
+            }, this);
+        }
+
+
         #endregion
 
         #region Thread Static Members

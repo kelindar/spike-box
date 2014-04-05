@@ -30,6 +30,9 @@ namespace Spike.Box
         {
             // Create a new channel linked to the session
             this.SessionChannel = new Channel(context);
+
+            // When creating, set the current thread channel
+            Channel.Current = this.SessionChannel;
         }
 
         /// <summary>
