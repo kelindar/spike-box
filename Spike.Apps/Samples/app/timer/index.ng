@@ -3,7 +3,6 @@
 
 	<button ng-click="toggleInterval()" class="btn btn-primary" >Toggle Interval</button>
 	<span> Counter: {{counter.value}}</span>
-
 </div>
 
 <footer class="panel-footer">

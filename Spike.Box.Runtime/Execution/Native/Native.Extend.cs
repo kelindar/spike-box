@@ -45,7 +45,7 @@ namespace Spike.Box
                         var result = getter.Call(instance);
 
                         // Check if the result is an object and not a function
-                        if (result.IsObject && !result.IsFunction)
+                        if (result.IsStrictlyObject)
                         {
                             // Make sure the result is marked as observable
                             result.Object.Observe();

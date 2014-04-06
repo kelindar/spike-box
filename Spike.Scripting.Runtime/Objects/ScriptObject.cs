@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Dynamic;
+using System.Runtime.CompilerServices;
 
 namespace Spike.Scripting.Runtime
 {
@@ -160,18 +161,24 @@ namespace Spike.Scripting.Runtime
             }
         }
 
+        
         public bool HasPrototype
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return this.Prototype != null; }
         }
 
+        
         public int RequiredStorage
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return this.PropertySchema.IndexMap.Count; }
         }
 
-        // Default implementation of Length used for
-        // all objects except ArrayObject
+        /// <summary>
+        /// Gets the length of an object. Default implementation of Length used for
+        /// all objects except for an ArrayObject.
+        /// </summary>
         public virtual uint Length
         {
             get { return TypeConverter.ToUInt32(this.Get("length")); }
@@ -232,6 +239,7 @@ namespace Spike.Scripting.Runtime
         /// <summary>
         /// Expands object property storage
         /// </summary>
+
         public void ExpandStorage()
         {
             var newValues = new Descriptor[this.RequiredStorage * 2];
@@ -266,11 +274,13 @@ namespace Spike.Scripting.Runtime
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Descriptor Find(string name)
         {
             return Find(this, name);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static Descriptor Find(ScriptObject @this, string name)
         {
             while (@this != null)
@@ -293,6 +303,7 @@ namespace Spike.Scripting.Runtime
         /// <param name="name"></param>
         /// <param name="index"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool CanPut(string name, out int index)
         {
             if (this.PropertySchema.IndexMap.TryGetValue(name, out index))
@@ -326,6 +337,7 @@ namespace Spike.Scripting.Runtime
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void SetAttrs(string name, ushort attrs)
         {
             int index = 0;
@@ -335,6 +347,7 @@ namespace Spike.Scripting.Runtime
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public BoxedValue? TryCallMember(string name)
         {
             BoxedValue box = this.Get(name);
@@ -346,6 +359,7 @@ namespace Spike.Scripting.Runtime
             return null;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public BoxedValue CallMember(string name)
         {
             return this.Get(name).Func.Call(this);
@@ -461,6 +475,7 @@ namespace Spike.Scripting.Runtime
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void OnChange(string name, object value)
         {
             if (!this.IsObserved)
@@ -470,6 +485,7 @@ namespace Spike.Scripting.Runtime
             this.OnPropertyChange(PropertyChangeType.Set, name, value, this.Get(name));
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void OnChange(string name, BoxedValue value)
         {
             if (!this.IsObserved)
@@ -479,6 +495,7 @@ namespace Spike.Scripting.Runtime
             this.OnPropertyChange(PropertyChangeType.Set, name, value, this.Get(name));
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void OnChange(string name, double value)
         {
             if (!this.IsObserved)
@@ -488,6 +505,7 @@ namespace Spike.Scripting.Runtime
             this.OnPropertyChange(PropertyChangeType.Set, name, value, this.Get(name));
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void OnChange(string name, bool value)
         {
             if (!this.IsObserved)
@@ -497,6 +515,7 @@ namespace Spike.Scripting.Runtime
             this.OnPropertyChange(PropertyChangeType.Set, name, BoxedValue.Box(value), this.Get(name));
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void OnChange(PropertyChangeType type, string name, BoxedValue value)
         {
             if (!this.IsObserved)
@@ -624,108 +643,131 @@ namespace Spike.Scripting.Runtime
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(string name, bool value)
         {
             this.Put(name, value ? TaggedBools.True : TaggedBools.False);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(string name, object value)
         {
             this.Put(name, value, TypeTags.Clr);
         }
 
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(string name, string value)
         {
             this.Put(name, value, TypeTags.String);
         }
 
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(string name, Undefined value)
         {
             this.Put(name, value, TypeTags.Undefined);
         }
 
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(string name, ScriptObject value)
         {
             this.Put(name, value, TypeTags.Object);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(string name, FunctionObject value)
         {
             this.Put(name, value, TypeTags.Function);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(uint index, bool value)
         {
             this.Put(index, value ? TaggedBools.True : TaggedBools.False);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(uint index, object value)
         {
             this.Put(index, value, TypeTags.Clr);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(uint index, string value)
         {
             this.Put(index, value, TypeTags.String);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(uint index, Undefined value)
         {
             this.Put(index, value, TypeTags.Undefined);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(uint index, ScriptObject value)
         {
             this.Put(index, value, TypeTags.Object);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(uint index, FunctionObject value)
         {
             this.Put(index, value, TypeTags.Function);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(string name, BoxedValue value, ushort attrs)
         {
             this.Put(name, value);
             this.SetAttrs(name, attrs);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(string name, bool value, ushort attrs)
         {
             this.Put(name, value);
             this.SetAttrs(name, attrs);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(string name, double value, ushort attrs)
         {
             this.Put(name, value);
             this.SetAttrs(name, attrs);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(string name, object value, ushort attrs)
         {
             this.Put(name, value);
             this.SetAttrs(name, attrs);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(string name, string value, ushort attrs)
         {
             this.Put(name, value);
             this.SetAttrs(name, attrs);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(string name, Undefined value, ushort attrs)
         {
             this.Put(name, value);
             this.SetAttrs(name, attrs);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(string name, ScriptObject value, ushort attrs)
         {
             this.Put(name, value);
             this.SetAttrs(name, attrs);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(string name, FunctionObject value, ushort attrs)
         {
             this.Put(name, value);
@@ -736,6 +778,7 @@ namespace Spike.Scripting.Runtime
         // Put methods for setting indexes to BoxedValues
         //----------------------------------------------------------------------------
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(BoxedValue index, BoxedValue value)
         {
             uint i = 0;
@@ -749,11 +792,13 @@ namespace Spike.Scripting.Runtime
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(bool index, BoxedValue value)
         {
             this.Put(TypeConverter.ToString(index), value);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(double index, BoxedValue value)
         {
             uint parsed = 0;
@@ -767,6 +812,7 @@ namespace Spike.Scripting.Runtime
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(object index, BoxedValue value)
         {
             string s = TypeConverter.ToString(index);
@@ -781,11 +827,13 @@ namespace Spike.Scripting.Runtime
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(Undefined index, BoxedValue value)
         {
             this.Put("undefined", value);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(ScriptObject index, BoxedValue value)
         {
             string s = TypeConverter.ToString(index);
@@ -804,6 +852,7 @@ namespace Spike.Scripting.Runtime
         // Put methods for setting indexes to doubles
         //----------------------------------------------------------------------------
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(BoxedValue index, double value)
         {
             uint i = 0;
@@ -817,11 +866,13 @@ namespace Spike.Scripting.Runtime
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(bool index, double value)
         {
             this.Put(TypeConverter.ToString(index), value);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(double index, double value)
         {
             uint parsed = 0;
@@ -835,6 +886,7 @@ namespace Spike.Scripting.Runtime
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(object index0, double value)
         {
             string index = TypeConverter.ToString(index0);
@@ -849,11 +901,13 @@ namespace Spike.Scripting.Runtime
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(Undefined index, double value)
         {
             this.Put("undefined", value);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(ScriptObject index, double value)
         {
             string s = TypeConverter.ToString(index);
@@ -872,6 +926,7 @@ namespace Spike.Scripting.Runtime
         // Put methods for setting indexes to doubles
         //----------------------------------------------------------------------------
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(BoxedValue index, object value, uint tag)
         {
             uint i = 0;
@@ -885,11 +940,13 @@ namespace Spike.Scripting.Runtime
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(bool index, object value, uint tag)
         {
             this.Put(TypeConverter.ToString(index), value, tag);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(double index, object value, uint tag)
         {
             uint parsed = 0;
@@ -903,6 +960,7 @@ namespace Spike.Scripting.Runtime
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(object index, object value, uint tag)
         {
             var s = TypeConverter.ToString(index);
@@ -918,11 +976,13 @@ namespace Spike.Scripting.Runtime
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(Undefined index, object value, uint tag)
         {
             this.Put("undefined", value, tag);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Put(ScriptObject index, object value, uint tag)
         {
             string s = TypeConverter.ToString(index);
@@ -942,6 +1002,7 @@ namespace Spike.Scripting.Runtime
         // or uint32 and forwards the call to the correct .Get method
         //----------------------------------------------------------------------------
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public BoxedValue Get(BoxedValue index)
         {
             uint i = 0;
@@ -952,11 +1013,13 @@ namespace Spike.Scripting.Runtime
             return this.Get(TypeConverter.ToString(index));
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public BoxedValue Get(bool index)
         {
             return this.Get(TypeConverter.ToString(index));
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public BoxedValue Get(double index)
         {
             uint parsed = 0;
@@ -967,6 +1030,7 @@ namespace Spike.Scripting.Runtime
             return this.Get(TypeConverter.ToString(index));
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public BoxedValue Get(object index)
         {
             string s = TypeConverter.ToString(index);
@@ -978,11 +1042,13 @@ namespace Spike.Scripting.Runtime
             return this.Get(s);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public BoxedValue Get(Undefined index)
         {
             return this.Get("undefined");
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public BoxedValue Get(ScriptObject index)
         {
             string s = TypeConverter.ToString(index);
@@ -994,11 +1060,13 @@ namespace Spike.Scripting.Runtime
             return this.Get(s);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public T GetT<T>(string name)
         {
             return this.Get(name).Unbox<T>();
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public T GetT<T>(uint index)
         {
             return this.Get(index).Unbox<T>();
@@ -1009,6 +1077,7 @@ namespace Spike.Scripting.Runtime
         // (property) or uint32 (index) and fowards the call to the correct .Has
         //----------------------------------------------------------------------------
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Has(BoxedValue index)
         {
             uint i = 0;
@@ -1019,11 +1088,13 @@ namespace Spike.Scripting.Runtime
             return this.Has(TypeConverter.ToString(index));
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Has(bool index)
         {
             return this.Has(TypeConverter.ToString(index));
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Has(double index)
         {
             uint parsed = 0;
@@ -1034,6 +1105,7 @@ namespace Spike.Scripting.Runtime
             return this.Has(TypeConverter.ToString(index));
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Has(object index)
         {
             string s = TypeConverter.ToString(index);
@@ -1045,11 +1117,13 @@ namespace Spike.Scripting.Runtime
             return this.Has(s);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Has(Undefined index)
         {
             return this.Has("undefined");
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Has(ScriptObject index)
         {
             string s = TypeConverter.ToString(index);
@@ -1067,6 +1141,7 @@ namespace Spike.Scripting.Runtime
         // (property) or uint32 (index) and fowards the call to the correct .Has
         //----------------------------------------------------------------------------
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Delete(BoxedValue index)
         {
             uint i = 0;
@@ -1077,11 +1152,13 @@ namespace Spike.Scripting.Runtime
             return this.Delete(TypeConverter.ToString(index));
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Delete(bool index)
         {
             return this.Delete(TypeConverter.ToString(index));
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Delete(double index)
         {
             uint parsed = 0;
@@ -1092,6 +1169,7 @@ namespace Spike.Scripting.Runtime
             return this.Delete(TypeConverter.ToString(index));
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Delete(object index)
         {
             string name = TypeConverter.ToString(index);
@@ -1103,11 +1181,13 @@ namespace Spike.Scripting.Runtime
             return this.Delete(name);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Delete(Undefined index)
         {
             return this.Has("undefined");
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Delete(ScriptObject index)
         {
             string name = TypeConverter.ToString(index);
@@ -1124,6 +1204,7 @@ namespace Spike.Scripting.Runtime
             return collectProperties(0, new HashSet<string>(), this);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private Tuple<uint, HashSet<string>> collectProperties(uint length, HashSet<string> set, ScriptObject current)
         {
             if (current != null)
