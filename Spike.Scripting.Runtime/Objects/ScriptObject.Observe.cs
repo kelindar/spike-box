@@ -110,6 +110,7 @@ namespace Spike.Scripting.Runtime
         /// <param name="name">Name of the property.</param>
         /// <param name="newValue">Value of the property.</param>
         /// <param name="oldValue">The old value of the property.</param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void InvokePropertyChange(ScriptObject instance, PropertyChangeType type, string name, object newValue, BoxedValue oldValue)
         {
             // Invoke the changed event
@@ -124,6 +125,7 @@ namespace Spike.Scripting.Runtime
         /// <param name="name">Name of the property.</param>
         /// <param name="newValue">Value of the property.</param>
         /// <param name="oldValue">The old value of the property.</param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void InvokePropertyChange(ScriptObject instance, PropertyChangeType type, string name, BoxedValue newValue, BoxedValue oldValue)
         {
             // Invoke the changed event
@@ -138,6 +140,7 @@ namespace Spike.Scripting.Runtime
         /// <param name="name">Name of the property.</param>
         /// <param name="newValue">Value of the property.</param>
         /// <param name="oldValue">The old value of the property.</param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void InvokePropertyChange(ScriptObject instance, PropertyChangeType type, string name, double newValue, BoxedValue oldValue)
         {
             // Invoke the changed event

@@ -35,6 +35,33 @@ namespace Spike.Scripting.Runtime
             return result;
         }
 
+        /// <summary>
+        /// Clears the entire array and invokes the appropriate property change events.
+        /// </summary>
+        public void Clear()
+        {
+            lock (this)
+            {
+                // Delete and fill the descriptors
+                var length = this.Length;
+                for (uint i = 0; i < length; ++i)
+                {
+                    // Get the item and make sure it's ignored
+                    var item = this.Get(i);
+                    if (item.IsStrictlyObject)
+                        item.Object.Ignore();
+
+                    // Delete matched
+                    this.QuickDelete(i);
+                }
+
+                // Set the new length
+                this.Length = (uint)0;
+
+                // Invoke the changed event
+                ScriptObject.InvokePropertyChange(this, PropertyChangeType.Delete, "all", Undefined.Boxed, Undefined.Boxed);
+            }
+        }
     }
 
 }

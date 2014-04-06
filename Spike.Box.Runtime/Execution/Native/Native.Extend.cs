@@ -165,27 +165,7 @@ namespace Spike.Box
             if (array == null)
                 return;
 
-            lock (array)
-            {
-                // Delete and fill the descriptors
-                var length = array.Length;
-                for (uint i = 0; i < length; ++i)
-                {
-                    // Get the item and make sure it's ignored
-                    var item = array.Get(i);
-                    if (item.IsStrictlyObject)
-                        item.Object.Ignore();
-
-                    // Delete matched
-                    array.QuickDelete(i);
-                }
-
-                // Set the new length
-                array.Length = (uint)0;
-
-                // Invoke the changed event
-                ScriptObject.InvokePropertyChange(array, PropertyChangeType.Delete, "all", Undefined.Boxed, Undefined.Boxed);
-            }
+            array.Clear();
         }
 
         /// <summary>
