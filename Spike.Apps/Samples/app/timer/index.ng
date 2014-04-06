@@ -2,7 +2,7 @@
 <div ng-controller="Timer" class="panel-body">
 
 	<button ng-click="toggleInterval()" class="btn btn-primary" >Toggle Interval</button>
-	<span> {{counter.text}}</span>
+	<span> Counter: {{counter.value}}</span>
 
 </div>
 

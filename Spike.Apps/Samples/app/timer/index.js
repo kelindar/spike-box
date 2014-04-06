@@ -1,8 +1,7 @@
 var Timer = (function () {
     function Timer() {
         this._counter = {
-            count: 0,
-            text: ""
+            value: 0
         };
         this._timerId = null;
     }
@@ -15,15 +14,15 @@ var Timer = (function () {
     });
 
     Timer.prototype.toggleInterval = function () {
+        var _this = this;
         if (this._timerId == null) {
             // Start the timer
-            this._timerId = setInterval(function (obj) {
-                obj._counter.count++;
-                if (obj._counter.count > 1000)
-                    obj._counter.count = 0;
-                obj._counter.text = "Counter: " + obj._counter.count;
-                console.log("Tick #" + obj._counter.count);
-            }, 100, this);
+            this._timerId = setInterval(function () {
+                _this._counter.value++;
+                if (_this._counter.value > 1000)
+                    _this._counter.value = 0;
+                console.log(_this._counter.value);
+            }, 100);
         } else {
             // Stop the timer
             clearInterval(this._timerId);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Spike.Scripting.Runtime
@@ -37,6 +38,7 @@ namespace Spike.Scripting.Runtime
         /// </summary>
         public bool IsObserved
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get 
             {
                 return this.Flags.HasFlag(ScriptObjectFlag.Observe) 
@@ -48,6 +50,7 @@ namespace Spike.Scripting.Runtime
         /// </summary>
         public int Oid
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return this.Key; }
         }
         #endregion
@@ -60,6 +63,7 @@ namespace Spike.Scripting.Runtime
         /// <param name="name">Name of the property.</param>
         /// <param name="newValue">Value of the property.</param>
         /// <param name="oldValue">The old value of the property.</param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         protected void OnPropertyChange(PropertyChangeType type, string name, object newValue, BoxedValue oldValue)
         {
             // Invoke the changed event
@@ -74,6 +78,7 @@ namespace Spike.Scripting.Runtime
         /// <param name="name">Name of the property.</param>
         /// <param name="newValue">Value of the property.</param>
         /// <param name="oldValue">The old value of the property.</param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         protected void OnPropertyChange(PropertyChangeType type, string name, BoxedValue newValue, BoxedValue oldValue)
         {
             // Invoke the changed event
@@ -88,6 +93,7 @@ namespace Spike.Scripting.Runtime
         /// <param name="name">Name of the property.</param>
         /// <param name="newValue">Value of the property.</param>
         /// <param name="oldValue">The old value of the property.</param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         protected void OnPropertyChange(PropertyChangeType type, string name, double newValue, BoxedValue oldValue)
         {
             // Invoke the changed event
