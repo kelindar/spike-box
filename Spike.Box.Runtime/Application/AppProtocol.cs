@@ -33,7 +33,7 @@ namespace Spike.Network
       [InvokeAt(InvokeAtType.Configure)]
       public static void Configure()
       {
-
+		 
          // Signature: AppProtocol.Pull.Handshake.[Int32.Int32].[String.Int32]
          // Signature Digest: "645DFF24"
          PacketIndex.RegisterMetadata(new OperationInfo("645DFF24", true, null, CompressionTarget.Both, Direction.Pull, typeof(HandshakeRequest), HandshakeRequest.CreateInstance, typeof(HandshakeInform), HandshakeInform.CreateInstance));
