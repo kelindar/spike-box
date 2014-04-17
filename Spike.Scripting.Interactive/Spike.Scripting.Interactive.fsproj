@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0f78334f-ea74-4c5c-8232-b7d329be2226}</ProjectGuid>
+    <ProjectGuid>{0F78334F-EA74-4C5C-8232-B7D329BE2226}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>IronJS.REPL</RootNamespace>
     <AssemblyName>Spike.Scripting.Interactive</AssemblyName>
@@ -84,23 +84,21 @@
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="FSharp.Core">
+      <HintPath>..\Spike.Externals\FSharp.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Spike.Scripting.Runtime\Spike.Scripting.Runtime.csproj">
       <Name>Spike.Scripting.Runtime</Name>
-      <Project>{f2322575-40e5-4e98-be72-bf4af9c77e77}</Project>
-      <Private>True</Private>
+      <Project>{F2322575-40E5-4E98-BE72-BF4AF9C77E77}</Project>
     </ProjectReference>
     <ProjectReference Include="..\Spike.Scripting\Spike.Scripting.fsproj">
       <Name>Spike.Scripting</Name>
-      <Project>{9e257324-94e7-49af-ae83-718288e925d8}</Project>
-      <Private>True</Private>
+      <Project>{9E257324-94E7-49AF-AE83-718288E925D8}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

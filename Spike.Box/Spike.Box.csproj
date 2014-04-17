@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -11,6 +11,8 @@
     <AssemblyName>Spike.Box</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -39,28 +41,29 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Spike.Runtime, Version=2.3.5156.16548, Culture=neutral, PublicKeyToken=bbbae3b375c299b6, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Spike\Spike.Shared\Spike.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Numerics" />
-    <Reference Include="System.XML" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Spike.Runtime">
+      <HintPath>..\Spike.Externals\Spike.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Core">
+      <HintPath>..\Spike.Externals\FSharp.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Spike.Box.Runtime\Spike.Box.Runtime.csproj">
-      <Project>{5b4c8e87-e749-4bc0-8f02-f5beff1df107}</Project>
+      <Project>{5B4C8E87-E749-4BC0-8F02-F5BEFF1DF107}</Project>
       <Name>Spike.Box.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="..\Spike.Scripting.Runtime\Spike.Scripting.Runtime.csproj">
-      <Project>{f2322575-40e5-4e98-be72-bf4af9c77e77}</Project>
+      <Project>{F2322575-40E5-4E98-BE72-BF4AF9C77E77}</Project>
       <Name>Spike.Scripting.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="..\Spike.Scripting\Spike.Scripting.fsproj">
-      <Project>{9e257324-94e7-49af-ae83-718288e925d8}</Project>
+      <Project>{9E257324-94E7-49AF-AE83-718288E925D8}</Project>
       <Name>Spike.Scripting</Name>
     </ProjectReference>
   </ItemGroup>
