@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Collections.Concurrent;
 using System.Net;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace Spike.Box
 {
@@ -233,8 +234,10 @@ namespace Spike.Box
         /// <returns>The registration or null if no match was found.</returns>
         internal AppRegistration GetByHost(string host)
         {
-            // Normalize
-            host = host.ToLower();
+            // Normalize by putting the host into lowercase
+            // and stripping out the port number.
+            host = new Regex(@":\d+")
+                .Replace(host.ToLower(), "");
 
             // Result
             AppRegistration registration;
