@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Collections.Concurrent;
 using System.Net;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace Spike.Box
 {
@@ -233,8 +234,10 @@ namespace Spike.Box
         /// <returns>The registration or null if no match was found.</returns>
         internal AppRegistration GetByHost(string host)
         {
-            // Normalize
-            host = host.ToLower();
+            // Normalize by putting the host into lowercase
+            // and stripping out the port number.
+            host = new Regex(@":\d+")
+                .Replace(host.ToLower(), "");
 
             // Result
             AppRegistration registration;
@@ -271,17 +274,19 @@ namespace Spike.Box
         {
             // Prepare the result
             AppRegistration result = null;
+            bool isAddress = false;
 
             // Check if we have a bound host name
-            string host = context.Request.Host;
+            var host = context.Request.Host;
             if (host != null)
             {
+                // Parse the address
                 IPAddress address;
-                if (!IPAddress.TryParse(host, out address))
-                {
-                    // This is not an ip address, return the web by host
+                isAddress = IPAddress.TryParse(host, out address);
+
+                // This is not an ip address, return the web by host
+                if (!isAddress)
                     result = GetByHost(context.Request.Host);
-                }
             }
 
             // If we found by host, return it
@@ -294,7 +299,7 @@ namespace Spike.Box
                 return result;
 
             // Debug only, check by referrer
-            if (Debugger.IsAttached)
+            if (isAddress || Debugger.IsAttached)
             {
                 // Get by referrer
                 result = GetByReferrer(context.Request.Referer);
