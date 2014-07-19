@@ -3,6 +3,7 @@
   <Hosts>
     <Host Name="*misakai.com" />
     <Host Name="*.misakai.com" />
+    <Host Name="*dev-soc-mag.com" />
   </Hosts>
   <Rules>
     <Rule Source="/timer$" Destination="/app/timer/index" />
