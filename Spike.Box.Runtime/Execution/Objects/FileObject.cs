@@ -88,7 +88,7 @@ namespace Spike.Box
             
                 // Unbox the array of lines and execute the append
                 File.AppendAllLines(
-                    path.String,
+                    path.Unbox<string>(),
                     contents.Array.ToArray<string>(),
                     encoding
                     );
@@ -127,8 +127,8 @@ namespace Spike.Box
 
                 // Unbox the array of lines and execute the append
                 File.AppendAllText(
-                    path.String,
-                    contents.String,
+                    path.Unbox<string>(),
+                    contents.Unbox<string>(),
                     encoding
                     );
 
@@ -166,7 +166,7 @@ namespace Spike.Box
 
                 // Unbox the array of lines and execute the append
                 File.AppendAllText(
-                    path.String,
+                    path.Unbox<string>(),
                     Native.Serialize(instance.Env, contents).Unbox<string>(),
                     encoding
                     );
@@ -207,7 +207,7 @@ namespace Spike.Box
 
                 // Unbox the array of lines and execute the append
                 File.WriteAllLines(
-                    path.String,
+                    path.Unbox<string>(),
                     contents.Array.ToArray<string>(),
                     encoding
                     );
@@ -246,8 +246,8 @@ namespace Spike.Box
 
                 // Unbox the array of lines and execute the append
                 File.WriteAllText(
-                    path.String,
-                    contents.String,
+                    path.Unbox<string>(),
+                    contents.Unbox<string>(),
                     encoding
                     );
 
@@ -285,7 +285,7 @@ namespace Spike.Box
 
                 // Unbox the array of lines and execute the append
                 File.WriteAllText(
-                    path.String,
+                    path.Unbox<string>(),
                     Native.Serialize(instance.Env, contents).Unbox<string>(),
                     encoding
                     );
@@ -318,7 +318,7 @@ namespace Spike.Box
 
                 // Write the contents
                 File.WriteAllBytes(
-                    path.String,
+                    path.Unbox<string>(),
                     buffer.Array
                     );
 
@@ -357,7 +357,7 @@ namespace Spike.Box
 
                 // Unbox the array of lines and execute the append
                 var lines = File.ReadAllLines(
-                    path.String,
+                    path.Unbox<string>(),
                     encoding
                     );
 
@@ -403,7 +403,7 @@ namespace Spike.Box
 
                 // Read the text
                 var text = BoxedValue.Box(
-                        File.ReadAllText(path.String, encoding)
+                        File.ReadAllText(path.Unbox<string>(), encoding)
                     );
 
                 // Dispatch the on complete asynchronously
@@ -439,7 +439,7 @@ namespace Spike.Box
                 // Deserialize json
                 var json = Native.Deserialize(
                     instance.Env,
-                    File.ReadAllText(path.String, encoding)
+                    File.ReadAllText(path.Unbox<string>(), encoding)
                     );
 
                 // Dispatch the on complete asynchronously
@@ -466,7 +466,7 @@ namespace Spike.Box
             channel.Async(() =>
             {
                 // Read the file
-                var arr = File.ReadAllBytes(path.String);
+                var arr = File.ReadAllBytes(path.Unbox<string>());
                 var seg = new ArraySegment<byte>(arr);
 
                 // Unbox the array of lines and execute the append

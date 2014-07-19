@@ -56,6 +56,13 @@ namespace Spike.Box
                 context.CreateFunction<FunctionObject, ScriptObject>("groupEnd", ConsoleObject.GroupEnd)
                 );
 
+            context.CreateType<RemoteObject>("Remote", (prototype) => new RemoteObject(prototype),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue>("getHashCode", RemoteObject.GetHashCode),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue>("getAddress", RemoteObject.GetAddress),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue>("getConnectedOn", RemoteObject.GetConnectedOn),
+                context.CreateFunction<FunctionObject, ScriptObject, BoxedValue>("getConnectedFor", RemoteObject.GetConnectedFor)
+                );
+
             // File: Static API
             context.CreateType<FileObject>(FileObject.TypeName, (o) => new FileObject(o),
                 context.CreateFunction<FunctionObject, ScriptObject, BoxedValue, BoxedValue, BoxedValue, BoxedValue>("appendLines", FileObject.AppendLines),
@@ -150,6 +157,7 @@ namespace Spike.Box
             context.AttachFunction<FunctionObject, ScriptObject>(context.Environment.Prototypes.Array, "clear", Native.Array_Clear);
 
             // Create global instances
+            context.AttachGlobal("remote", new RemoteObject(context));
             context.AttachGlobal("console", new ConsoleObject(context));
             context.AttachGlobal("fs", new FileObject(context));
 

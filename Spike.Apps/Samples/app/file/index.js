@@ -47,19 +47,13 @@ var FileSample = (function () {
         });
     };
 
-
     /**
-    * This function appends a line to the text file.
+    * This function writes some text to the text file.
     */
-    FileSample.prototype.appendJson = function () {
+    FileSample.prototype.writeText = function () {
         var file = this._file;
-        var object = {
-            date: new Date().getDate(),
-            text: this._text
-        };
-
-        fs.appendJson(file.name, object, function () {
-            console.info('append completed');
+        fs.writeText(file.name, this._text, function () {
+            console.info('write completed');
 
             fs.readText(file.name, function (t) {
                 console.info('read completed');
@@ -71,9 +65,14 @@ var FileSample = (function () {
     /**
     * This function writes some text to the text file.
     */
-    FileSample.prototype.writeText = function () {
+    FileSample.prototype.appendJson = function () {
         var file = this._file;
-        fs.writeText(file.name, this._text, function () {
+        var object = {
+            date: new Date(),
+            text: this._text
+        };
+
+        fs.appendJson(file.name, object, function () {
             console.info('write completed');
 
             fs.readText(file.name, function (t) {

@@ -8,6 +8,7 @@ using Spike.Scripting.Runtime;
 using Spike.Box.Properties;
 using Spike.Network;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace Spike.Box
 {
@@ -168,6 +169,30 @@ namespace Spike.Box
             }
         }
 
+        #endregion
+
+        #region Public Properties
+        /// <summary>
+        /// Gets the first client in the channel.
+        /// </summary>
+        public IClient First
+        {
+            get
+            {
+                if (this.Clients.Values.Count == 0)
+                    return null;
+
+                var first = this.Clients.FirstOrDefault();
+                if (first.Value == null)
+                    return null;
+
+                var client = first.Value as ClientObject;
+                if (client == null)
+                    return null;
+
+                return client.Target;
+            }
+        }
         #endregion
 
         #region Private Members
