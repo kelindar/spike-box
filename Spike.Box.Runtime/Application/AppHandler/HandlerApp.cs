@@ -80,10 +80,13 @@ namespace Spike.Box
             var response = context.Response;
             var view = "/view/" + resource.Substring(4);
 
-            
+            var host = String.IsNullOrEmpty(AppServer.Current.Endpoint) 
+                ? context.Request.Host
+                : AppServer.Current.Endpoint;
+
             // Change content dynamically
             var content = this.GetHtml(app)
-                .Replace("{{host}}", AppServer.Current.Endpoint)
+                .Replace("{{host}}", host)
                 .Replace("{{app}}", app.Key.ToString())
                 .Replace("{{view}}",  view)
                 .Replace("{{title}}", "Spike.Box");
