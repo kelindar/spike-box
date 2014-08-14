@@ -80,13 +80,9 @@ namespace Spike.Box
             var response = context.Response;
             var view = "/view/" + resource.Substring(4);
 
-            var host = String.IsNullOrEmpty(AppServer.Current.Endpoint) 
-                ? context.Request.Host
-                : AppServer.Current.Endpoint;
-
             // Change content dynamically
             var content = this.GetHtml(app)
-                .Replace("{{host}}", host)
+                .Replace("{{host}}", GetEndpoint(context))
                 .Replace("{{app}}", app.Key.ToString())
                 .Replace("{{view}}",  view)
                 .Replace("{{title}}", "Spike.Box");
@@ -97,6 +93,29 @@ namespace Spike.Box
             response.ContentType = "text/html";
             response.Write(content);
         }
+
+        /// <summary>
+        /// Retrieves the host endpoint for the connection.
+        /// </summary>
+        /// <param name="context">The HTTP context of the request.</param>
+        /// <returns>The host/endpoint.</returns>
+        private string GetEndpoint(HttpContext context)
+        {
+            // Get the endpoint string
+            var endpoint = AppServer.Current.Endpoint;
+
+            // If it's empty, return the HOST header
+            if (String.IsNullOrEmpty(AppServer.Current.Endpoint))
+                return context.Request.Host;
+
+            // If we only have a port there, concatenate the host and the port
+            if (endpoint.StartsWith(":"))
+                return context.Request.Host + endpoint;
+            
+            // Return the full endpoint
+            return AppServer.Current.Endpoint;
+        }
+
 
         public void OnRegister(App site)
         {
