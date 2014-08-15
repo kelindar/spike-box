@@ -143,27 +143,36 @@ namespace Spike.Box
         public static string Call(Scope scope, string methodName, IList<string> args)
         {
             // Prepare the arguments
-            BoxedValue[] arguments = null;
-            if (args != null && args.Count > 0)
+            try
             {
-                arguments = new BoxedValue[args.Count];
-                for (int i = 0; i < args.Count; ++i)
-                    arguments[i] = Native.Deserialize(scope.Env, args[i]);
+                BoxedValue[] arguments = null;
+                if (args != null && args.Count > 0)
+                {
+                    arguments = new BoxedValue[args.Count];
+                    for (int i = 0; i < args.Count; ++i)
+                        arguments[i] = Native.Deserialize(scope.Env, args[i]);
+                }
+
+                // Get the method to
+                var method = scope.GetT<FunctionObject>(methodName);
+                if (method != null)
+                {
+                    // Call the method and get the result
+                    var result = arguments == null
+                        ? method.Call(scope)
+                        : method.Call(scope, arguments);
+
+                    // Serialize the result in JSON format and return
+                    return TypeConverter.ToNullableString(
+                        Native.Serialize(scope.Env, result)
+                        );
+                }
+
             }
-
-            // Get the method to
-            var method = scope.GetT<FunctionObject>(methodName);
-            if (method != null)
+            catch (Exception ex)
             {
-                // Call the method and get the result
-                var result = arguments == null 
-                    ? method.Call(scope)
-                    : method.Call(scope, arguments);
-
-                // Serialize the result in JSON format and return
-                return TypeConverter.ToNullableString(
-                    Native.Serialize(scope.Env, result)
-                    );
+                // Log the exception on call
+                Service.Logger.Log(ex);
             }
 
             // Not found
