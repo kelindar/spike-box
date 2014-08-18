@@ -185,7 +185,7 @@ namespace Spike.Box
         /// </summary>
         /// <param name="value">The value to serialize.</param>
         /// <returns>Serialized value.</returns>
-        public static BoxedValue Serialize(Env environment, BoxedValue value)
+        /*public static BoxedValue Serialize(Env environment, BoxedValue value)
         {
             // If undefined or null, return a boxed null value
             if (value.IsUndefined || value.IsNull)
@@ -198,6 +198,9 @@ namespace Spike.Box
                     .GetT<ScriptObject>("JSON")
                     .GetT<FunctionObject>("stringify");
 
+                Service.Logger.Log("Serialize: " + value.ToString());
+
+
                 // Call the serialize
                 return stringify.Call(null, value);
             }
@@ -206,7 +209,7 @@ namespace Spike.Box
                 // Return null
                 return Env.BoxedNull;
             }
-        }
+        }*/
 
         /// <summary>
         /// Deserializes value from JSON format.

@@ -1,0 +1,11 @@
+﻿<header class="panel-heading"><h2><strong>recurse</strong> demo</h2></header>
+<div ng-controller="Recurse" class="panel-body">
+
+	<p>
+		{{node}}
+	</p>
+</div>
+
+<footer class="panel-footer">
+This sample illustrates a recursive object.
+</footer>

@@ -71,6 +71,7 @@
     <Compile Include="Execution\Module\IModule.cs" />
     <Compile Include="Execution\Module\Modules.cs" />
     <Compile Include="Execution\Module\Module.cs" />
+    <Compile Include="Execution\Native\Native.Json.cs" />
     <Compile Include="Execution\Native\Native.Observe.cs" />
     <Compile Include="Execution\Native\Native.Extend.cs" />
     <Compile Include="Execution\Objects\BufferObject.cs" />

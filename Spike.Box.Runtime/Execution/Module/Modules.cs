@@ -58,7 +58,7 @@ namespace Spike.Box
     /// <summary>
     /// Module that implements requirejs.
     /// </summary>
-    public sealed class RequireModule : IModule
+    /*public sealed class RequireModule : IModule
     {
         /// <summary>
         /// Gets the name of the module.
@@ -76,5 +76,5 @@ namespace Spike.Box
         {
             context.Eval(Resources.Require);
         }
-    }
+    }*/
 }
