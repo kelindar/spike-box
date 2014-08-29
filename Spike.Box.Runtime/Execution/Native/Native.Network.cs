@@ -33,7 +33,7 @@ namespace Spike.Box
 
                 // Convert to a string
                 var stringValue = TypeConverter.ToNullableString(
-                    Native.Serialize(client.Env, eventValue)
+                    Native.Serialize(client.Env, eventValue, true)
                     );
 
                 // Dispatch the inform

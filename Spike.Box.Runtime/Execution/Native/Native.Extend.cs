@@ -65,7 +65,8 @@ namespace Spike.Box
 
                         // Dispatch the event, if we have a public getter
                         if (getter != null && shared)
-                            Channel.Current.DispatchProperty(BoxedValue.Box(instance), propertyName, getter.Call(instance));
+                            Channel.Current.DispatchProperty(BoxedValue.Box(instance), propertyName, getter.Call(instance), false);
+
                     }
 
                     // A setter does not return anything

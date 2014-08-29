@@ -164,7 +164,7 @@ namespace Spike.Box
 
                     // Serialize the result in JSON format and return
                     return TypeConverter.ToNullableString(
-                        Native.Serialize(scope.Env, result)
+                        Native.Serialize(scope.Env, result, true)
                         );
                 }
 

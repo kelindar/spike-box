@@ -9,6 +9,7 @@ using Spike.Box.Properties;
 using Spike.Network;
 using System.Threading.Tasks;
 using System.Net;
+using Spike.Collections;
 
 namespace Spike.Box
 {
@@ -23,6 +24,17 @@ namespace Spike.Box
         /// The scripting context for this channel.
         /// </summary>
         private readonly ScriptContext ScriptContext;
+
+        /// <summary>
+        /// The current requester
+        /// </summary>
+        private WeakReference<IClient> CallerRef;
+
+        /// <summary>
+        /// The list of properties to ignore for the caller.
+        /// </summary>
+        private readonly ConcurrentList<IgnoreEntry> CallerIgnoreList
+            = new ConcurrentList<IgnoreEntry>();
 
         /// <summary>
         /// The clients within this session.
@@ -58,6 +70,37 @@ namespace Spike.Box
         #endregion
 
         #region Public Members
+        /// <summary>
+        /// Adds a property name to the ignore list. This property won't
+        /// be send to the caller.
+        /// </summary>
+        /// <param name="target">The target to ignore at</param>
+        /// <param name="propertyName">The property name to ignore.</param>
+        public void IgnoreForCaller(int target, string propertyName)
+        {
+            this.CallerIgnoreList.Add(new IgnoreEntry(target, propertyName));
+        }
+
+        /// <summary>
+        /// Checks whether the property should be ignored or not.
+        /// </summary>
+        /// <param name="target">The target to ignore at</param>
+        /// <param name="propertyName">The property name to ignore.</param>
+        /// <returns></returns>
+        public bool CheckIgnore(int target, string propertyName)
+        {
+            if (this.CallerIgnoreList.Count == 0)
+                return false;
+            for(int i=0; i<this.CallerIgnoreList.Count; ++i)
+            {
+                var entry = this.CallerIgnoreList[i];
+                if (entry.Target == target && entry.PropertyName == propertyName)
+                    return true;
+            }
+
+            return false;
+        }
+
         /// <summary>
         /// Adds a client within this session.
         /// </summary>
@@ -140,7 +183,7 @@ namespace Spike.Box
             {
                 // Serialize the value to send first
                 var serializedValue = TypeConverter.ToNullableString(
-                    Native.Serialize(this.ScriptContext.Environment, propertyValue)
+                    Native.Serialize(this.ScriptContext.Environment, propertyValue, true)
                     );
 
                 // Broadcast to each client
@@ -152,6 +195,8 @@ namespace Spike.Box
 
                     // Get the underlying client
                     var client = clientRef.Target;
+                    if (client == this.Caller && CheckIgnore(propertyKey, propertyName))
+                        continue;
 
                     // Depending on the type of the change, send 
                     switch (type)
@@ -193,6 +238,25 @@ namespace Spike.Box
                 return client.Target;
             }
         }
+
+        /// <summary>
+        /// Gets the client that is currently requests the operation
+        /// </summary>
+        public IClient Caller
+        {
+            get 
+            {
+                if (this.CallerRef == default(WeakReference<IClient>))
+                    return null;
+                if (!this.CallerRef.IsAlive)
+                    return null;
+                return this.CallerRef.Target; 
+            }
+            set
+            {
+                this.CallerRef = new WeakReference<IClient>(value);
+            }
+        }
         #endregion
 
         #region Private Members
@@ -223,13 +287,16 @@ namespace Spike.Box
         /// <param name="eventType">The type of the event.</param>
         /// <param name="eventName">The name of the event.</param>
         /// <param name="eventValue">The value of the event.</param>
-        private void SendEvent(AppEventType eventType, BoxedValue target, string eventName, BoxedValue eventValue)
+        private void SendEvent(AppEventType eventType, BoxedValue target, string eventName, BoxedValue eventValue, bool withCaller = true)
         {
             try
             {
                 // Broadcast to each client
                 foreach (var client in this.Clients.Values)
-                    Native.SendEvent(client, eventType, target, eventName, eventValue);
+                {
+                    if(withCaller || client.Target != this.Caller)
+                        Native.SendEvent(client, eventType, target, eventName, eventValue);
+                }
             }
             catch (Exception ex)
             {
@@ -237,6 +304,7 @@ namespace Spike.Box
                 Service.Logger.Log(ex);
             }
         }
+
         /// <summary>
         /// Represents low-level networking call that can be used to transmit an event to the browser.
         /// </summary>
@@ -244,9 +312,9 @@ namespace Spike.Box
         /// <param name="propertyName">The name of the event to transmit.</param>
         /// <param name="type">The type of the event to transmit.</param>
         /// <param name="value">The value of the event to transmit.</param>
-        internal void DispatchEvent(double type, BoxedValue target, string eventName, BoxedValue value)
+        internal void DispatchEvent(double type, BoxedValue target, string eventName, BoxedValue value, bool withCaller)
         {
-            this.SendEvent((AppEventType)type, target, eventName, value);
+            this.SendEvent((AppEventType)type, target, eventName, value, withCaller);
         }
 
         /// <summary>
@@ -255,9 +323,9 @@ namespace Spike.Box
         /// <param name="client">The client to transmit the event to.</param>
         /// <param name="eventName">The name of the event to transmit.</param>
         /// <param name="value">The value of the event to transmit.</param>
-        internal void DispatchProperty(BoxedValue target, string propertyName, BoxedValue value)
+        internal void DispatchProperty(BoxedValue target, string propertyName, BoxedValue value, bool withCaller)
         {
-            this.SendEvent(AppEventType.PropertyChange, target, propertyName, value);
+            this.SendEvent(AppEventType.PropertyChange, target, propertyName, value, withCaller);
         }
 
         /// <summary>
@@ -623,6 +691,22 @@ namespace Spike.Box
             internal set { ThreadChannel = value; }
         }
 
+        /// <summary>
+        /// Resets the current channel.
+        /// </summary>
+        public static void Reset()
+        {
+            // Reset the caller
+            if (Channel.Current != null)
+            {
+                // Clean up
+                Channel.Current.Caller = null;
+                Channel.Current.CallerIgnoreList.Clear();
+            }
+
+            Channel.Current = null;
+        }
+
         #endregion
 
         #region IDisposable Members
@@ -643,5 +727,29 @@ namespace Spike.Box
         }
         #endregion
 
+    }
+
+    internal struct IgnoreEntry
+    {
+        /// <summary>
+        /// Constructs a new ignore entry.
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="propertyName"></param>
+        public IgnoreEntry(int target, string propertyName)
+        {
+            this.Target = target;
+            this.PropertyName = propertyName;
+        }
+
+        /// <summary>
+        /// The target to ignore at.
+        /// </summary>
+        public int Target;
+
+        /// <summary>
+        /// The property name.
+        /// </summary>
+        public string PropertyName;
     }
 }

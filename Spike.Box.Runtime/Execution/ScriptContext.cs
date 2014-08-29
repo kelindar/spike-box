@@ -117,7 +117,7 @@ namespace Spike.Box
                 finally
                 {
                     // Reset the scope back to null
-                    Channel.Current = null;
+                    Channel.Reset();
                 }
             });
 
@@ -167,7 +167,7 @@ namespace Spike.Box
                 finally
                 {
                     // Reset the scope back to null
-                    Channel.Current = null;
+                    Channel.Reset();
                 }
             });
 
@@ -220,7 +220,7 @@ namespace Spike.Box
                 finally
                 {
                     // Reset the scope back to null
-                    Channel.Current = null;
+                    Channel.Reset();
                 }
 
                 // On error, always return empty

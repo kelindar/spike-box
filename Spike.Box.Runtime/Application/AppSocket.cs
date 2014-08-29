@@ -108,6 +108,7 @@ namespace Spike.Box
                 {
                     // Make sure we have a thread static session set
                     Channel.Current = scope.Channel;
+                    Channel.Current.Caller = client;
 
                     // Get the session and add a client to it, this 
                     // doesn't do anything if the client already exists
@@ -128,7 +129,7 @@ namespace Spike.Box
                 finally
                 {
                     // Reset the scope back to null
-                    Channel.Current = null;
+                    Channel.Reset();
                 }
 
             }
@@ -177,6 +178,10 @@ namespace Spike.Box
                     if (Channel.Current != null)
                         Channel.Current.AddClient(client);
 
+                    // Set the current caller
+                    Channel.Current.Caller = client;
+                    Channel.Current.IgnoreForCaller(target, name);
+
                     // In the case the instance is a scope and we have a setter 
                     // defined, we need to invoke the setter too.
                     if (instance is Scope)
@@ -206,7 +211,7 @@ namespace Spike.Box
                 finally
                 {
                     // Reset the scope back to null
-                    Channel.Current = null;
+                    Channel.Reset();
                 }
             }
             catch (Exception ex)

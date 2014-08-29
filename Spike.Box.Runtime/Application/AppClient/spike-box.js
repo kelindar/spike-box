@@ -275,6 +275,8 @@ app.factory('$server', ['$q', '$rootScope', function ($q, $rootScope) {
     * Occurs when an angularjs watch fires and a property needs to be updated
     */
     service.onPropertySet = function (newValue, oldValue) {
+
+
         // Right now, we only support 'set' type
         service.onPropertyChange(4, newValue.name, newValue.target);
     }
@@ -466,7 +468,6 @@ angular.watchObject = function ($server, $parse, obj, listener) {
 
             // Since there was a change, set the clone
             oldSimple = newValue;
-
 
             return true;
         }

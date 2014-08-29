@@ -1,0 +1,19 @@
+﻿<header class="panel-heading"><h2><strong>form</strong> demo</h2></header>
+<div ng-controller="TypeDemo" class="panel-body">
+
+
+	<form role="form">
+		<div class="form-group">
+			<label for="i1">Text</label>
+			<input class="form-control" id="i1" type="text" ng-model="info.text" placeholder="type some text">
+		</div>
+
+
+	</form><br />
+	
+	
+</div>
+
+<footer class="panel-footer">
+This sample demonstrates a textbox, persisted on the server on every keystroke.
+</footer>

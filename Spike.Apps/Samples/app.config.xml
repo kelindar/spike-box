@@ -15,18 +15,19 @@
     <Rule Source="/setter$" Destination="/app/setter/index" />
     <Rule Source="/nested$" Destination="/app/nested/index" />
     <Rule Source="/compose$" Destination="/app/compose/index" />
-	<Rule Source="/controls$" Destination="/app/controls/index" />
+    <Rule Source="/controls$" Destination="/app/controls/index" />
     <Rule Source="/buffer$" Destination="/app/buffer/index" />
-	<Rule Source="/login$" Destination="/app/login/index" />
-	<Rule Source="/file$" Destination="/app/file/index" />
-	<Rule Source="/recurse$" Destination="/app/recurse/index" />
-	<Rule Source="/survey$" Destination="/app/survey/index" />
+    <Rule Source="/login$" Destination="/app/login/index" />
+    <Rule Source="/file$" Destination="/app/file/index" />
+    <Rule Source="/recurse$" Destination="/app/recurse/index" />
+    <Rule Source="/survey$" Destination="/app/survey/index" />
+    <Rule Source="/type$" Destination="/app/type/index" />
   </Rules>
   <Elements>
-	<Element Name="notify" Template="controls/notify" Transclude="true" />
-	<Element Name="icon" Template="controls/icon" Transclude="false" />
-	<Element Name="well" Template="controls/well" Transclude="true" />
-	<Element Name="well-lg" Template="controls/well-lg" Transclude="true" />
-	<Element Name="well-sm" Template="controls/well-sm" Transclude="true" />
+    <Element Name="notify" Template="controls/notify" Transclude="true" />
+    <Element Name="icon" Template="controls/icon" Transclude="false" />
+    <Element Name="well" Template="controls/well" Transclude="true" />
+    <Element Name="well-lg" Template="controls/well-lg" Transclude="true" />
+    <Element Name="well-sm" Template="controls/well-sm" Transclude="true" />
   </Elements>
 </Configuration>

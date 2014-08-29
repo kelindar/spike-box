@@ -167,7 +167,7 @@ namespace Spike.Box
                 // Unbox the array of lines and execute the append
                 File.AppendAllText(
                     path.Unbox<string>(),
-                    Native.Serialize(instance.Env, contents).Unbox<string>(),
+                    Native.Serialize(instance.Env, contents, false).Unbox<string>(),
                     encoding
                     );
 
@@ -286,7 +286,7 @@ namespace Spike.Box
                 // Unbox the array of lines and execute the append
                 File.WriteAllText(
                     path.Unbox<string>(),
-                    Native.Serialize(instance.Env, contents).Unbox<string>(),
+                    Native.Serialize(instance.Env, contents, false).Unbox<string>(),
                     encoding
                     );
 
