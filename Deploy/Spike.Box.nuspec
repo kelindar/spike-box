@@ -4,8 +4,9 @@
     <id>Spike.Box</id>
     <version>$version$</version>
     <authors>Roman Atachiants</authors>
-    <licenseUrl>https://github.com/Kelindar/spike-box/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/Kelindar/spike-box</projectUrl>
+    <iconUrl>http://s3.amazonaws.com/cdn.misakai.com/www-nuget/misakai.png</iconUrl>
+    <licenseUrl>https://github.com/Kelindar/spike-box/blob/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Spike.Box is a modern experimental web server with browser DOM to server-side javascript data binding.</description>
     <copyright>Copyright 2014 Misakai Ltd</copyright>
@@ -20,5 +21,4 @@
     <file src="..\Spike.Box.Runtime\bin\Release\Spike.Scripting.dll" target="lib" />
     <file src="..\Spike.Box.Runtime\bin\Release\Spike.Scripting.Runtime.dll" target="lib" />
   </files>
- 
 </package>
