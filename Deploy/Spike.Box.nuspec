@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Spike.Box</id>
+    <version>$version$</version>
+    <authors>Roman Atachiants</authors>
+    <licenseUrl>https://github.com/Kelindar/spike-box/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/Kelindar/spike-box</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Spike.Box is a modern experimental web server with browser DOM to server-side javascript data binding.</description>
+    <copyright>Copyright 2014 Misakai Ltd</copyright>
+    <tags>javascript .net databinding angularjs ironjs</tags>
+  </metadata>
+  <files>
+    <file src="..\Spike.Box.Runtime\bin\Release\FSharp.Core.dll" target="lib" />
+    <file src="..\Spike.Box.Runtime\bin\Release\Spike.Box.Runtime.dll" target="lib" />
+    <file src="..\Spike.Box.Runtime\bin\Release\Spike.Scripting.dll" target="lib" />
+    <file src="..\Spike.Box.Runtime\bin\Release\Spike.Scripting.Runtime.dll" target="lib" />
+  </files>
+  <dependencies> 
+   <dependency id="SpikeEngine" />
+  </dependencies> 
+</package>
