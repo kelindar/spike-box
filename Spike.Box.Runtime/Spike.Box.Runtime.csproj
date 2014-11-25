@@ -172,11 +172,8 @@
     <PreBuildEvent>for /R $(ProjectDir)Framework/Impl %25%25f in (*.js) do copy %25%25f $(ProjectDir)Resources</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release (
-copy /Y "$(TargetDir)$(ProjectName).dll" "$(SolutionDir)..\Spike\Spike.Shared\$(ProjectName).dll"
-copy /Y "$(TargetDir)Spike.Scripting.dll" "$(SolutionDir)..\Spike\Spike.Shared\Spike.Scripting.dll"
-copy /Y "$(TargetDir)Spike.Scripting.Runtime.dll" "$(SolutionDir)..\Spike\Spike.Shared\Spike.Scripting.Runtime.dll"
-)</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
