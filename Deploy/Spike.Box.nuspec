@@ -10,6 +10,9 @@
     <description>Spike.Box is a modern experimental web server with browser DOM to server-side javascript data binding.</description>
     <copyright>Copyright 2014 Misakai Ltd</copyright>
     <tags>javascript .net databinding angularjs ironjs</tags>
+    <dependencies> 
+      <dependency id="SpikeEngine" />
+    </dependencies> 
   </metadata>
   <files>
     <file src="..\Spike.Box.Runtime\bin\Release\FSharp.Core.dll" target="lib" />
@@ -17,7 +20,5 @@
     <file src="..\Spike.Box.Runtime\bin\Release\Spike.Scripting.dll" target="lib" />
     <file src="..\Spike.Box.Runtime\bin\Release\Spike.Scripting.Runtime.dll" target="lib" />
   </files>
-  <dependencies> 
-   <dependency id="SpikeEngine" />
-  </dependencies> 
+ 
 </package>
