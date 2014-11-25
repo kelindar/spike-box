@@ -10,7 +10,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Spike.Box is a modern experimental web server with browser DOM to server-side javascript data binding.</description>
     <copyright>Copyright 2014 Misakai Ltd</copyright>
-    <tags>javascript .net databinding angularjs ironjs</tags>
+    <tags>javascript .net databinding angularjs ironjs spike-engine</tags>
     <dependencies> 
       <dependency id="SpikeEngine" />
     </dependencies> 
