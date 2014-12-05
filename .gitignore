@@ -32,7 +32,6 @@ html-template/
 obj/
 [Rr]elease*/
 _ReSharper*/
-packages/*
 [Tt]est[Rr]esult*
 *.vs10x
 *.vs11x
