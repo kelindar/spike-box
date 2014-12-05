@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spike.Box.Runtime", "Spike.Box.Runtime\Spike.Box.Runtime.csproj", "{5B4C8E87-E749-4BC0-8F02-F5BEFF1DF107}"
 EndProject
@@ -16,8 +16,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripting", "Scripting", "{D749A3DB-E61F-4116-A011-F146EB57135D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spike.Box", "Spike.Box\Spike.Box.csproj", "{6ACA4F6E-4DCF-4BA8-B733-59242D3DC5EE}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Runtime", "Runtime", "{54B4143C-20B0-4252-86B3-B3B9E168C69D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -76,11 +74,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{5B4C8E87-E749-4BC0-8F02-F5BEFF1DF107} = {54B4143C-20B0-4252-86B3-B3B9E168C69D}
+		{9E257324-94E7-49AF-AE83-718288E925D8} = {D749A3DB-E61F-4116-A011-F146EB57135D}
 		{F2322575-40E5-4E98-BE72-BF4AF9C77E77} = {D749A3DB-E61F-4116-A011-F146EB57135D}
 		{72BF8228-78A6-498A-A028-64745AA4168B} = {D749A3DB-E61F-4116-A011-F146EB57135D}
 		{0F78334F-EA74-4C5C-8232-B7D329BE2226} = {D749A3DB-E61F-4116-A011-F146EB57135D}
-		{9E257324-94E7-49AF-AE83-718288E925D8} = {D749A3DB-E61F-4116-A011-F146EB57135D}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Spike.Projects\Spike.Web\Spike.Web.csproj
