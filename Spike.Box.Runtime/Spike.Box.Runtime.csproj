@@ -148,7 +148,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>AppProtocol.cs</LastGenOutput>
     </None>
-    <None Include="packages.config" />
     <None Include="Resources\app.ng" />
   </ItemGroup>
   <ItemGroup>
