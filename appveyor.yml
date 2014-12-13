@@ -40,5 +40,5 @@ deploy:
   artifact: /Spike\.Box.*\.nupkg/
 
 nuget:
-  account_feed: false
-  project_feed: false
+  account_feed: true
+  project_feed: true
